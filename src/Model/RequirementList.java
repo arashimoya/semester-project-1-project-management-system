@@ -24,14 +24,14 @@ public class RequirementList {
      * @param ID id of a requirement
      * @return requirement object if exist else null
      */
-    public Requirement getRequirement(int ID) {
+    public Requirement getRequirement(int ID) throws RequirementNotFoundException {
         for (Requirement requirement :
                 requirements) {
             if (requirement.getID() == ID)
                 return requirement;
 
         }
-        return null;
+        throw new RequirementNotFoundException();
     }
 
     /**
@@ -54,7 +54,7 @@ public class RequirementList {
                 requirements) {
             if (req.equals(requirement))
                 check = 1;
-
+                //some error
         }
         if (check != 0)
             requirements.add(requirement);
@@ -66,12 +66,16 @@ public class RequirementList {
      *
      * @param ID id of a requirement that is going to be deleted
      */
-    public void deleteRequirement(int ID) {
+    public void deleteRequirement(int ID) throws RequirementNotFoundException{
+        boolean isThere = false;
         for (Requirement requirement :
                 requirements) {
             if (requirement.getID() == ID)
                 requirements.remove(requirement);
-
+                isThere = true;
+        }
+        if (isThere=false){
+            throw new RequirementNotFoundException();
         }
     }
 
@@ -110,8 +114,8 @@ public class RequirementList {
      * @param priority      priority of the requirement
      */
     public void editRequirement(int ID, String userStoryText, String name,
-                                boolean functional, MyDate deadline, int estimatedTime, int priority) {
-
+                                boolean functional, MyDate deadline, int estimatedTime, int priority) throws RequirementNotFoundException {
+    boolean isThere = false;
         for (Requirement requirement : requirements) {
             if (requirement.getID() == ID) {
                 requirement.setDeadline(deadline);
@@ -120,7 +124,11 @@ public class RequirementList {
                 requirement.setPriority(priority);
                 requirement.setUserStoryText(userStoryText);
                 requirement.setEstimatedTime(estimatedTime);
+                isThere = true;
             }
+        }
+        if (isThere = false){
+            throw new RequirementNotFoundException();
         }
     }
 
