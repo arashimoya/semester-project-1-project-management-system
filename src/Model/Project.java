@@ -14,15 +14,15 @@ private MyDate deadline;
 private Customer customer;
 private TeamMemberList teamMembers;
 
-public Project(int id, String name, RequirementList requirementList, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer){
+public Project(int id, String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer){
     this.id = id;
     this.name = name;
-    this.requirementList = requirementList;
     this.scrumMaster = scrumMaster;
     this.productOwner = productOwner;
     this.projectCreator = projectCreator;
     this.deadline = deadline;
     this.customer = customer;
+    this.requirementList = new RequirementList();
 }
 
     public int getId() {
@@ -77,8 +77,28 @@ public Project(int id, String name, RequirementList requirementList, ScrumMaster
         this.productOwner = productOwner;
     }
 
-    public void setProjectCreator(ProjectCreator projectCreator) {
-        this.projectCreator = projectCreator;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Project project = (Project) o;
+
+        if (getId() != project.getId()) return false;
+        if (getName() != null ? !getName().equals(project.getName()) : project.getName() != null) return false;
+        if (requirementList != null ? !requirementList.equals(project.requirementList) : project.requirementList != null)
+            return false;
+        if (getScrumMaster() != null ? !getScrumMaster().equals(project.getScrumMaster()) : project.getScrumMaster() != null)
+            return false;
+        if (getProductOwner() != null ? !getProductOwner().equals(project.getProductOwner()) : project.getProductOwner() != null)
+            return false;
+        if (getProjectCreator() != null ? !getProjectCreator().equals(project.getProjectCreator()) : project.getProjectCreator() != null)
+            return false;
+        if (getDeadline() != null ? !getDeadline().equals(project.getDeadline()) : project.getDeadline() != null)
+            return false;
+        if (getCustomer() != null ? !getCustomer().equals(project.getCustomer()) : project.getCustomer() != null)
+            return false;
+        return getTeamMembers() != null ? getTeamMembers().equals(project.getTeamMembers()) : project.getTeamMembers() == null;
     }
 
 }
