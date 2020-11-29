@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Objects;
+
 /**
  * A class representing a requirement
  *
@@ -229,6 +231,39 @@ public class Requirement {
      */
     public void setDeadline(MyDate deadline) {
         this.deadline = deadline;
+    }
+
+    /**
+     * sets an estimated time
+     *
+     * @param estimatedTime estimated time
+     */
+    public void setEstimatedTime(int estimatedTime) {
+        this.estimatedTime = estimatedTime;
+    }
+
+    /**
+     * checks if two objects are the same
+     *
+     * @param o object that is going to be compared
+     * @return true if objects are equal, otherwise returns false
+     */
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Requirement that = (Requirement) o;
+        return ID == that.ID &&
+                projectID == that.projectID &&
+                timeSpent == that.timeSpent &&
+                estimatedTime == that.estimatedTime &&
+                priority == that.priority &&
+                functional == that.functional &&
+                Objects.equals(userStoryText, that.userStoryText) &&
+                Objects.equals(status, that.status) &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(taskList, that.taskList) &&
+                Objects.equals(deadline, that.deadline) &&
+                Objects.equals(teamMembers, that.teamMembers);
     }
 
 }
