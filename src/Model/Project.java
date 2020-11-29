@@ -84,4 +84,8 @@ public Project(int id, String name, RequirementList requirementList, ScrumMaster
     public void test () {
 
     }
+
+    public void test2 (){
+
+    }
 }
