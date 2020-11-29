@@ -5,20 +5,31 @@ public class Customer {
   private String name;
 
   public Customer(int id, String name) {
-    this.id = id.copy();
-    this.name = name.copy();
+    this.id = id;
+    this.name = name;
   }
 
-  public getId() {
-    return id.copy();
+  public int getId() {
+    return id;
   }
 
   public String getName()
   {
-    return name.copy();
+    return name;
   }
 
   public void setName(String name) {
-    this.name = name.copy();
+    this.name = name;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    Customer customer = (Customer) o;
+
+    if (getId() != customer.getId()) return false;
+    return getName() != null ? getName().equals(customer.getName()) : customer.getName() == null;
   }
 }

@@ -1,198 +1,199 @@
 package Model;
+import java.util.GregorianCalendar;
 
-public class MyDate {
-
+public class MyDate{
   private int day;
   private int month;
   private int year;
 
-  public MyDate()
-  {
-    this.day = 0;
-    this.month = 0;
-    this.year = 0;
+  public void setDay(int day)  throws IllegalDateException {
+    if (day >= 1 && day <= 31)
+      this.day = day;
+    else throw new IllegalDateException();
   }
 
-  public MyDate(int day, int month, int year)
-  {
-    this.day = day;
-    this.month = month;
-    this.year = year;
+  public void setMonth(int month)  throws IllegalDateException {
+    if (month >= 1 && month <= 12)
+      this.month = month;
+    else throw new IllegalDateException();
   }
 
-  public MyDate(MyDate obj) {
-    this.day = obj.day;
-    this.month = obj.month;
-    this.year = obj.year;
+  public void setYear(int year)  throws IllegalDateException {
+    if (year >= 1 && year <= 9999)
+      this.year = year;
+    else throw new IllegalDateException();
   }
 
-  public int getDay()
-  {
+  public int getDay(){
     return day;
   }
 
-  public int getMonth()
-  {
+  public int getMonth(){
     return month;
   }
 
-  public int getYear()
-  {
+  public int getYear(){
     return year;
   }
 
-  public void setDay(int day)
-  {
-    this.day = day;
+  public MyDate(){
+    GregorianCalendar currentDateConstructor = new GregorianCalendar();
+    this.day = currentDateConstructor.get(GregorianCalendar.DATE);
+    this.month = currentDateConstructor.get(GregorianCalendar.MONTH) + 1;
+    this.year = currentDateConstructor.get(GregorianCalendar.YEAR);
   }
 
-  public void setMonth(int month)
-  {
-    this.month = month;
+  public MyDate(int day, int month, int year) throws IllegalDateException {
+    if (day >= 1 && day <= 31)
+      this.day = day;
+    else
+      throw new IllegalDateException();
+    if (month >= 1 && month <= 12)
+      this.month = month;
+    else
+      throw new IllegalDateException();
+    if (year >= 1 && year <= 9999)
+      this.year = year;
+    else
+      throw new IllegalDateException();
   }
 
-  public void setYear(int year)
-  {
-    this.year = year;
+  public MyDate(MyDate obj){
+    this.day = obj.getDay();
+    this.month = obj.getMonth();
+    this.year = obj.getYear();
   }
 
-  public MyDate copy() {
-    return new MyDate(day, month, year);
+  public String toString(){
+    return day + "/" + month + "/" + year;
   }
 
-  public String toString()
-  {
-    return "Day: " + day + ", Month: " + month
-        + ", Year: " + year;
-  }
-
-  public boolean equals(Object o) {
-    if(!(o instanceof MyDate)) {
-      return false;
-    }
-
-    MyDate other = (MyDate) o;
-
-    return day == other.day
-        && month == other.month
-        && year == other.year;
-  }
-
-  /* To be edited
-  public int timeToDeadline()
-  {
-    if ();
-
-    return ;
-  }
-*/
-
-    public boolean isLeapYear(int year)
-    {
-      if (year % 400 == 0 || year % 4 == 0 && year % 100 != 0)
-      {
+  public boolean isLeapYear(){
+    if (this.year > 0 & this.year < 10000) {
+      if ((this.year % 4 == 0 && this.year % 100 != 0) || (this.year % 400 == 0))
         return true;
-      }
       else
-      {
         return false;
-      }
+    }else
+      return false;
+  }
+
+  public int daysInMonth(int month){
+
+    switch (month) {
+      case 1 :
+        return 31;
+      case 2 :
+        return 28;
+      case 3 :
+        return 31;
+      case 4 :
+        return 30;
+      case 5 :
+        return 31;
+      case 6 :
+        return 30;
+      case 7 :
+        return 31;
+      case 8 :
+        return 31;
+      case 9 :
+        return 30;
+      case 10 :
+        return 31;
+      case 11 :
+        return 30;
+      case 12 :
+        return 31;
+      default:
+        return 0;
     }
+  }
 
-  public int getDaysInMonth(int month)
-    {
-      switch (month)
-      {
-        case 1:
-        case 3:
-        case 5:
-        case 7:
-        case 8:
-        case 10:
-        case 12:
-          return 31;
-
-        case 4:
-        case 6:
-        case 9:
-        case 11:
-          return 30;
-        case 2:
-          if (!isLeapYear(year))
-          {
-            return 28;
-          }
-          else
-          {
-            return 29;
-          }
-        default:
-          return 0;
-      }
-    }
-
-  public String getMonthName(int month)
-  {
-    switch (month)
-    {
+  public String getMonthName(int monthNum){
+    switch(monthNum) {
       case 1:
-      case 12:
         return "January";
-
       case 2:
         return "February";
-
       case 3:
         return "March";
-
       case 4:
         return "April";
-
       case 5:
         return "May";
-
       case 6:
         return "June";
-
       case 7:
         return "July";
-
       case 8:
         return "August";
-
       case 9:
         return "September";
-
       case 10:
-        return "November";
-
+        return "October";
       case 11:
+        return "November";
+      case 12:
         return "December";
-
       default:
-        return "Error in converting the month number to string";
-
+        //probably change later
+        return "Invalid month";
     }
   }
 
-  public boolean isBefore(MyDate obj)
-    {
-      if (obj.getYear() < year)
-      {
-        return false;
-      }
-      else if (obj.getYear() == year && obj.getMonth() < month)
-      {
-        return false;
-      }
-      else if (obj.getYear() == year && obj.getMonth() == month
-          && obj.getDay() < day)
-      {
-        return false;
-      }
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    MyDate myDate = (MyDate) o;
+
+    if (getDay() != myDate.getDay()) return false;
+    if (getMonth() != myDate.getMonth()) return false;
+    return getYear() == myDate.getYear();
+  }
+
+  public MyDate copy(){
+    MyDate date = new MyDate(this);
+    return date;
+  }
+
+  public static MyDate today() throws IllegalDateException{
+    GregorianCalendar currentDate = new GregorianCalendar();
+    int currentDay = currentDate.get(GregorianCalendar.DATE);
+    int currentMonth = currentDate.get(GregorianCalendar.MONTH) + 1;
+    int currentYear = currentDate.get(GregorianCalendar.YEAR);
+    MyDate currentDateObj = new MyDate(currentDay, currentMonth, currentYear);
+    return currentDateObj;
+  }
+
+  public boolean isBefore (MyDate obj){
+    if (this.year > obj.getYear()){
+      return false;
+    }
+    else if (this.year < obj.getYear()){
       return true;
     }
-
-
+    else {
+      if (this.month > obj.getMonth()){
+        return false;
+      }
+      else if (this.month < obj.getMonth()){
+        return true;
+      }
+      else {
+        if (this.day > obj.getDay()){
+          return false;
+        }
+        else if (this.day < obj.getMonth()){
+          return true;
+        }
+        else {
+          return false;
+        }
+      }
+    }
+  }
 
 }
