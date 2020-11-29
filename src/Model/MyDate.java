@@ -21,7 +21,9 @@ public class MyDate {
   }
 
   public MyDate(MyDate obj) {
-    MyDate myDate = new MyDate(obj);
+    this.day = obj.day;
+    this.month = obj.month;
+    this.year = obj.year;
   }
 
   public int getDay()
