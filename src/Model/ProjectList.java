@@ -30,6 +30,7 @@ public class ProjectList {
         if(isThere = false)
             projects.add(project);
         else
+            //needs to be changed later
             System.out.println("Project already exists");
     }
 
