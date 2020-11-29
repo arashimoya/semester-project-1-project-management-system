@@ -80,4 +80,8 @@ public Project(int id, String name, RequirementList requirementList, ScrumMaster
     public void setProjectCreator(ProjectCreator projectCreator) {
         this.projectCreator = projectCreator;
     }
+
+    public void test () {
+
+    }
 }
