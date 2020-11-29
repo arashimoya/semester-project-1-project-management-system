@@ -81,7 +81,4 @@ public Project(int id, String name, RequirementList requirementList, ScrumMaster
         this.projectCreator = projectCreator;
     }
 
-    public void test () {
-
-    }
 }
