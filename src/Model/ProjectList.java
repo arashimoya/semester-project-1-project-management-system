@@ -46,8 +46,8 @@ public class ProjectList {
         }
     }
 
-    public void createProject (int id, String name, RequirementList requirementList, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer) {
-        projects.add(new Project(id, name, scrumMaster, productOwner, projectCreator, deadline, customer));
+    public void createProject (String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer) {
+        projects.add(new Project(name, scrumMaster, productOwner, projectCreator, deadline, customer));
     }
 
     public void editProject (int id, String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer) throws ProjectNotFoundException {

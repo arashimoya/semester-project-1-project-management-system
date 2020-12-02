@@ -20,9 +20,8 @@ public class TaskReport {
    * @param report report represented by String
    * @param reportDate date the report was sent
    */
-  public TaskReport(int id, int teamMemberID, String report, MyDate reportDate)
+  public TaskReport(int teamMemberID, String report, MyDate reportDate)
   {
-    this.id=id;
     this.teamMemberID = teamMemberID;
     this.report = report;
     this.reportDate = reportDate;

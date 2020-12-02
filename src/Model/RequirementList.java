@@ -83,7 +83,6 @@ public class RequirementList {
      * creates a new requirement to the list of requirements
      * if this requirement is unique adds it to the list of requirements
      *
-     * @param ID            requirement ID
      * @param projectID     ID of the related project
      * @param userStoryText user story text
      * @param name          name of the requirement
@@ -92,11 +91,9 @@ public class RequirementList {
      * @param estimatedTime estimated time
      * @param priority      requirement priority
      */
-    public void createRequirement(int ID, int projectID, String userStoryText, String name,
-                                  boolean functional, MyDate deadline, int estimatedTime, int priority) {
+    public void createRequirement(int projectID, String userStoryText, String status, String name, MyDate deadline, boolean functional, int priority, int estimatedTime) {
 
-        Requirement requirement = new Requirement(ID, projectID, userStoryText, name,
-                functional, deadline, estimatedTime, priority);
+        Requirement requirement = new Requirement(projectID, userStoryText, status, name, deadline, functional, priority, estimatedTime);
         addRequirement(requirement);
     }
 
@@ -113,8 +110,7 @@ public class RequirementList {
      * @param estimatedTime estimated time
      * @param priority      priority of the requirement
      */
-    public void editRequirement(int ID, String userStoryText, String name,
-                                boolean functional, MyDate deadline, int estimatedTime, int priority) throws RequirementNotFoundException {
+    public void editRequirement(int ID, String userStoryText, String status, String name, MyDate deadline, boolean functional, int priority, int estimatedTime) throws RequirementNotFoundException {
     boolean isThere = false;
         for (Requirement requirement : requirements) {
             if (requirement.getID() == ID) {

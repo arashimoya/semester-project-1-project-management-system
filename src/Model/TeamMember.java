@@ -11,10 +11,10 @@ public class TeamMember {
   private int id;
   private String name;
 
-  public TeamMember(int id, String name){
-    this.id=id;
+  public TeamMember(String name){
     this.name=name;
   }
+
   public int getId(){
     return id;
   }
