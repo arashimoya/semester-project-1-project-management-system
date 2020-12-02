@@ -33,4 +33,11 @@ public class TeamMember {
     return id == that.id && Objects.equals(name, that.name);
   }
 
+  @Override
+  public String toString() {
+    return "TeamMember{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            '}';
+  }
 }
