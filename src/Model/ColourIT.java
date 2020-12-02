@@ -6,10 +6,10 @@ public class ColourIT {
 private TeamMemberList teamMemberList;
 private ProjectList projectList;
 
-  public ColourIT(TeamMemberList teamMemberList, ProjectList projectList)
+  public ColourIT()
   {
-    this.teamMemberList = teamMemberList;
-    this.projectList = projectList;
+    this.teamMemberList = new TeamMemberList();
+    this.projectList = new ProjectList();
   }
 
   public TeamMemberList getTeamMemberList()
