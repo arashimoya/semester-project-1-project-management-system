@@ -64,4 +64,14 @@ public class TaskReport {
             Objects.equals(report, that.report) &&
             Objects.equals(reportDate, that.reportDate);
   }
+
+  @Override
+  public String toString() {
+    return "TaskReport{" +
+            "id=" + id +
+            ", teamMemberID=" + teamMemberID +
+            ", report='" + report + '\'' +
+            ", reportDate=" + reportDate +
+            '}';
+  }
 }

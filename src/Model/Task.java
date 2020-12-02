@@ -176,5 +176,19 @@ public class Task {
                 Objects.equals(teamMemberList, task.teamMemberList);
     }
 
-
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", requirementID=" + requirementID +
+                ", description='" + description + '\'' +
+                ", timeSpent=" + timeSpent +
+                ", name='" + name + '\'' +
+                ", deadline=" + deadline +
+                ", status='" + status + '\'' +
+                ", taskReportList=" + taskReportList +
+                ", teamMemberList=" + teamMemberList +
+                ", estimatedTime=" + estimatedTime +
+                '}';
+    }
 }
