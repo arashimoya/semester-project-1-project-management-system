@@ -67,7 +67,7 @@ public class TeamMemberList {
             }
 
         }
-        if (found = false) {
+        if (!found) {
             throw new TeamMemberNotFoundException();
         }
     }
