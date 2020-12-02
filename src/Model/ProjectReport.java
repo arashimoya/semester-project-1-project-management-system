@@ -18,6 +18,8 @@ public class ProjectReport {
         }
     }
 
+    public int getID(){return id;}
+
     public String getMessage() {
         return message;
     }
@@ -29,12 +31,5 @@ public class ProjectReport {
     public MyDate getDate() {
         return date;
     }
-
-    public int getId() {
-        return id;
-    }
-
-
-
 
 }
