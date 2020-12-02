@@ -6,12 +6,12 @@ public class Project {
 
 private int id;
 private String name;
-private RequirementList requirements;
 private ScrumMaster scrumMaster;
 private ProductOwner productOwner;
 private ProjectCreator projectCreator;
 private MyDate deadline;
 private Customer customer;
+private RequirementList requirements;
 private TeamMemberList teamMembers;
 private ProjectReportList projectReports;
 
@@ -25,6 +25,7 @@ public Project(int id, String name, ScrumMaster scrumMaster, ProductOwner produc
     this.customer = customer;
     this.requirements = new RequirementList();
     this.teamMembers = new TeamMemberList();
+    this.projectReports = new ProjectReportList();
 }
 
     public int getId() {
@@ -33,14 +34,6 @@ public Project(int id, String name, ScrumMaster scrumMaster, ProductOwner produc
 
     public String getName() {
         return name;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public MyDate getDeadline() {
-        return deadline;
     }
 
     public ScrumMaster getScrumMaster() {
@@ -55,12 +48,20 @@ public Project(int id, String name, ScrumMaster scrumMaster, ProductOwner produc
         return projectCreator;
     }
 
-    public TeamMemberList getTeamMembers() {
-        return teamMembers;
+    public MyDate getDeadline() {
+        return deadline;
+    }
+
+    public Customer getCustomer() {
+        return customer;
     }
 
     public RequirementList getRequirements() {
         return requirements;
+    }
+
+    public TeamMemberList getTeamMembers() {
+        return teamMembers;
     }
 
     public ProjectReportList getProjectReports() {
@@ -71,20 +72,20 @@ public Project(int id, String name, ScrumMaster scrumMaster, ProductOwner produc
         this.name = name;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public void setDeadline(MyDate deadline) {
-        this.deadline = deadline;
-    }
-
     public void setScrumMaster(ScrumMaster scrumMaster) {
         this.scrumMaster = scrumMaster;
     }
 
     public void setProductOwner(ProductOwner productOwner) {
         this.productOwner = productOwner;
+    }
+
+    public void setDeadline(MyDate deadline) {
+        this.deadline = deadline;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     @Override
