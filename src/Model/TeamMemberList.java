@@ -1,4 +1,9 @@
 package Model;
+/**
+ *
+ * @author alex
+ * @version 1.0
+ */
 
 import java.util.ArrayList;
 

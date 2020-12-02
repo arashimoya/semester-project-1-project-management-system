@@ -1,5 +1,9 @@
 package Model;
-
+/**
+ *
+ * @author alex
+ * @version 1.0
+ */
 public class TeamMember {
   private int id;
   private String name;
