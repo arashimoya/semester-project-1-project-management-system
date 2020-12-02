@@ -2,7 +2,7 @@ package Model;
 
 /**
  * A class representing a task report
- * @author scatman john
+ * @author adam
  * @version 1.0
  */
 public class TaskReport {

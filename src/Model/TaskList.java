@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * A class containing a list of Task objects
- * @author scatman john
+ * @author adam
  * @version 1.0
  */
 

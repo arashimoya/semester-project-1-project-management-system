@@ -6,13 +6,14 @@ public class Project {
 
 private int id;
 private String name;
-private RequirementList requirementList;
+private RequirementList requirements;
 private ScrumMaster scrumMaster;
 private ProductOwner productOwner;
 private ProjectCreator projectCreator;
 private MyDate deadline;
 private Customer customer;
 private TeamMemberList teamMembers;
+private ProjectReportList projectReports;
 
 public Project(int id, String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer){
     this.id = id;
@@ -22,7 +23,8 @@ public Project(int id, String name, ScrumMaster scrumMaster, ProductOwner produc
     this.projectCreator = projectCreator;
     this.deadline = deadline;
     this.customer = customer;
-    this.requirementList = new RequirementList();
+    this.requirements = new RequirementList();
+    this.teamMembers = new TeamMemberList();
 }
 
     public int getId() {
@@ -57,6 +59,14 @@ public Project(int id, String name, ScrumMaster scrumMaster, ProductOwner produc
         return teamMembers;
     }
 
+    public RequirementList getRequirements() {
+        return requirements;
+    }
+
+    public ProjectReportList getProjectReports() {
+        return projectReports;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -86,7 +96,7 @@ public Project(int id, String name, ScrumMaster scrumMaster, ProductOwner produc
 
         if (getId() != project.getId()) return false;
         if (getName() != null ? !getName().equals(project.getName()) : project.getName() != null) return false;
-        if (requirementList != null ? !requirementList.equals(project.requirementList) : project.requirementList != null)
+        if (getRequirements() != null ? !getRequirements().equals(project.getRequirements()) : project.getRequirements() != null)
             return false;
         if (getScrumMaster() != null ? !getScrumMaster().equals(project.getScrumMaster()) : project.getScrumMaster() != null)
             return false;

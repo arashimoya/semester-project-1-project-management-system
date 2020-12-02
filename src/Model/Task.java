@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  *  A class representing a task
- * @author scatman john
+ * @author adam
  * @version 1.0
  */
 public class Task {
@@ -16,7 +16,7 @@ public class Task {
   private String name;
   private String status;
   private TaskReportList taskReportList;
-  private ArrayList<TeamMember> teamMembers;
+  private TeamMemberList teamMemberList;
   private int estimatedTime;
   private MyDate deadline;
 
@@ -39,7 +39,7 @@ public class Task {
     this.deadline = deadline;
     this.estimatedTime = estimatedTime;
     taskReportList = new TaskReportList();
-    teamMembers = new ArrayList<TeamMember>();
+    teamMemberList = new TeamMemberList();
   }
 
   /**
@@ -112,15 +112,6 @@ public class Task {
   public void setDescription(String description)
   {
     this.description = description;
-  }
-
-  /**
-   * Replaces the team members of the task
-   * @param teamMembers the team members to replace with
-   */
-  public void setTeamMembers(ArrayList<TeamMember> teamMembers)
-  {
-    this.teamMembers = teamMembers;
   }
 
   /**

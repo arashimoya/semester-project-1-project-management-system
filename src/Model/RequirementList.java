@@ -105,7 +105,7 @@ public class RequirementList {
      * creates a new requirement to the list of requirements
      * if this requirement is unique adds it to the list of requirements
      *
-     * @param ID            id of a requirement that is going to be eddited
+     * @param ID            id of a requirement that is going to be edited
      * @param userStoryText user story text
      * @param name          name of the requirement
      * @param functional    if requirement is functional or not
