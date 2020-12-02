@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 /**
  * A class containing a list of TaskReport objects.
- * @author scatman john
+ * @author adam
  * @version 1.0
  */
 
