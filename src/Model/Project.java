@@ -15,8 +15,7 @@ private RequirementList requirements;
 private TeamMemberList teamMembers;
 private ProjectReportList projectReports;
 
-public Project(int id, String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer){
-    this.id = id;
+public Project(String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer){
     this.name = name;
     this.scrumMaster = scrumMaster;
     this.productOwner = productOwner;

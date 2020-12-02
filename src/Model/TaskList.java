@@ -73,16 +73,15 @@ public class TaskList {
 
   /**
    * Creates a new task and adds it to the list
-   * @param id id of the task
    * @param requirementID id of requirement the task is assigned with
    * @param description description of the task
    * @param name name of the task
    * @param deadline furthest date the task can be completed
    * @param estimatedTime estimated time of task completion
    */
-  public void createTask(int id, int requirementID, String description, String name, MyDate deadline, int estimatedTime)
+  public void createTask(int requirementID, String description, String name, MyDate deadline, int estimatedTime)
   {
-    tasks.add(new Task(id, requirementID, description, name, deadline, estimatedTime));
+    tasks.add(new Task(requirementID, description, name, deadline, estimatedTime));
   }
   /**
    * Removes and adds task of chosen ID from and to the list
@@ -103,6 +102,6 @@ public class TaskList {
         break;
       }
     }
-    tasks.add(new Task(id, requirementID, description, name, deadline, estimatedTime));
+    tasks.add(new Task(requirementID, description, name, deadline, estimatedTime));
   }
 }

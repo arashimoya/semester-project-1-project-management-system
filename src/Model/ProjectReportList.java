@@ -11,7 +11,7 @@ public class ProjectReportList {
 
     public ProjectReport getProjectReport (int id) {
         for (ProjectReport  projectReport : projectReports) {
-            if (projectReport.getId() == id) {
+            if (projectReport.getID() == id) {
                 return projectReport;
             }
         }
@@ -40,7 +40,7 @@ public class ProjectReportList {
     public void deleteProjectReport (int id) throws CustomNotFoundException {
         boolean isThere = false;
         for (ProjectReport projectReport : projectReports) {
-            if(projectReport.getId() == id) {
+            if(projectReport.getID() == id) {
                 projectReports.remove(projectReport);
                 isThere = true;
             }
@@ -52,10 +52,4 @@ public class ProjectReportList {
     public void createProjectReport (ScrumMaster scrumMaster, String message) {
             projectReports.add(new ProjectReport(scrumMaster, message));
     }
-
-
-
-
-
-
 }

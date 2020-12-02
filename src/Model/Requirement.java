@@ -36,18 +36,16 @@ public class Requirement {
      * @param estimatedTime
      * @param priority
      */
-    public Requirement(int ID, int projectID, String userStoryText, String name,
-                       boolean functional, MyDate deadline, int estimatedTime, int priority) {
-        this.ID = ID;
+    public Requirement(int projectID, String userStoryText, String status, String name, MyDate deadline, boolean functional, int priority, int estimatedTime) {
         this.projectID = projectID;
         this.userStoryText = userStoryText;
-        this.status = "In progress";
-        taskList = new TaskList();
+        this.status = status;
+        this.name = name;
         this.deadline = deadline;
         this.functional = functional;
-        this.timeSpent = 0;
-        this.name = name;
+        this.priority = priority;
         this.estimatedTime = estimatedTime;
+        taskList = new TaskList();
         teamMembers = new TeamMemberList();
     }
 
@@ -131,28 +129,61 @@ public class Requirement {
         this.estimatedTime = estimatedTime;
     }
 
-    /**
-     * checks if two objects are the same
-     *
-     * @param o object that is going to be compared
-     * @return true if objects are equal, otherwise returns false
-     */
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Requirement that = (Requirement) o;
-        return ID == that.ID &&
-                projectID == that.projectID &&
-                timeSpent == that.timeSpent &&
-                estimatedTime == that.estimatedTime &&
-                priority == that.priority &&
-                functional == that.functional &&
-                Objects.equals(userStoryText, that.userStoryText) &&
-                Objects.equals(status, that.status) &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(taskList, that.taskList) &&
-                Objects.equals(deadline, that.deadline) &&
-                Objects.equals(teamMembers, that.teamMembers);
+
+        if (getID() != that.getID()) return false;
+        if (getProjectID() != that.getProjectID()) return false;
+        if (getTimeSpent() != that.getTimeSpent()) return false;
+        if (isFunctional() != that.isFunctional()) return false;
+        if (getPriority() != that.getPriority()) return false;
+        if (getEstimatedTime() != that.getEstimatedTime()) return false;
+        if (getUserStoryText() != null ? !getUserStoryText().equals(that.getUserStoryText()) : that.getUserStoryText() != null)
+            return false;
+        if (getStatus() != null ? !getStatus().equals(that.getStatus()) : that.getStatus() != null) return false;
+        if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) return false;
+        if (getDeadline() != null ? !getDeadline().equals(that.getDeadline()) : that.getDeadline() != null)
+            return false;
+        if (taskList != null ? !taskList.equals(that.taskList) : that.taskList != null) return false;
+        return getTeamMembers() != null ? getTeamMembers().equals(that.getTeamMembers()) : that.getTeamMembers() == null;
     }
 
+    @Override
+    public int hashCode() {
+        int result = getID();
+        result = 31 * result + getProjectID();
+        result = 31 * result + (getUserStoryText() != null ? getUserStoryText().hashCode() : 0);
+        result = 31 * result + (getStatus() != null ? getStatus().hashCode() : 0);
+        result = 31 * result + getTimeSpent();
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getDeadline() != null ? getDeadline().hashCode() : 0);
+        result = 31 * result + (isFunctional() ? 1 : 0);
+        result = 31 * result + getPriority();
+        result = 31 * result + getEstimatedTime();
+        result = 31 * result + (taskList != null ? taskList.hashCode() : 0);
+        result = 31 * result + (getTeamMembers() != null ? getTeamMembers().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Requirement{" +
+                "ID=" + ID +
+                ", projectID=" + projectID +
+                ", userStoryText='" + userStoryText + '\'' +
+                ", status='" + status + '\'' +
+                ", timeSpent=" + timeSpent +
+                ", name='" + name + '\'' +
+                ", deadline=" + deadline +
+                ", functional=" + functional +
+                ", priority=" + priority +
+                ", estimatedTime=" + estimatedTime +
+                ", taskList=" + taskList +
+                ", teamMembers=" + teamMembers +
+                '}';
+    }
 }

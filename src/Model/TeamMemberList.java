@@ -53,8 +53,8 @@ public class TeamMemberList {
         }
     }
 
-    public void CreateTeamMember(int id, String name) {
-        TeamMember teamMember = new TeamMember(id, name);
+    public void CreateTeamMember(String name) {
+        TeamMember teamMember = new TeamMember(name);
         addTeamMember(teamMember);
     }
 

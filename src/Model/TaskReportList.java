@@ -71,14 +71,13 @@ public class TaskReportList {
 
   /**
    * Creates a new task report and adds it to the list
-   * @param id the ID of the task report
    * @param teamMemberID ID of the team member reporting
    * @param report report represented by String
    * @param reportDate date the report was sent
    */
-  public void createTaskReport(int id, int teamMemberID, String report, MyDate reportDate)
+  public void createTaskReport(int teamMemberID, String report, MyDate reportDate)
   {
-    taskReports.add(new TaskReport(id, teamMemberID,report, reportDate ));
+    taskReports.add(new TaskReport(teamMemberID,report, reportDate));
   }
 
   /**
@@ -98,6 +97,6 @@ public class TaskReportList {
         break;
       }
     }
-    taskReports.add(new TaskReport(id, teamMemberID,report, reportDate ));
+    taskReports.add(new TaskReport(teamMemberID,report, reportDate ));
   }
 }
