@@ -1,4 +1,7 @@
 package Model;
+
+import java.util.Objects;
+
 /**
  *
  * @author alex
@@ -21,4 +24,13 @@ public class TeamMember {
   public void setName(String name) {
     this.name = name;
   }
+
+
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    TeamMember that = (TeamMember) o;
+    return id == that.id && Objects.equals(name, that.name);
+  }
+
 }
