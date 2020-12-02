@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Objects;
+
 /**
  * A class representing a task report
  * @author adam
@@ -51,5 +53,16 @@ public class TaskReport {
   public String getReport()
   {
     return report;
+  }
+
+
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    TaskReport that = (TaskReport) o;
+    return id == that.id &&
+            teamMemberID == that.teamMemberID &&
+            Objects.equals(report, that.report) &&
+            Objects.equals(reportDate, that.reportDate);
   }
 }
