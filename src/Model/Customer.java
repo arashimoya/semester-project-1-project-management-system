@@ -32,4 +32,10 @@ public class Customer {
     if (getId() != customer.getId()) return false;
     return getName() != null ? getName().equals(customer.getName()) : customer.getName() == null;
   }
+
+  @Override public String toString()
+  {
+    return "Customer{" + "id=" + id + ", name='" + name + '\'' + '}';
+  }
+
 }

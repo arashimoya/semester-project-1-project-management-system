@@ -112,4 +112,13 @@ public Project(int id, String name, ScrumMaster scrumMaster, ProductOwner produc
         return getTeamMembers() != null ? getTeamMembers().equals(project.getTeamMembers()) : project.getTeamMembers() == null;
     }
 
+    @Override public String toString()
+    {
+        return "Project{" + "id=" + id + ", name='" + name + '\''
+            + ", scrumMaster=" + scrumMaster + ", productOwner=" + productOwner
+            + ", projectCreator=" + projectCreator + ", deadline=" + deadline
+            + ", customer=" + customer + ", requirements=" + requirements
+            + ", teamMembers=" + teamMembers + ", projectReports="
+            + projectReports + '}';
+    }
 }
