@@ -34,7 +34,8 @@ public class Task {
      * @param deadline      furthest date the task can be completed
      * @param estimatedTime estimated time of task completion
      */
-    public Task(int requirementID, String description, String name, MyDate deadline, int estimatedTime) {
+    public Task(int id,int requirementID, String description, String name, MyDate deadline, int estimatedTime) {
+        this.id = id;
         this.requirementID = requirementID;
         this.description = description;
         this.name = name;
