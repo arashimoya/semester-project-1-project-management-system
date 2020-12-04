@@ -4,14 +4,16 @@ import java.util.ArrayList;
 
 public class ProjectList {
     private ArrayList<Project> projects;
+    private int idCounter;
 
-    public ProjectList(){
+    public ProjectList() {
         projects = new ArrayList<Project>();
+        idCounter = 0;
     }
 
-    public Project getProject(int id) throws ProjectNotFoundException{
+    public Project getProject(int id) throws ProjectNotFoundException {
         for (Project project : projects) {
-            if(project.getId() == id)
+            if (project.getId() == id)
                 return project;
         }
         throw new ProjectNotFoundException();
@@ -23,11 +25,11 @@ public class ProjectList {
 
     public void addProject(Project project) {
         boolean isThere = false;
-        for (Project thisProject : projects){
+        for (Project thisProject : projects) {
             if (thisProject.equals(project))
                 isThere = true;
         }
-        if(isThere = false)
+        if (!isThere)
             projects.add(project);
         else
             //needs to be changed later
@@ -37,23 +39,23 @@ public class ProjectList {
     public void deleteProject(int id) throws ProjectNotFoundException {
         boolean isThere = false;
         for (Project project : projects) {
-            if(project.getId() == id)
+            if (project.getId() == id)
                 projects.remove(project);
             isThere = true;
         }
-        if (isThere = false) {
+        if (!isThere) {
             throw new ProjectNotFoundException();
         }
     }
 
-    public void createProject (String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer) {
-        projects.add(new Project(name, scrumMaster, productOwner, projectCreator, deadline, customer));
+    public void createProject(String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer) {
+        projects.add(new Project(idCounter++, name, scrumMaster, productOwner, projectCreator, deadline, customer));
     }
 
-    public void editProject (int id, String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer) throws ProjectNotFoundException {
+    public void editProject(int id, String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer) throws ProjectNotFoundException {
         boolean isThere = false;
         for (Project project : projects) {
-            if(project.getId() == id){
+            if (project.getId() == id) {
                 project.setName(name);
                 project.setScrumMaster(scrumMaster);
                 project.setProductOwner(productOwner);
@@ -62,7 +64,7 @@ public class ProjectList {
                 isThere = true;
             }
         }
-        if (isThere = false){
+        if (!isThere) {
             throw new ProjectNotFoundException();
         }
     }

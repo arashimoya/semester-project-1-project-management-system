@@ -1,6 +1,5 @@
 package Model;
 /**
- *
  * @author alex
  * @version 1.0
  */
@@ -10,10 +9,12 @@ import java.util.Objects;
 
 public class TeamMemberList {
     private ArrayList<TeamMember> teamMembers;
+    private int idCounter;
 
 
     public TeamMemberList() {
         teamMembers = new ArrayList<TeamMember>();
+        idCounter = 0;
     }
 
     public TeamMember getTeamMembers(int id) throws TeamMemberNotFoundException {
@@ -54,7 +55,7 @@ public class TeamMemberList {
     }
 
     public void CreateTeamMember(String name) {
-        TeamMember teamMember = new TeamMember(name);
+        TeamMember teamMember = new TeamMember(idCounter++, name);
         addTeamMember(teamMember);
     }
 

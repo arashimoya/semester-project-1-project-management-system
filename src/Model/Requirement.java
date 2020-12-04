@@ -27,7 +27,6 @@ public class Requirement {
      * constructor that takes all the listed data below
      * and initialises team members list
      *
-     * @param ID
      * @param projectID
      * @param userStoryText
      * @param name
@@ -36,7 +35,8 @@ public class Requirement {
      * @param estimatedTime
      * @param priority
      */
-    public Requirement(int projectID, String userStoryText, String status, String name, MyDate deadline, boolean functional, int priority, int estimatedTime) {
+    public Requirement(int id, int projectID, String userStoryText, String status, String name, MyDate deadline, boolean functional, int priority, int estimatedTime) {
+        this.ID = id;
         this.projectID = projectID;
         this.userStoryText = userStoryText;
         this.status = status;

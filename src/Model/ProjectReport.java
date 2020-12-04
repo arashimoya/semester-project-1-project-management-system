@@ -6,19 +6,20 @@ public class ProjectReport {
     private ScrumMaster scrumMaster;
     private MyDate date;
 
-    public ProjectReport (ScrumMaster scrumMaster, String message) {
-        //add id
+    public ProjectReport(int id, ScrumMaster scrumMaster, String message) {
+        this.id = id;
         this.scrumMaster = scrumMaster;
         this.message = message;
         try {
             this.date = MyDate.today();
-        }
-        catch (IllegalDateException e) {
+        } catch (IllegalDateException e) {
 
         }
     }
 
-    public int getID(){return id;}
+    public int getID() {
+        return id;
+    }
 
     public String getMessage() {
         return message;
