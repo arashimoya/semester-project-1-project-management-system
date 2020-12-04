@@ -10,12 +10,14 @@ import java.util.ArrayList;
  */
 public class RequirementList {
     private ArrayList<Requirement> requirements;
+    private int idCounter;
 
     /**
      * no argument constructor that initialize the requirements list
      */
     public RequirementList() {
         requirements = new ArrayList<Requirement>();
+        idCounter = 0;
     }
 
     /**
@@ -54,7 +56,7 @@ public class RequirementList {
                 requirements) {
             if (req.equals(requirement))
                 check = 1;
-                //some error
+            //some error
         }
         if (check != 0)
             requirements.add(requirement);
@@ -66,15 +68,15 @@ public class RequirementList {
      *
      * @param ID id of a requirement that is going to be deleted
      */
-    public void deleteRequirement(int ID) throws RequirementNotFoundException{
+    public void deleteRequirement(int ID) throws RequirementNotFoundException {
         boolean isThere = false;
         for (Requirement requirement :
                 requirements) {
             if (requirement.getID() == ID)
                 requirements.remove(requirement);
-                isThere = true;
+            isThere = true;
         }
-        if (isThere=false){
+        if (isThere = false) {
             throw new RequirementNotFoundException();
         }
     }
@@ -93,7 +95,7 @@ public class RequirementList {
      */
     public void createRequirement(int projectID, String userStoryText, String status, String name, MyDate deadline, boolean functional, int priority, int estimatedTime) {
 
-        Requirement requirement = new Requirement(projectID, userStoryText, status, name, deadline, functional, priority, estimatedTime);
+        Requirement requirement = new Requirement(idCounter++, projectID, userStoryText, status, name, deadline, functional, priority, estimatedTime);
         addRequirement(requirement);
     }
 
@@ -111,7 +113,7 @@ public class RequirementList {
      * @param priority      priority of the requirement
      */
     public void editRequirement(int ID, String userStoryText, String status, String name, MyDate deadline, boolean functional, int priority, int estimatedTime) throws RequirementNotFoundException {
-    boolean isThere = false;
+        boolean isThere = false;
         for (Requirement requirement : requirements) {
             if (requirement.getID() == ID) {
                 requirement.setDeadline(deadline);
@@ -123,7 +125,7 @@ public class RequirementList {
                 isThere = true;
             }
         }
-        if (isThere = false){
+        if (isThere = false) {
             throw new RequirementNotFoundException();
         }
     }

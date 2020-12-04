@@ -4,28 +4,29 @@ import java.util.ArrayList;
 
 public class Project {
 
-private int id;
-private String name;
-private ScrumMaster scrumMaster;
-private ProductOwner productOwner;
-private ProjectCreator projectCreator;
-private MyDate deadline;
-private Customer customer;
-private RequirementList requirements;
-private TeamMemberList teamMembers;
-private ProjectReportList projectReports;
+    private int id;
+    private String name;
+    private ScrumMaster scrumMaster;
+    private ProductOwner productOwner;
+    private ProjectCreator projectCreator;
+    private MyDate deadline;
+    private Customer customer;
+    private RequirementList requirements;
+    private TeamMemberList teamMembers;
+    private ProjectReportList projectReports;
 
-public Project(String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer){
-    this.name = name;
-    this.scrumMaster = scrumMaster;
-    this.productOwner = productOwner;
-    this.projectCreator = projectCreator;
-    this.deadline = deadline;
-    this.customer = customer;
-    this.requirements = new RequirementList();
-    this.teamMembers = new TeamMemberList();
-    this.projectReports = new ProjectReportList();
-}
+    public Project(int id, String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer) {
+        this.name = name;
+        this.scrumMaster = scrumMaster;
+        this.productOwner = productOwner;
+        this.projectCreator = projectCreator;
+        this.deadline = deadline;
+        this.customer = customer;
+        this.requirements = new RequirementList();
+        this.teamMembers = new TeamMemberList();
+        this.projectReports = new ProjectReportList();
+        this.id = id;
+    }
 
     public int getId() {
         return id;
@@ -111,13 +112,13 @@ public Project(String name, ScrumMaster scrumMaster, ProductOwner productOwner, 
         return getTeamMembers() != null ? getTeamMembers().equals(project.getTeamMembers()) : project.getTeamMembers() == null;
     }
 
-    @Override public String toString()
-    {
+    @Override
+    public String toString() {
         return "Project{" + "id=" + id + ", name='" + name + '\''
-            + ", scrumMaster=" + scrumMaster + ", productOwner=" + productOwner
-            + ", projectCreator=" + projectCreator + ", deadline=" + deadline
-            + ", customer=" + customer + ", requirements=" + requirements
-            + ", teamMembers=" + teamMembers + ", projectReports="
-            + projectReports + '}';
+                + ", scrumMaster=" + scrumMaster + ", productOwner=" + productOwner
+                + ", projectCreator=" + projectCreator + ", deadline=" + deadline
+                + ", customer=" + customer + ", requirements=" + requirements
+                + ", teamMembers=" + teamMembers + ", projectReports="
+                + projectReports + '}';
     }
 }
