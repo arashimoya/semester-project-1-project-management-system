@@ -43,6 +43,7 @@ public class ColourITFileAdapter {
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("IO Error writing to file");
+            e.printStackTrace();
         }
     }
 

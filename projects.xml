@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ColourIT>
+  <projectList>
+    <projects>
+      <requirements>
+        <idCounter>0</idCounter>
+      </requirements>
+      <scrumMaster>
+        <name>Tymon Podlowski</name>
+        <id>1</id>
+      </scrumMaster>
+      <name>TestProject</name>
+      <projectCreator>
+        <name>Adam Arasimowicz</name>
+        <id>2</id>
+      </projectCreator>
+      <id>0</id>
+      <productOwner>
+        <name>Oliver Sperlik</name>
+        <id>0</id>
+      </productOwner>
+      <deadline>
+        <month>12</month>
+        <year>2020</year>
+        <day>7</day>
+      </deadline>
+      <teamMembers>
+        <idCounter>0</idCounter>
+      </teamMembers>
+      <customer>
+        <name>Allan</name>
+        <id>0</id>
+      </customer>
+      <projectReports>
+        <idCounter>0</idCounter>
+      </projectReports>
+    </projects>
+    <idCounter>1</idCounter>
+  </projectList>
+  <customerList>
+    <idCounter>1</idCounter>
+    <customers>
+      <name>Allan</name>
+      <id>0</id>
+    </customers>
+  </customerList>
+  <teamMemberList>
+    <idCounter>3</idCounter>
+    <teamMembers>
+      <name>Oliver Sperlik</name>
+      <id>0</id>
+    </teamMembers>
+    <teamMembers>
+      <name>Tymon Podlowski</name>
+      <id>1</id>
+    </teamMembers>
+    <teamMembers>
+      <name>Adam Arasimowicz</name>
+      <id>2</id>
+    </teamMembers>
+  </teamMemberList>
+</ColourIT>
