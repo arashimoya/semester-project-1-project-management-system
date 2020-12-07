@@ -12,17 +12,19 @@ public class Project implements Serializable {
     private ProjectCreator projectCreator;
     private MyDate deadline;
     private Customer customer;
+    private String description;
     private RequirementList requirements;
     private TeamMemberList teamMembers;
     private ProjectReportList projectReports;
 
-    public Project(int id, String name, TeamMember scrumMaster, TeamMember productOwner, TeamMember projectCreator, MyDate deadline, Customer customer) {
+    public Project(int id, String name, TeamMember scrumMaster, TeamMember productOwner, TeamMember projectCreator, MyDate deadline, Customer customer, String description) {
         this.name = name;
         this.scrumMaster = new ScrumMaster(scrumMaster);
         this.productOwner = new ProductOwner(productOwner);
         this.projectCreator = new ProjectCreator(projectCreator);
         this.deadline = deadline;
         this.customer = customer;
+        this.description = description;
         this.requirements = new RequirementList();
         this.teamMembers = new TeamMemberList();
         this.projectReports = new ProjectReportList();
@@ -57,6 +59,10 @@ public class Project implements Serializable {
         return customer;
     }
 
+    public String getDescription(){
+        return description;
+    }
+
     public RequirementList getRequirements() {
         return requirements;
     }
@@ -89,6 +95,10 @@ public class Project implements Serializable {
         this.customer = customer;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -115,11 +125,18 @@ public class Project implements Serializable {
 
     @Override
     public String toString() {
-        return "Project{" + "id=" + id + ", name='" + name + '\''
-                + ", scrumMaster=" + scrumMaster + ", productOwner=" + productOwner
-                + ", projectCreator=" + projectCreator + ", deadline=" + deadline
-                + ", customer=" + customer + ", requirements=" + requirements
-                + ", teamMembers=" + teamMembers + ", projectReports="
-                + projectReports + '}';
+        return "Project{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", scrumMaster=" + scrumMaster +
+                ", productOwner=" + productOwner +
+                ", projectCreator=" + projectCreator +
+                ", deadline=" + deadline +
+                ", customer=" + customer +
+                ", description='" + description + '\'' +
+                ", requirements=" + requirements +
+                ", teamMembers=" + teamMembers +
+                ", projectReports=" + projectReports +
+                '}';
     }
 }
