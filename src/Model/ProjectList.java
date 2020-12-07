@@ -53,8 +53,8 @@ public class ProjectList implements Serializable {
         }
     }
 
-    public void createProject(String name, TeamMember scrumMaster, TeamMember productOwner, TeamMember projectCreator, MyDate deadline, Customer customer) {
-        projects.add(new Project(idCounter++, name, scrumMaster, productOwner, projectCreator, deadline, customer));
+    public void createProject(String name, TeamMember scrumMaster, TeamMember productOwner, TeamMember projectCreator, MyDate deadline, Customer customer, String description) {
+        projects.add(new Project(idCounter++, name, scrumMaster, productOwner, projectCreator, deadline, customer, description));
     }
 
     public void editProject(int id, String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer) throws ProjectNotFoundException {
