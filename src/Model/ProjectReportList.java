@@ -26,16 +26,11 @@ public class ProjectReportList {
     }
 
     public void addProjectReport(ProjectReport projectReport) {
-        boolean isThere = false;
-        for (ProjectReport existingProjectReport : projectReports) {
-            if (existingProjectReport.equals(projectReport))
-                isThere = true;
-        }
-        if (isThere == false) {
+        if (!projectReports.contains(projectReport)) {
             projectReports.add(projectReport);
-        } else {
-            //change
-            System.out.println("project is already added");
+        }
+        else {
+            System.out.println("Project report already exists");
         }
     }
 

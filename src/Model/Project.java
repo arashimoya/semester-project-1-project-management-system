@@ -15,11 +15,11 @@ public class Project {
     private TeamMemberList teamMembers;
     private ProjectReportList projectReports;
 
-    public Project(int id, String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer) {
+    public Project(int id, String name, TeamMember scrumMaster, TeamMember productOwner, TeamMember projectCreator, MyDate deadline, Customer customer) {
         this.name = name;
-        this.scrumMaster = scrumMaster;
-        this.productOwner = productOwner;
-        this.projectCreator = projectCreator;
+        this.scrumMaster = new ScrumMaster(scrumMaster);
+        this.productOwner = new ProductOwner(productOwner);
+        this.projectCreator = new ProjectCreator(projectCreator);
         this.deadline = deadline;
         this.customer = customer;
         this.requirements = new RequirementList();

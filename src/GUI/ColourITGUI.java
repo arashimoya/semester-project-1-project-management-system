@@ -1,4 +1,5 @@
 package GUI;
 
-public class ColourITGUI {
+public class ColourITGUI{
+
 }

@@ -5,6 +5,10 @@ public class ScrumMaster extends TeamMember {
         super(id, name);
     }
 
+    public ScrumMaster(TeamMember teamMember) {
+        super(teamMember.getId(), teamMember.getName());
+    }
+
     public void documentChanges(ProjectList projectList, Project targetProject, String message) {
         for (Project project : projectList.getProjects()) {
             if (targetProject.equals(project)) {

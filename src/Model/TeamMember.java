@@ -28,11 +28,22 @@ public class TeamMember {
     }
 
 
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         TeamMember that = (TeamMember) o;
-        return id == that.id && Objects.equals(name, that.name);
+
+        if (getId() != that.getId()) return false;
+        return getName() != null ? getName().equals(that.getName()) : that.getName() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        return result;
     }
 
     @Override

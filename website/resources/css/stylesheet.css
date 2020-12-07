@@ -1,0 +1,131 @@
+/* proper sizing */ 
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+}
+.container-fluid {
+    height: 100%;
+}
+.carousel {
+    margin: 10px;
+    height: 100%:
+}
+    .carousel-item {
+        height: 50vh;
+    }
+        .carousel-item > img {
+            height: 100%;
+            border-radius: 5px;
+        }
+
+/* alignment and sizing of news panel */
+#news {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: fit-content;
+    border: none !important;
+}
+
+/* event images styling */
+
+.event > img {
+    position: relative;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 40vh;
+    width: 100%;    
+}
+
+
+    /* positioning of event title */
+    .event-title {
+        position: absolute;
+        z-index: 0;
+        bottom: 50px;
+        left: 50px;
+        font-size: 20px;
+        color: white;
+        font-weight: bold;
+    }
+
+
+/* banner image is the same on every page  */
+.banner-image {
+display: flex;
+height: 40vh;
+width: 100%;
+background: linear-gradient(to bottom, rgba(0,0,0,0) 10%, rgba(0,0,0,1)), url('../images/banner-img2.jpg');
+background-size: 100% auto;
+opacity: 0.9;
+background-repeat: no-repeat;
+justify-content: center;
+}
+
+
+    /* banner title in the center of banner image, changes in every section  */    
+    .banner-title{
+        position: relative;
+        top: 30vh;
+        color: white;
+        font-size: 3em;
+        font-weight: bold;
+    }
+
+
+
+/* team card styling */
+.card-own {
+    padding: 10px;
+    display: flex;
+    width: 15vw;
+    border: none !important;
+    justify-content: center;
+    text-align:center;
+}
+
+    .card-img-top{
+        height: 200px;
+        margin:auto;
+    }
+
+/* styling of content in pages that are mostly text based */
+.content-text {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    margin: 10px;
+    text-align: center;
+}
+
+/* project table styling */
+table td {
+    width: 200px;
+}
+
+/* some changes to make everything fit correctly in mobile layout */
+@media only screen and (max-width: 768px) {
+#event4{
+    margin-bottom: 70px;
+}
+
+#team-content {
+    grid-template-columns: 1fr;
+}
+
+.card-own {
+    width: 50vw;
+    margin: auto;
+}
+
+#tymon {
+    margin-bottom: 50px;
+}
+}
+
+        

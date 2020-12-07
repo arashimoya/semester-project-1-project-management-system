@@ -52,7 +52,12 @@ public class TaskReportList {
      * @param taskReport the task report to add to the list
      */
     public void addTaskReport(TaskReport taskReport) {
-        taskReports.add(taskReport);
+        if (!taskReports.contains(taskReport)) {
+            taskReports.add(taskReport);
+        }
+        else {
+            System.out.println("already exists");
+        }
     }
 
     /**

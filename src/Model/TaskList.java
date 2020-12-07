@@ -38,6 +38,16 @@ public class TaskList {
         return returnTask;
     }
 
+    public Task getTask(String name) {
+        Task returnTask = null;
+
+        for (Task task : tasks) {
+            if (task.getName().equals(name))
+                returnTask = task;
+        }
+        return returnTask;
+    }
+
     /**
      * Gets the ArrayList containing Task objects
      *
@@ -53,7 +63,12 @@ public class TaskList {
      * @param task the task to add to the list
      */
     public void addTask(Task task) {
-        tasks.add(task);
+        if (!tasks.contains(task)) {
+            tasks.add(task);
+        }
+        else {
+            System.out.println("Task already exists");
+        }
     }
 
     /**

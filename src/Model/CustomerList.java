@@ -21,19 +21,26 @@ public class CustomerList {
         throw new CustomNotFoundException();
     }
 
+    public Customer getCustomer(String name) throws CustomNotFoundException {
+        for (Customer customer :
+                customers) {
+            if (customer.getName().equals(name))
+                return customer;
+        }
+        throw new CustomNotFoundException();
+    }
+
     public ArrayList<Customer> getCustomers() {
         return customers;
     }
 
     public void addCustomer(Customer customer) {
-        boolean exists = false;
-        for (Customer customer1 :
-                customers) {
-            if (customer.equals(customer1))
-                exists = true;
-        }
-        if (!exists)
+        if (!customers.contains(customer)) {
             customers.add(customer);
+        }
+        else {
+            System.out.println("Customer already exists");
+        }
     }
 
     public void deleteCustomer(Customer customer) throws CustomNotFoundException {
