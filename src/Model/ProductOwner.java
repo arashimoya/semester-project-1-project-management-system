@@ -1,6 +1,8 @@
 package Model;
 
-public class ProductOwner extends TeamMember{
+import java.io.Serializable;
+
+public class ProductOwner extends TeamMember implements Serializable {
     public ProductOwner (int id, String name) {
         super(id, name);
     }

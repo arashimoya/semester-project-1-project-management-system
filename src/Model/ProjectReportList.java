@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ProjectReportList {
+public class ProjectReportList implements Serializable {
     private ArrayList<ProjectReport> projectReports;
 
     private int idCounter;

@@ -1,6 +1,8 @@
 package Model;
 
-public class ColourIT {
+import java.io.Serializable;
+
+public class ColourIT implements Serializable {
 
 
 private TeamMemberList teamMemberList;
@@ -26,5 +28,14 @@ private CustomerList customerList;
 
   public CustomerList getCustomerList() {
     return customerList;
+  }
+
+  @Override
+  public String toString() {
+    return "ColourIT{" +
+            "teamMemberList=" + teamMemberList +
+            ", projectList=" + projectList +
+            ", customerList=" + customerList +
+            '}';
   }
 }

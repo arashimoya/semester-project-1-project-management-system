@@ -1,5 +1,6 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Objects;
  * @author adam
  * @version 1.0
  */
-public class TaskReport {
+public class TaskReport implements Serializable {
   private int id;
   private int teamMemberID;
   private String report;

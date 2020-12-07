@@ -1,6 +1,8 @@
 package Model;
 
-public class ProjectReport {
+import java.io.Serializable;
+
+public class ProjectReport implements Serializable {
     private int id;
     private String message;
     private ScrumMaster scrumMaster;

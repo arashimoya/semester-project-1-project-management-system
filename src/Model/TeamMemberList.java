@@ -4,10 +4,11 @@ package Model;
  * @version 1.0
  */
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class TeamMemberList {
+public class TeamMemberList implements Serializable {
     private ArrayList<TeamMember> teamMembers;
     private int idCounter;
 

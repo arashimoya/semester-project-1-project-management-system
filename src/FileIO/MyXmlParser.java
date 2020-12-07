@@ -1,5 +1,6 @@
 package FileIO;
 
+import Model.ColourIT;
 import Model.ProjectList;
 import parser.*;
 
@@ -13,9 +14,9 @@ public class MyXmlParser {
         this.fileName = fileName;
     }
 
-    public void writeToXml (ProjectList projectList) throws ParserException {
+    public void writeToXml (Object o) throws ParserException {
         XmlJsonParser parser = new XmlJsonParser();
-        File file = parser.toXml(projectList, this.fileName);
+        File file = parser.toXml(o, this.fileName);
     }
 
 }

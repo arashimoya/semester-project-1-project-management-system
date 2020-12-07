@@ -1,5 +1,6 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -9,7 +10,7 @@ import java.util.Objects;
  * @author adam
  * @version 1.0
  */
-public class Task {
+public class Task implements Serializable {
 
     private int id;
     private int requirementID;
