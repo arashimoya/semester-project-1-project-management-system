@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class ProjectCreator extends TeamMember{
 
 
-    public ProjectCreator (String name) {
-        super(name);
+    public ProjectCreator (int id, String name) {
+        super(id, name);
     }
 
     public void creatorCreateProject (String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer, ColourIT colourIT) {

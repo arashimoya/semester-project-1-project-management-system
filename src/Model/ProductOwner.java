@@ -1,8 +1,8 @@
 package Model;
 
 public class ProductOwner extends TeamMember{
-    public ProductOwner (String name) {
-        super(name);
+    public ProductOwner (int id, String name) {
+        super(id, name);
     }
 
     public void editStatus(Project project, Requirement requirement,  String status) {

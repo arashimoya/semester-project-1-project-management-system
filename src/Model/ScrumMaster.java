@@ -1,8 +1,8 @@
 package Model;
 
 public class ScrumMaster extends TeamMember {
-    public ScrumMaster(String name){
-        super(name);
+    public ScrumMaster(int id, String name){
+        super(id, name);
     }
 
     public void documentChanges(ProjectList projectList, Project targetProject, String message) {
