@@ -5,6 +5,10 @@ public class ProductOwner extends TeamMember{
         super(id, name);
     }
 
+    public ProductOwner(TeamMember teamMember) {
+        super(teamMember.getId(), teamMember.getName());
+    }
+
     public void editStatus(Project project, Requirement requirement,  String status) {
         for (Requirement targetRequirement : project.getRequirements().getRequirements()){
             if(targetRequirement.equals(requirement)) {

@@ -17,12 +17,20 @@ public class TeamMemberList {
         idCounter = 0;
     }
 
-    public TeamMember getTeamMembers(int id) throws TeamMemberNotFoundException {
+    public TeamMember getTeamMember(int id) throws CustomNotFoundException {
         for (TeamMember teamMember : teamMembers) {
             if (teamMember.getId() == id)
                 return teamMember;
         }
-        throw new TeamMemberNotFoundException();
+        throw new CustomNotFoundException();
+    }
+
+    public TeamMember getTeamMember(String name) throws CustomNotFoundException {
+        for (TeamMember teamMember : teamMembers) {
+            if (teamMember.getName().equals(name))
+                return teamMember;
+        }
+        throw new CustomNotFoundException();
     }
 
     public ArrayList<TeamMember> getTeamMembers() {
@@ -30,18 +38,15 @@ public class TeamMemberList {
     }
 
     public void addTeamMember(TeamMember teamMember) {
-        boolean exists = false;
-        for (TeamMember teamMember1 : teamMembers) {
-            if (teamMember1.equals(teamMember)) {
-                exists = true;
-                break;
-            }
-            if (!(exists))
-                teamMembers.add(teamMember);
+        if (!teamMembers.contains(teamMember)) {
+            teamMembers.add(teamMember);
+        }
+        else {
+            System.out.println("Team member already exists");
         }
     }
 
-    public void deleteTeamMember(int id) throws TeamMemberNotFoundException {
+    public void deleteTeamMember(int id) throws CustomNotFoundException {
         boolean removed = false;
         for (TeamMember teamMember : teamMembers) {
             if (teamMember.getId() == id) {
@@ -50,7 +55,7 @@ public class TeamMemberList {
             }
         }
         if (!removed) {
-            throw new TeamMemberNotFoundException();
+            throw new CustomNotFoundException();
         }
     }
 
@@ -59,7 +64,7 @@ public class TeamMemberList {
         addTeamMember(teamMember);
     }
 
-    public void editTeamMember(int id, String name) throws TeamMemberNotFoundException {
+    public void editTeamMember(int id, String name) throws CustomNotFoundException {
         boolean found = false;
         for (TeamMember teamMember : teamMembers) {
             if (teamMember.getId() == id) {
@@ -69,7 +74,7 @@ public class TeamMemberList {
 
         }
         if (!found) {
-            throw new TeamMemberNotFoundException();
+            throw new CustomNotFoundException();
         }
     }
 

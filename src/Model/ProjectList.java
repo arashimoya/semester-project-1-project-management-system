@@ -19,21 +19,25 @@ public class ProjectList {
         throw new ProjectNotFoundException();
     }
 
+    public Project getProject(String name) throws ProjectNotFoundException {
+        for (Project project : projects) {
+            if (project.getName().equals(name))
+                return project;
+        }
+        throw new ProjectNotFoundException();
+    }
+
     public ArrayList<Project> getProjects() {
         return projects;
     }
 
     public void addProject(Project project) {
-        boolean isThere = false;
-        for (Project thisProject : projects) {
-            if (thisProject.equals(project))
-                isThere = true;
-        }
-        if (!isThere)
+        if (!projects.contains(project)) {
             projects.add(project);
-        else
-            //needs to be changed later
+        }
+        else {
             System.out.println("Project already exists");
+        }
     }
 
     public void deleteProject(int id) throws ProjectNotFoundException {
@@ -48,7 +52,7 @@ public class ProjectList {
         }
     }
 
-    public void createProject(String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer) {
+    public void createProject(String name, TeamMember scrumMaster, TeamMember productOwner, TeamMember projectCreator, MyDate deadline, Customer customer) {
         projects.add(new Project(idCounter++, name, scrumMaster, productOwner, projectCreator, deadline, customer));
     }
 

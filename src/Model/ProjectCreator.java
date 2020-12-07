@@ -9,6 +9,10 @@ public class ProjectCreator extends TeamMember{
         super(id, name);
     }
 
+    public ProjectCreator(TeamMember teamMember) {
+        super(teamMember.getId(), teamMember.getName());
+    }
+
     public void creatorCreateProject (String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer, ColourIT colourIT) {
         colourIT.getProjectList().createProject(name, scrumMaster, productOwner, projectCreator, deadline, customer);
     }

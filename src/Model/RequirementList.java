@@ -36,6 +36,16 @@ public class RequirementList {
         throw new RequirementNotFoundException();
     }
 
+    public Requirement getRequirement(String name) throws RequirementNotFoundException {
+        for (Requirement requirement :
+                requirements) {
+            if (requirement.getName().equals(name))
+                return requirement;
+
+        }
+        throw new RequirementNotFoundException();
+    }
+
     /**
      * gets requirements
      *
@@ -51,15 +61,12 @@ public class RequirementList {
      * @param requirement requirement to be added
      */
     public void addRequirement(Requirement requirement) {
-        var check = 0;
-        for (Requirement req :
-                requirements) {
-            if (req.equals(requirement))
-                check = 1;
-            //some error
-        }
-        if (check != 0)
+        if (!requirements.contains(requirement)) {
             requirements.add(requirement);
+        }
+        else {
+            System.out.println("Requirement already exists");
+        }
 
     }
 

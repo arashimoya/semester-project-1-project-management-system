@@ -1,18 +1,23 @@
 package Model;
 
 import FileIO.MyFileIO;
+import FileIO.MyXmlParser;
 import Model.ColourIT;
 import Model.ProjectList;
+import parser.ParserException;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-class ColourITFileAdapter {
+
+public class ColourITFileAdapter {
     MyFileIO mfio;
+    MyXmlParser xmlp;
     String fileName;
 
-    public ColourITFileAdapter(String fileName) {
-        mfio = new MyFileIO(fileName);
+    public ColourITFileAdapter(String binFileName, String xmlFileName) {
+        mfio = new MyFileIO(binFileName);
+        xmlp = new MyXmlParser(xmlFileName);
     }
 
     public ColourIT getColourIt() {
@@ -39,4 +44,15 @@ class ColourITFileAdapter {
             System.out.println("IO Error writing to file");
         }
     }
+
+    public void saveToXml (ProjectList projectList) {
+        try {
+            xmlp.writeToXml(projectList);
+        }
+        catch (ParserException e) {
+            System.out.println("Error while parsing");
+        }
+    }
+
+
 }
