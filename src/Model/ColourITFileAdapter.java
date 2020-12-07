@@ -1,3 +1,5 @@
+package Model;
+
 import FileIO.MyFileIO;
 import Model.ColourIT;
 import Model.ProjectList;
