@@ -41,13 +41,14 @@ public class ColourITFileAdapter {
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         } catch (IOException e) {
+            e.printStackTrace();
             System.out.println("IO Error writing to file");
         }
     }
 
-    public void saveToXml (ProjectList projectList) {
+    public void saveToXml (Object o) {
         try {
-            xmlp.writeToXml(projectList);
+            xmlp.writeToXml(o);
         }
         catch (ParserException e) {
             System.out.println("Error while parsing");

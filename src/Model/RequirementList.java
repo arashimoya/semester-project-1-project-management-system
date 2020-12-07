@@ -1,5 +1,6 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  * @author tymon
  * @version 1.0
  */
-public class RequirementList {
+public class RequirementList implements Serializable {
     private ArrayList<Requirement> requirements;
     private int idCounter;
 

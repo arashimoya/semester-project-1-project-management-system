@@ -1,5 +1,6 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Objects;
  * @author tymon
  * @version 1.0
  */
-public class Requirement {
+public class Requirement implements Serializable {
 
     private int ID;
     private int projectID;

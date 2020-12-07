@@ -1,6 +1,8 @@
 package Model;
 
-public class ScrumMaster extends TeamMember {
+import java.io.Serializable;
+
+public class ScrumMaster extends TeamMember implements Serializable {
     public ScrumMaster(int id, String name){
         super(id, name);
     }

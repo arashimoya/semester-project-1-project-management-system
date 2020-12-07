@@ -50,8 +50,9 @@ public class Test {
         colourIT.getProjectList().createProject("TestProject",tymon, oliver, adam, myDate, customer);
 
         ColourITFileAdapter colourITFileAdapter = new ColourITFileAdapter("data.bin", "projects.xml");
-        colourITFileAdapter.saveToXml(colourIT.getProjectList());
         colourITFileAdapter.save(colourIT);
+        System.out.println(colourITFileAdapter.getColourIt());
+        colourITFileAdapter.saveToXml(colourIT);
     }
 }
 

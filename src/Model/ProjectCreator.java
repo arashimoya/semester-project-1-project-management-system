@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ProjectCreator extends TeamMember{
+public class ProjectCreator extends TeamMember implements Serializable {
 
 
     public ProjectCreator (int id, String name) {
