@@ -2,22 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d2f29ec-220b-4979-9250-ee4ba0cc55cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../projects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/website.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../data.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../data/data.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projects.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/projects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ColourIT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ColourIT.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Diagram.asta" beforeDir="false" afterPath="$PROJECT_DIR$/../diagram/Diagram.asta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/FileIO/MyXmlParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/FileIO/MyXmlParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/GUI/ColourITGUIAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/GUI/ColourITGUIAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../data/projects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/Model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/Model/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/Model/ProjectCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/Model/ProjectCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/Model/ProjectList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/Model/ProjectList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/Model/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/Model/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/website.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/website.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project1.html" beforeDir="false" afterPath="$PROJECT_DIR$/project1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project2.html" beforeDir="false" afterPath="$PROJECT_DIR$/project2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/team.html" beforeDir="false" afterPath="$PROJECT_DIR$/team.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +37,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -44,12 +51,28 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/css" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/css" />
+      <recent name="$PROJECT_DIR$/scripts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="script.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/scripts/script.js" working-dir="$PROJECT_DIR$/scripts">
@@ -70,7 +93,8 @@
       <option name="presentableId" value="Default" />
       <updated>1607373337218</updated>
       <workItem from="1607373338403" duration="655000" />
-      <workItem from="1607374020893" duration="1095000" />
+      <workItem from="1607374020893" duration="4226000" />
+      <workItem from="1607437514108" duration="8181000" />
     </task>
     <servers />
   </component>
