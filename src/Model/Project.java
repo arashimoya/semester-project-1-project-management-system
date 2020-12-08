@@ -13,7 +13,7 @@ public class Project implements Serializable {
     private MyDate deadline;
     private Customer customer;
     private String description;
-    private RequirementList requirements;
+    private RequirementList requirementList;
     private TeamMemberList teamMembers;
     private ProjectReportList projectReports;
 
@@ -25,7 +25,7 @@ public class Project implements Serializable {
         this.deadline = deadline;
         this.customer = customer;
         this.description = description;
-        this.requirements = new RequirementList();
+        this.requirementList = new RequirementList();
         this.teamMembers = new TeamMemberList();
         this.projectReports = new ProjectReportList();
         this.id = id;
@@ -64,7 +64,7 @@ public class Project implements Serializable {
     }
 
     public RequirementList getRequirements() {
-        return requirements;
+        return requirementList;
     }
 
     public TeamMemberList getTeamMembers() {
@@ -134,7 +134,7 @@ public class Project implements Serializable {
                 ", deadline=" + deadline +
                 ", customer=" + customer +
                 ", description='" + description + '\'' +
-                ", requirements=" + requirements +
+                ", requirements=" + requirementList +
                 ", teamMembers=" + teamMembers +
                 ", projectReports=" + projectReports +
                 '}';
