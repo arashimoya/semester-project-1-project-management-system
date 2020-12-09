@@ -14,7 +14,7 @@ import org.w3c.dom.Text;
 
 import java.io.IOException;
 
-public class AddEditProjectController {
+public class AddProjectController {
     @FXML
     Button next;
     @FXML

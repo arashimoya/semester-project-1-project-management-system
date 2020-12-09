@@ -35,8 +35,7 @@ public class ProjectList implements Serializable {
     public void addProject(Project project) {
         if (!projects.contains(project)) {
             projects.add(project);
-        }
-        else {
+        } else {
             System.out.println("Project already exists");
         }
     }
@@ -47,9 +46,9 @@ public class ProjectList implements Serializable {
             if (project.getId() == id)
                 projects.remove(project);
             isThere = true;
-        }
-        if (!isThere) {
-            throw new ProjectNotFoundException();
+            if (!isThere) {
+                throw new ProjectNotFoundException();
+            }
         }
     }
 

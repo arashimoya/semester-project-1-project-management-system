@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="379.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddEditProjectController">
+<VBox alignment="CENTER" prefHeight="379.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddProjectController">
    <children>
       <GridPane alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="306.0" prefWidth="483.0">
          <columnConstraints>
