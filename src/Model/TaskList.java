@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class TaskList implements Serializable {
 
     private ArrayList<Task> tasks;
-    private int idCounter;
+    private static int idCounter;
 
     /**
      * No-argument constructor initializing TaskList
@@ -29,24 +29,20 @@ public class TaskList implements Serializable {
      * @param id the ID of task
      * @return task of chosen ID
      */
-    public Task getTask(int id) {
-        Task returnTask = null;
-
+    public Task getTask(int id) throws CustomNotFoundException{
         for (Task task : tasks) {
             if (id == task.getId())
-                returnTask = task;
+                return task;
         }
-        return returnTask;
+        throw new CustomNotFoundException();
     }
 
-    public Task getTask(String name) {
-        Task returnTask = null;
-
+    public Task getTask(String name) throws CustomNotFoundException{
         for (Task task : tasks) {
             if (task.getName().equals(name))
-                returnTask = task;
+                return task;
         }
-        return returnTask;
+        throw new CustomNotFoundException();
     }
 
     /**
@@ -63,26 +59,26 @@ public class TaskList implements Serializable {
      *
      * @param task the task to add to the list
      */
-    public void addTask(Task task) {
+    public void addTask(Task task) throws ObjectAlreadyExistsException{
         if (!tasks.contains(task)) {
             tasks.add(task);
         }
         else {
-            System.out.println("Task already exists");
+            throw new ObjectAlreadyExistsException();
         }
     }
 
     /**
      * Removes a Task of chosen ID from the list
      *
-     * @param id the ID of a task
+     *
      */
-    public void deleteTask(int id) {
-        for (int i = 0; i < tasks.size(); i++) {
-            if (id == tasks.get(i).getId()) {
-                tasks.remove(i);
-                break;
-            }
+    public void deleteTask(Task task) throws CustomNotFoundException{
+        if (tasks.contains(task)) {
+            tasks.remove(task);
+        }
+        else {
+            throw new CustomNotFoundException();
         }
     }
 
@@ -95,27 +91,32 @@ public class TaskList implements Serializable {
      * @param deadline      furthest date the task can be completed
      * @param estimatedTime estimated time of task completion
      */
-    public void createTask(int requirementID, String description, String name, MyDate deadline, int estimatedTime) {
-        tasks.add(new Task(idCounter++, requirementID, description, name, deadline, estimatedTime));
+    public Task createTask(int requirementID, String description, String name, MyDate deadline, int estimatedTime) throws ObjectAlreadyExistsException {
+        Task newTask = new Task(idCounter++, requirementID, description, name, deadline, estimatedTime);
+        if (!tasks.contains(newTask)) {
+            tasks.add(newTask);
+            return newTask;
+        } else {
+            throw new ObjectAlreadyExistsException();
+        }
     }
 
     /**
      * Removes and adds task of chosen ID from and to the list
      *
-     * @param id            id of the task
-     * @param requirementID id of requirement the task is assigned with
      * @param description   description of the task
      * @param name          name of the task
      * @param deadline      furthest date the task can be completed
      * @param estimatedTime estimated time of task completion
      */
-    public void editTask(int id, int requirementID, String description, String name, MyDate deadline, int estimatedTime) {
-        for (int i = 0; i < tasks.size(); i++) {
-            if (id == tasks.get(i).getId()) {
-                tasks.remove(i);
-                break;
-            }
-        }
-        tasks.add(new Task(id, requirementID, description, name, deadline, estimatedTime));
+    public void editTask(Task task, String status, String description, String name, MyDate deadline, int estimatedTime) throws CustomNotFoundException {
+        if (tasks.contains(task)) {
+            task.setStatus(status);
+            task.setDescription(description);
+            task.setName(name);
+            task.setDeadline(deadline);
+            task.setEstimatedTime(estimatedTime);
+        } else
+            throw new CustomNotFoundException();
     }
 }

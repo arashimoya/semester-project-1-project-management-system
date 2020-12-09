@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class ProjectReportList implements Serializable {
     private ArrayList<ProjectReport> projectReports;
 
-    private int idCounter;
+    private static int idCounter;
 
     public ProjectReportList() {
         this.idCounter = 0;
@@ -26,28 +26,30 @@ public class ProjectReportList implements Serializable {
         return projectReports;
     }
 
-    public void addProjectReport(ProjectReport projectReport) {
+    public void addProjectReport(ProjectReport projectReport) throws ObjectAlreadyExistsException {
         if (!projectReports.contains(projectReport)) {
             projectReports.add(projectReport);
         }
         else {
-            System.out.println("Project report already exists");
+            throw new ObjectAlreadyExistsException();
         }
     }
 
-    public void deleteProjectReport(int id) throws CustomNotFoundException {
-        boolean isThere = false;
-        for (ProjectReport projectReport : projectReports) {
-            if (projectReport.getID() == id) {
-                projectReports.remove(projectReport);
-                isThere = true;
-            }
-        }
-        if (!isThere)
+    public void deleteProjectReport(ProjectReport projectReport) throws CustomNotFoundException {
+        if (projectReports.contains(projectReport)) {
+            projectReports.remove(projectReport);
+        } else {
             throw new CustomNotFoundException();
+        }
     }
 
-    public void createProjectReport(ScrumMaster scrumMaster, String message) {
-        projectReports.add(new ProjectReport(idCounter++, scrumMaster, message));
+    public ProjectReport createProjectReport(ScrumMaster scrumMaster, String message) throws ObjectAlreadyExistsException{
+        ProjectReport newProjectReport = new ProjectReport(idCounter++, scrumMaster, message);
+        if (!projectReports.contains(newProjectReport)) {
+            projectReports.add(newProjectReport);
+            return newProjectReport;
+        } else {
+            throw new ObjectAlreadyExistsException();
+        }
     }
 }
