@@ -55,7 +55,7 @@
                      <VBox.margin>
                         <Insets right="10.0" top="10.0" />
                      </VBox.margin></Button>
-                  <Button fx:id="Edit" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="Edit">
+                  <Button fx:id="Edit" mnemonicParsing="false" onAction="#handleEditProject" prefHeight="25.0" prefWidth="101.0" text="Edit">
                      <VBox.margin>
                         <Insets right="10.0" />
                      </VBox.margin></Button>

@@ -32,11 +32,10 @@ public class ProjectList implements Serializable {
         return projects;
     }
 
-    public void addProject(Project project) throws ObjectAlreadyExistsException{
+    public void addProject(Project project) throws ObjectAlreadyExistsException {
         if (!projects.contains(project)) {
             projects.add(project);
-        }
-        else {
+        } else {
             throw new ObjectAlreadyExistsException();
         }
     }
@@ -44,8 +43,7 @@ public class ProjectList implements Serializable {
     public void deleteProject(Project project) throws CustomNotFoundException {
         if (projects.contains(project)) {
             projects.remove(project);
-        }
-        else
+        } else
             throw new CustomNotFoundException();
     }
 
@@ -59,15 +57,14 @@ public class ProjectList implements Serializable {
         }
     }
 
-    public void editProject(Project project, String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer) throws CustomNotFoundException {
+    public void editProject(Project project, String name, TeamMember scrumMaster, TeamMember productOwner, TeamMember projectCreator, MyDate deadline, Customer customer, String description) throws CustomNotFoundException {
         if (projects.contains(project)) {
             project.setName(name);
             project.setScrumMaster(scrumMaster);
             project.setProductOwner(productOwner);
             project.setDeadline(deadline);
             project.setCustomer(customer);
-        }
-        else {
+        } else {
             throw new CustomNotFoundException();
         }
     }

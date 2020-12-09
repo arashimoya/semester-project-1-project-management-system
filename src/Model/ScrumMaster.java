@@ -3,7 +3,7 @@ package Model;
 import java.io.Serializable;
 
 public class ScrumMaster extends TeamMember implements Serializable {
-    public ScrumMaster(int id, String name){
+    public ScrumMaster(int id, String name) {
         super(id, name);
     }
 
@@ -11,7 +11,7 @@ public class ScrumMaster extends TeamMember implements Serializable {
         super(teamMember.getId(), teamMember.getName());
     }
 
-    public void documentChanges(ProjectList projectList, Project targetProject, String message) {
+    public void documentChanges(ProjectList projectList, Project targetProject, String message) throws ObjectAlreadyExistsException {
         for (Project project : projectList.getProjects()) {
             if (targetProject.equals(project)) {
                 project.getProjectReports().createProjectReport(this, message);

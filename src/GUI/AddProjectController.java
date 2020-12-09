@@ -37,13 +37,12 @@ public class AddProjectController {
     TextField customerNameField;
     private final ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "data.xml");
 
-    public void handleNext(ActionEvent e) throws IllegalDateException, CustomNotFoundException, IOException {
+    public void handleNext(ActionEvent e) throws IllegalDateException, CustomNotFoundException, IOException, ObjectAlreadyExistsException {
         String name = nameField.getText();
         String scrumMasterName = scrumMasterNameField.getText();
         String customerName = customerNameField.getText();
         String projectCreatorName = projectCreatorNameField.getText();
         String projectOwnerName = projectOwnerNameField.getText();
-        int id = 3;
         int day = Integer.parseInt(dayField.getText());
         int month = Integer.parseInt(monthField.getText());
         int year = Integer.parseInt(yearField.getText());

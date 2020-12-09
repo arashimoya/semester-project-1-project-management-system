@@ -59,7 +59,7 @@ public class Project implements Serializable {
         return customer;
     }
 
-    public String getDescription(){
+    public String getDescription() {
         return description;
     }
 
@@ -79,12 +79,12 @@ public class Project implements Serializable {
         this.name = name;
     }
 
-    public void setScrumMaster(ScrumMaster scrumMaster) {
-        this.scrumMaster = scrumMaster;
+    public void setScrumMaster(TeamMember scrumMaster) {
+        this.scrumMaster = new ScrumMaster(scrumMaster);
     }
 
-    public void setProductOwner(ProductOwner productOwner) {
-        this.productOwner = productOwner;
+    public void setProductOwner(TeamMember productOwner) {
+        this.productOwner = new ProductOwner(productOwner);
     }
 
     public void setDeadline(MyDate deadline) {
