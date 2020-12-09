@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ProjectFieldsController">
    <children>
       <MenuBar>
          <menus>
@@ -56,13 +56,13 @@
             <Label text="Deadline" GridPane.rowIndex="2" />
             <Label text="Project Creator" GridPane.rowIndex="5" />
             <Label text="Customer" GridPane.rowIndex="6" />
-            <Label text="Label" GridPane.columnIndex="1" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="nameLabel" text="Label" GridPane.columnIndex="1" />
+            <Label fx:id="idLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="deadlineLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="scrumMasterLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="projectOwnerLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="projectCreatorLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="customerLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
       </GridPane>
       <TabPane prefHeight="365.0" prefWidth="398.0" tabClosingPolicy="UNAVAILABLE">
@@ -78,12 +78,13 @@
                       <RowConstraints maxHeight="336.0" minHeight="10.0" prefHeight="266.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ListView prefHeight="200.0" prefWidth="200.0" />
+                        <ListView fx:id="requirementsListView" prefHeight="200.0" prefWidth="200.0" />
                         <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                            <children>
                               <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="163.0" text="Add" />
                               <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="212.0" text="Edit" />
                               <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="182.0" text="Delete" />
+                              <Button fx:id="goBack" mnemonicParsing="false" onAction="#changeScene" prefHeight="27.0" prefWidth="112.0" text="Back" />
                            </children>
                         </VBox>
                      </children>

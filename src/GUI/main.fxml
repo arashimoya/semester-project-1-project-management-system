@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.mainController">
    <children>
       <MenuBar>
         <menus>
@@ -43,7 +43,7 @@
           <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ListView prefHeight="308.0" prefWidth="201.0">
+            <ListView fx:id="projects" prefHeight="308.0" prefWidth="201.0">
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" top="10.0" />
                </GridPane.margin>
@@ -51,19 +51,19 @@
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1" />
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="118.0" text="Add">
+                  <Button fx:id="Add" mnemonicParsing="false" onAction="#handleAddProject" prefHeight="25.0" prefWidth="118.0" text="Add">
                      <VBox.margin>
                         <Insets right="10.0" top="10.0" />
                      </VBox.margin></Button>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="Edit">
+                  <Button fx:id="Edit" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="Edit">
                      <VBox.margin>
                         <Insets right="10.0" />
                      </VBox.margin></Button>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Delete">
+                  <Button fx:id="Delete" mnemonicParsing="false" onAction="#handleDelete" prefHeight="25.0" prefWidth="112.0" text="Delete">
                      <VBox.margin>
                         <Insets right="10.0" />
                      </VBox.margin></Button>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="View">
+                  <Button fx:id="View" mnemonicParsing="false" onAction="#detailedProjectView" prefHeight="25.0" prefWidth="108.0" text="View">
                      <VBox.margin>
                         <Insets right="10.0" />
                      </VBox.margin></Button>

@@ -41,8 +41,7 @@ public class TeamMemberList implements Serializable {
     public void addTeamMember(TeamMember teamMember) {
         if (!teamMembers.contains(teamMember)) {
             teamMembers.add(teamMember);
-        }
-        else {
+        } else {
             System.out.println("Team member already exists");
         }
     }
@@ -60,7 +59,7 @@ public class TeamMemberList implements Serializable {
         }
     }
 
-    public void CreateTeamMember(String name) {
+    public void createTeamMember(String name) {
         TeamMember teamMember = new TeamMember(idCounter++, name);
         addTeamMember(teamMember);
     }
