@@ -48,7 +48,7 @@ public class TaskReport implements Serializable {
   }
 
   /**
-   * Gets report
+   * Gets the report
    * @return report
    */
   public String getReport()

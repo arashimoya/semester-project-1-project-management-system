@@ -25,16 +25,16 @@ public class Requirement implements Serializable {
     private TeamMemberList teamMembers;
 
     /**
-     * constructor that takes all the listed data below
-     * and initialises team members list
-     *
-     * @param projectID
-     * @param userStoryText
-     * @param name
-     * @param functional
-     * @param deadline
-     * @param estimatedTime
-     * @param priority
+     * 9-argument constructor initializing taskList and teamMembers list
+     * @param id ID of the requirement
+     * @param projectID ID of a project the requirement is assigned to
+     * @param userStoryText user story text of the requirement
+     * @param status status of the requirement
+     * @param name name of the requirement
+     * @param deadline deadline of the requirement
+     * @param functional information whether the requirement is functional or not
+     * @param priority priority of the requirement
+     * @param estimatedTime estimated time of completing the requirement
      */
     public Requirement(int id, int projectID, String userStoryText, String status, String name, MyDate deadline, boolean functional, int priority, int estimatedTime) {
         this.ID = id;
@@ -50,85 +50,166 @@ public class Requirement implements Serializable {
         teamMembers = new TeamMemberList();
     }
 
+    /**
+     * Gets the ID of the requirement
+     * @return ID
+     */
     public int getID() {
         return ID;
     }
 
+    /**
+     * Gets the ID of the project the requirement is assigned to
+     * @return projectID
+     */
     public int getProjectID() {
         return projectID;
     }
 
+    /**
+     * Gets user story text of the requirement
+     * @return userStoryText
+     */
     public String getUserStoryText() {
         return userStoryText;
     }
 
+    /**
+     * Gets the status of the requirement
+     * @return status
+     */
     public String getStatus() {
         return status;
     }
 
+    /**
+     * Gets time spent on the requirement
+     * @return timeSpent
+     */
     public int getTimeSpent() {
         return timeSpent;
     }
 
+    /**
+     * Gets the name of the requirement
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Gets deadline of the requirement
+     * @return deadline
+     */
     public MyDate getDeadline() {
         return deadline;
     }
 
+    /**
+     * Gets the information whether the requirement is functional or not
+     * @return functional
+     */
     public boolean isFunctional() {
         return functional;
     }
 
+    /**
+     * Gets the priority of the requirement
+     * @return priority
+     */
     public int getPriority() {
         return priority;
     }
 
+    /**
+     * Gets estimated time of completing the requirement
+     * @return estimatedTime
+     */
     public int getEstimatedTime() {
         return estimatedTime;
     }
 
+    /**
+     * Gets the list of the tasks assigned to this requirement
+     * @return taskList
+     */
     public TaskList getTasks() {
         return taskList;
     }
 
+    /**
+     * Gets the list of the team members assigned to this requirement
+     * @return
+     */
     public TeamMemberList getTeamMembers() {
         return teamMembers;
     }
 
+    /**
+     * Sets the user story text of the requirement
+     * @param userStoryText user story text of the requirement
+     */
     public void setUserStoryText(String userStoryText) {
         this.userStoryText = userStoryText;
     }
 
+    /**
+     * Sets the status of the requirement
+     * @param status status of the requirement
+     */
     public void setStatus(String status) {
         this.status = status;
     }
 
+    /**
+     * Sets time spent of the requirement
+     * @param timeSpent time spent on the requirement
+     */
     public void setTimeSpent(int timeSpent) {
         this.timeSpent = timeSpent;
     }
 
+    /**
+     * Sets the name of the requirement
+     * @param name the name of the requirement
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Sets the deadline of the requirement
+     * @param deadline deadline of the requirement
+     */
     public void setDeadline(MyDate deadline) {
         this.deadline = deadline;
     }
 
+    /**
+     * Sets the boolean variable of functional
+     * @param functional the information whether the requirement is functional or not
+     */
     public void setFunctional(boolean functional) {
         this.functional = functional;
     }
 
+    /**
+     * Sets the priority of the requirement
+     * @param priority
+     */
     public void setPriority(int priority) {
         this.priority = priority;
     }
 
+    /**
+     * Sets estimated time of completing the requirement
+     * @param estimatedTime estimated time of completing the requirement
+     */
     public void setEstimatedTime(int estimatedTime) {
         this.estimatedTime = estimatedTime;
     }
+
 
     @Override
     public boolean equals(Object o) {
