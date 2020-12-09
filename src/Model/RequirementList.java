@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class RequirementList implements Serializable {
     private ArrayList<Requirement> requirements;
-    private int idCounter;
+    private static int idCounter;
 
     /**
      * no argument constructor that initialize the requirements list
@@ -27,24 +27,24 @@ public class RequirementList implements Serializable {
      * @param ID id of a requirement
      * @return requirement object if exist else null
      */
-    public Requirement getRequirement(int ID) throws RequirementNotFoundException {
+    public Requirement getRequirement(int ID) throws CustomNotFoundException {
         for (Requirement requirement :
                 requirements) {
             if (requirement.getID() == ID)
                 return requirement;
 
         }
-        throw new RequirementNotFoundException();
+        throw new CustomNotFoundException();
     }
 
-    public Requirement getRequirement(String name) throws RequirementNotFoundException {
+    public Requirement getRequirement(String name) throws CustomNotFoundException {
         for (Requirement requirement :
                 requirements) {
             if (requirement.getName().equals(name))
                 return requirement;
 
         }
-        throw new RequirementNotFoundException();
+        throw new CustomNotFoundException();
     }
 
     /**
@@ -61,12 +61,12 @@ public class RequirementList implements Serializable {
      *
      * @param requirement requirement to be added
      */
-    public void addRequirement(Requirement requirement) {
+    public void addRequirement(Requirement requirement) throws ObjectAlreadyExistsException {
         if (!requirements.contains(requirement)) {
             requirements.add(requirement);
         }
         else {
-            System.out.println("Requirement already exists");
+            throw new ObjectAlreadyExistsException();
         }
 
     }
@@ -74,18 +74,12 @@ public class RequirementList implements Serializable {
     /**
      * delete requirement with given ID from the list if there was one
      *
-     * @param ID id of a requirement that is going to be deleted
      */
-    public void deleteRequirement(int ID) throws RequirementNotFoundException {
-        boolean isThere = false;
-        for (Requirement requirement :
-                requirements) {
-            if (requirement.getID() == ID)
-                requirements.remove(requirement);
-            isThere = true;
-        }
-        if (isThere = false) {
-            throw new RequirementNotFoundException();
+    public void deleteRequirement(Requirement requirement) throws CustomNotFoundException{
+        if(requirements.contains(requirement)){
+            requirements.remove(requirement);
+        } else {
+            throw new CustomNotFoundException();
         }
     }
 
@@ -101,10 +95,14 @@ public class RequirementList implements Serializable {
      * @param estimatedTime estimated time
      * @param priority      requirement priority
      */
-    public void createRequirement(int projectID, String userStoryText, String status, String name, MyDate deadline, boolean functional, int priority, int estimatedTime) {
+    public Requirement createRequirement(int projectID, String userStoryText, String status, String name, MyDate deadline, boolean functional, int priority, int estimatedTime) throws ObjectAlreadyExistsException {
 
         Requirement requirement = new Requirement(idCounter++, projectID, userStoryText, status, name, deadline, functional, priority, estimatedTime);
-        addRequirement(requirement);
+        if (!requirements.contains(requirement)) {
+            requirements.add(requirement);
+            return requirement;
+        }
+        else throw new ObjectAlreadyExistsException();
     }
 
 
@@ -112,7 +110,6 @@ public class RequirementList implements Serializable {
      * creates a new requirement to the list of requirements
      * if this requirement is unique adds it to the list of requirements
      *
-     * @param ID            id of a requirement that is going to be edited
      * @param userStoryText user story text
      * @param name          name of the requirement
      * @param functional    if requirement is functional or not
@@ -120,22 +117,18 @@ public class RequirementList implements Serializable {
      * @param estimatedTime estimated time
      * @param priority      priority of the requirement
      */
-    public void editRequirement(int ID, String userStoryText, String status, String name, MyDate deadline, boolean functional, int priority, int estimatedTime) throws RequirementNotFoundException {
-        boolean isThere = false;
-        for (Requirement requirement : requirements) {
-            if (requirement.getID() == ID) {
+    public void editRequirement(Requirement requirement, String userStoryText, String status, String name, MyDate deadline, boolean functional, int priority, int estimatedTime) throws CustomNotFoundException {
+        if (requirements.contains(requirement)) {
                 requirement.setDeadline(deadline);
                 requirement.setFunctional(functional);
                 requirement.setName(name);
                 requirement.setPriority(priority);
                 requirement.setUserStoryText(userStoryText);
                 requirement.setEstimatedTime(estimatedTime);
-                isThere = true;
-            }
+            } else {
+            throw new CustomNotFoundException();
         }
-        if (isThere = false) {
-            throw new RequirementNotFoundException();
-        }
+
     }
 
 

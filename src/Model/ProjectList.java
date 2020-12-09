@@ -5,71 +5,70 @@ import java.util.ArrayList;
 
 public class ProjectList implements Serializable {
     private ArrayList<Project> projects;
-    private int idCounter;
+    private static int idCounter;
 
     public ProjectList() {
         projects = new ArrayList<Project>();
         idCounter = 0;
     }
 
-    public Project getProject(int id) throws ProjectNotFoundException {
+    public Project getProject(int id) throws CustomNotFoundException {
         for (Project project : projects) {
             if (project.getId() == id)
                 return project;
         }
-        throw new ProjectNotFoundException();
+        throw new CustomNotFoundException();
     }
 
-    public Project getProject(String name) throws ProjectNotFoundException {
+    public Project getProject(String name) throws CustomNotFoundException {
         for (Project project : projects) {
             if (project.getName().equals(name))
                 return project;
         }
-        throw new ProjectNotFoundException();
+        throw new CustomNotFoundException();
     }
 
     public ArrayList<Project> getProjects() {
         return projects;
     }
 
-    public void addProject(Project project) {
+    public void addProject(Project project) throws ObjectAlreadyExistsException{
         if (!projects.contains(project)) {
             projects.add(project);
+        }
+        else {
+            throw new ObjectAlreadyExistsException();
+        }
+    }
+
+    public void deleteProject(Project project) throws CustomNotFoundException {
+        if (projects.contains(project)) {
+            projects.remove(project);
+        }
+        else
+            throw new CustomNotFoundException();
+    }
+
+    public Project createProject(String name, TeamMember scrumMaster, TeamMember productOwner, TeamMember projectCreator, MyDate deadline, Customer customer, String description) throws ObjectAlreadyExistsException {
+        Project newProject = new Project(idCounter++, name, scrumMaster, productOwner, projectCreator, deadline, customer, description);
+        if (!projects.contains(newProject)) {
+            projects.add(newProject);
+            return newProject;
         } else {
-            System.out.println("Project already exists");
+            throw new ObjectAlreadyExistsException();
         }
     }
 
-    public void deleteProject(int id) throws ProjectNotFoundException {
-        boolean isThere = false;
-        for (Project project : projects) {
-            if (project.getId() == id)
-                projects.remove(project);
-            isThere = true;
-            if (!isThere) {
-                throw new ProjectNotFoundException();
-            }
+    public void editProject(Project project, String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer) throws CustomNotFoundException {
+        if (projects.contains(project)) {
+            project.setName(name);
+            project.setScrumMaster(scrumMaster);
+            project.setProductOwner(productOwner);
+            project.setDeadline(deadline);
+            project.setCustomer(customer);
         }
-    }
-
-    public void createProject(String name, TeamMember scrumMaster, TeamMember productOwner, TeamMember projectCreator, MyDate deadline, Customer customer, String description) {
-        projects.add(new Project(idCounter++, name, scrumMaster, productOwner, projectCreator, deadline, customer, description));
-    }
-
-    public void editProject(int id, String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer) throws ProjectNotFoundException {
-        boolean isThere = false;
-        for (Project project : projects) {
-            if (project.getId() == id) {
-                project.setName(name);
-                project.setScrumMaster(scrumMaster);
-                project.setProductOwner(productOwner);
-                project.setDeadline(deadline);
-                project.setCustomer(customer);
-                isThere = true;
-            }
-        }
-        if (!isThere) {
-            throw new ProjectNotFoundException();
+        else {
+            throw new CustomNotFoundException();
         }
     }
 

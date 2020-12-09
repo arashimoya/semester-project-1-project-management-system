@@ -10,8 +10,7 @@ import java.util.Objects;
 
 public class TeamMemberList implements Serializable {
     private ArrayList<TeamMember> teamMembers;
-    private int idCounter;
-
+    private static int idCounter;
 
     public TeamMemberList() {
         teamMembers = new ArrayList<TeamMember>();
@@ -38,52 +37,38 @@ public class TeamMemberList implements Serializable {
         return teamMembers;
     }
 
-    public void addTeamMember(TeamMember teamMember) {
+    public void addTeamMember(TeamMember teamMember) throws ObjectAlreadyExistsException {
         if (!teamMembers.contains(teamMember)) {
             teamMembers.add(teamMember);
-        } else {
-            System.out.println("Team member already exists");
+        }
+        else {
+            throw new ObjectAlreadyExistsException();
         }
     }
 
-    public void deleteTeamMember(int id) throws CustomNotFoundException {
-        boolean removed = false;
-        for (TeamMember teamMember : teamMembers) {
-            if (teamMember.getId() == id) {
-                teamMembers.remove(teamMember);
-                removed = true;
-            }
-        }
-        if (!removed) {
+    public void deleteTeamMember(TeamMember teamMember) throws CustomNotFoundException {
+        if (teamMembers.contains(teamMember))
+            teamMembers.remove(teamMember);
+        else
             throw new CustomNotFoundException();
-        }
     }
 
-    public void createTeamMember(String name) {
+    public TeamMember createTeamMember(String name) throws ObjectAlreadyExistsException{
         TeamMember teamMember = new TeamMember(idCounter++, name);
-        addTeamMember(teamMember);
+        if (!teamMembers.contains(teamMember)){
+            teamMembers.add(teamMember);
+            return teamMember;
+        }
+        throw new ObjectAlreadyExistsException();
     }
 
-    public void editTeamMember(int id, String name) throws CustomNotFoundException {
-        boolean found = false;
-        for (TeamMember teamMember : teamMembers) {
-            if (teamMember.getId() == id) {
-                teamMember.setName(name);
-                found = true;
-            }
-
+    public void editTeamMember(TeamMember teamMember, String name) throws CustomNotFoundException {
+        if (teamMembers.contains(teamMember)) {
+            teamMember.setName(name);
         }
-        if (!found) {
+        else{
             throw new CustomNotFoundException();
         }
-    }
-
-
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        TeamMemberList that = (TeamMemberList) o;
-        return Objects.equals(teamMembers, that.teamMembers);
     }
 
 }
