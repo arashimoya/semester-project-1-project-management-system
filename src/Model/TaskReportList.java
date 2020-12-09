@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class TaskReportList implements Serializable {
     private ArrayList<TaskReport> taskReports;
-    private int idCounter;
+    private static int idCounter;
 
     /**
      * No-argument constructor initializing the TaskReportList
@@ -52,27 +52,24 @@ public class TaskReportList implements Serializable {
      *
      * @param taskReport the task report to add to the list
      */
-    public void addTaskReport(TaskReport taskReport) {
+    public void addTaskReport(TaskReport taskReport) throws ObjectAlreadyExistsException {
         if (!taskReports.contains(taskReport)) {
             taskReports.add(taskReport);
         }
         else {
-            System.out.println("already exists");
+            throw new ObjectAlreadyExistsException();
         }
     }
 
     /**
      * Removes a task report of the chosen id from the list
      *
-     * @param id the id of the task report to delete
+     *
      */
-    public void deleteTask(int id) {
-        for (int i = 0; i < taskReports.size(); i++) {
-            if (id == taskReports.get(i).getId()) {
-                taskReports.remove(i);
-                break;
-            }
-        }
+    public void deleteTaskReport(TaskReport taskReport) throws CustomNotFoundException {
+        if (taskReports.contains(taskReport)) {
+            taskReports.remove(taskReport);
+        } else throw new CustomNotFoundException();
     }
 
     /**
@@ -82,25 +79,13 @@ public class TaskReportList implements Serializable {
      * @param report       report represented by String
      * @param reportDate   date the report was sent
      */
-    public void createTaskReport(int teamMemberID, String report, MyDate reportDate) {
-        taskReports.add(new TaskReport(idCounter++, teamMemberID, report, reportDate));
-    }
-
-    /**
-     * Removes and adds task report of chosen ID from and to the list
-     *
-     * @param id           the ID of the task report
-     * @param teamMemberID ID of the team member reporting
-     * @param report       report represented by String
-     * @param reportDate   date the report was sent
-     */
-    public void editTask(int id, int teamMemberID, String report, MyDate reportDate) {
-        for (int i = 0; i < taskReports.size(); i++) {
-            if (id == taskReports.get(i).getId()) {
-                taskReports.remove(i);
-                break;
-            }
+    public TaskReport createTaskReport(int teamMemberID, String report, MyDate reportDate) throws ObjectAlreadyExistsException{
+        TaskReport newTaskReport = new TaskReport(idCounter++, teamMemberID, report, reportDate);
+        if (!taskReports.contains(newTaskReport)) {
+            taskReports.add(newTaskReport);
+            return newTaskReport;
+        } else {
+            throw new ObjectAlreadyExistsException();
         }
-        taskReports.add(new TaskReport(id, teamMemberID, report, reportDate));
     }
 }
