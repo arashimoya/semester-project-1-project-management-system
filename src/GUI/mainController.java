@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class mainController implements Initializable {
@@ -28,6 +29,10 @@ public class mainController implements Initializable {
     Button View;
     @FXML
     ListView<String> projects;
+    @FXML
+    ListView<String> teamMembers;
+    @FXML
+    ListView<String> customers;
     private ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "projects.xml");
 
 
@@ -36,11 +41,28 @@ public class mainController implements Initializable {
         adapter = new ColourITFileAdapter("data.bin", "data.xml");
         ColourIT colourIT = adapter.getColourIt();
         ArrayList<Project> projectList;
+        ArrayList<TeamMember> teamMembersList;
+        ArrayList<Customer> customersList;
+
         projectList = colourIT.getProjectList().getProjects();
+        teamMembersList = colourIT.getTeamMemberList().getTeamMembers();
+        customersList = colourIT.getCustomerList().getCustomers();
+        customersList.add(new Customer(1, "huj"));
+
 
         for (Project project : projectList) {
             projects.getItems().add(project.getName());
         }
+        for (TeamMember teamMember : teamMembersList) {
+            System.out.println(teamMember);
+            teamMembers.getItems().add(teamMember.getName());
+        }
+        System.out.println(customersList);
+        for (Customer customer : customersList) {
+            System.out.println(customer);
+            customers.getItems().add(customer.getName());
+        }
+
     }
 
     public Project viewDetails() throws CustomNotFoundException {
