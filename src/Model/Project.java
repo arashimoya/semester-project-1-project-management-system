@@ -110,7 +110,6 @@ public class Project implements Serializable {
      * Gets the description of the project
      * @return
      */
-    public String getDescription(){
 
     public String getDescription() {
 
@@ -121,7 +120,7 @@ public class Project implements Serializable {
      * Gets the list of requirements
      * @return requirementList
      */
-    public RequirementList getRequirements() {
+    public RequirementList getRequirementList() {
         return requirementList;
     }
 
@@ -129,7 +128,7 @@ public class Project implements Serializable {
      * Gets the list of team members
      * @return teamMembers
      */
-    public TeamMemberList getTeamMembers() {
+    public TeamMemberList getTeamMemberList() {
         return teamMembers;
     }
 
@@ -137,7 +136,7 @@ public class Project implements Serializable {
      * Gets the list of project reports
      * @return projectReports
      */
-    public ProjectReportList getProjectReports() {
+    public ProjectReportList getProjectReportList() {
         return projectReports;
     }
 
@@ -164,6 +163,7 @@ public class Project implements Serializable {
      */
     public void setProductOwner(ProductOwner productOwner) {
         this.productOwner = productOwner;
+    }
 
     public void setScrumMaster(TeamMember scrumMaster) {
         this.scrumMaster = new ScrumMaster(scrumMaster);
@@ -208,8 +208,6 @@ public class Project implements Serializable {
 
         if (getId() != project.getId()) return false;
         if (getName() != null ? !getName().equals(project.getName()) : project.getName() != null) return false;
-        if (getRequirements() != null ? !getRequirements().equals(project.getRequirements()) : project.getRequirements() != null)
-            return false;
         if (getScrumMaster() != null ? !getScrumMaster().equals(project.getScrumMaster()) : project.getScrumMaster() != null)
             return false;
         if (getProductOwner() != null ? !getProductOwner().equals(project.getProductOwner()) : project.getProductOwner() != null)
@@ -220,9 +218,29 @@ public class Project implements Serializable {
             return false;
         if (getCustomer() != null ? !getCustomer().equals(project.getCustomer()) : project.getCustomer() != null)
             return false;
-        return getTeamMembers() != null ? getTeamMembers().equals(project.getTeamMembers()) : project.getTeamMembers() == null;
+        if (getDescription() != null ? !getDescription().equals(project.getDescription()) : project.getDescription() != null)
+            return false;
+        if (getRequirementList() != null ? !getRequirementList().equals(project.getRequirementList()) : project.getRequirementList() != null)
+            return false;
+        if (teamMembers != null ? !teamMembers.equals(project.teamMembers) : project.teamMembers != null) return false;
+        return projectReports != null ? projectReports.equals(project.projectReports) : project.projectReports == null;
     }
 
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getScrumMaster() != null ? getScrumMaster().hashCode() : 0);
+        result = 31 * result + (getProductOwner() != null ? getProductOwner().hashCode() : 0);
+        result = 31 * result + (getProjectCreator() != null ? getProjectCreator().hashCode() : 0);
+        result = 31 * result + (getDeadline() != null ? getDeadline().hashCode() : 0);
+        result = 31 * result + (getCustomer() != null ? getCustomer().hashCode() : 0);
+        result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+        result = 31 * result + (getRequirementList() != null ? getRequirementList().hashCode() : 0);
+        result = 31 * result + (teamMembers != null ? teamMembers.hashCode() : 0);
+        result = 31 * result + (projectReports != null ? projectReports.hashCode() : 0);
+        return result;
+    }
 
     @Override
     public String toString() {
@@ -235,7 +253,7 @@ public class Project implements Serializable {
                 ", deadline=" + deadline +
                 ", customer=" + customer +
                 ", description='" + description + '\'' +
-                ", requirements=" + requirementList +
+                ", requirementList=" + requirementList +
                 ", teamMembers=" + teamMembers +
                 ", projectReports=" + projectReports +
                 '}';

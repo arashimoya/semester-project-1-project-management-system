@@ -63,5 +63,4 @@ public class Customer implements Serializable {
   {
     return "Customer{" + "id=" + id + ", name='" + name + '\'' + '}';
   }
-
 }

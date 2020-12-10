@@ -16,12 +16,13 @@ public class Task implements Serializable {
     private int requirementID;
     private String description;
     private int timeSpent;
+    private String status;
     private String name;
     private MyDate deadline;
-    private String status;
+    private int estimatedTime;
     private TaskReportList taskReportList;
     private TeamMemberList teamMemberList;
-    private int estimatedTime;
+
 
 
     /**
@@ -113,11 +114,11 @@ public class Task implements Serializable {
         return estimatedTime;
     }
 
-    public TaskReportList getTaskReports() {
+    public TaskReportList getTaskReportList() {
         return taskReportList;
     }
 
-    public TeamMemberList getTeamMembers() {
+    public TeamMemberList getTeamMemberList() {
         return teamMemberList;
     }
 

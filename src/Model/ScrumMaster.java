@@ -12,10 +12,8 @@ public class ScrumMaster extends TeamMember implements Serializable {
      * @param id id of the scrum master
      * @param name name of the scrum master
      */
-    public ScrumMaster(int id, String name){
 
     public ScrumMaster(int id, String name) {
-
         super(id, name);
     }
 
@@ -34,13 +32,12 @@ public class ScrumMaster extends TeamMember implements Serializable {
      * @param targetProject the project that is documented
      * @param message message of the documentation
      */
-    public void documentChanges(ProjectList projectList, Project targetProject, String message) {
 
     public void documentChanges(ProjectList projectList, Project targetProject, String message) throws ObjectAlreadyExistsException {
 
         for (Project project : projectList.getProjects()) {
             if (targetProject.equals(project)) {
-                project.getProjectReports().createProjectReport(this, message);
+                project.getProjectReportList().createProjectReport(this, message);
             }
         }
     }

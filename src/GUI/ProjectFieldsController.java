@@ -53,7 +53,7 @@ public class ProjectFieldsController {
         projectCreatorLabel.setText(project.getProjectCreator().getName());
         projectOwnerLabel.setText(project.getProductOwner().getName());
         customerLabel.setText(project.getCustomer().getName());
-        ArrayList<Requirement> reqs = project.getRequirements().getRequirements();
+        ArrayList<Requirement> reqs = project.getRequirementList().getRequirements();
         for (Requirement requirement : reqs)
             requirementsListView.getItems().add("ID: " + requirement.getID() + "    Name:  " + requirement.getName());
     }

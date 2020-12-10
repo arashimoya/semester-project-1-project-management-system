@@ -2,7 +2,7 @@ package Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Objects;
+
 
 /**
  * class to hold a list of customers

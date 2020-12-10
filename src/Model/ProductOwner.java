@@ -27,7 +27,7 @@ public class ProductOwner extends TeamMember implements Serializable {
      * @param status edited status
      */
     public void editStatus(Project project, Requirement requirement,  String status) {
-        for (Requirement targetRequirement : project.getRequirements().getRequirements()){
+        for (Requirement targetRequirement : project.getRequirementList().getRequirements()){
             if(targetRequirement.equals(requirement)) {
                 targetRequirement.setStatus(status);
             }

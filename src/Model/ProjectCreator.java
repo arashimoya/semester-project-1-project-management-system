@@ -39,7 +39,6 @@ public class ProjectCreator extends TeamMember implements Serializable {
      * @param description description of the project
      * @param colourIT parameter initializing list of team members, list of requirements and list of project reports
      */
-    public void creatorCreateProject (String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer, String description, ColourIT colourIT) {
 
     public void creatorCreateProject (String name, ScrumMaster scrumMaster, ProductOwner productOwner, ProjectCreator projectCreator, MyDate deadline, Customer customer, String description, ColourIT colourIT) throws ObjectAlreadyExistsException {
 
@@ -52,7 +51,7 @@ public class ProjectCreator extends TeamMember implements Serializable {
                 project.setProductOwner(productOwner);
                 project.setScrumMaster(scrumMaster);
                 for (TeamMember teamMember : teamMembers) {
-                    project.getTeamMembers().addTeamMember(teamMember);
+                    project.getTeamMemberList().addTeamMember(teamMember);
                 }
             }
         }

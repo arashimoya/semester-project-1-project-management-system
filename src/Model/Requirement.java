@@ -134,7 +134,7 @@ public class Requirement implements Serializable {
      * Gets the list of the tasks assigned to this requirement
      * @return taskList
      */
-    public TaskList getTasks() {
+    public TaskList getTaskList() {
         return taskList;
     }
 
@@ -230,7 +230,8 @@ public class Requirement implements Serializable {
         if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) return false;
         if (getDeadline() != null ? !getDeadline().equals(that.getDeadline()) : that.getDeadline() != null)
             return false;
-        if (taskList != null ? !taskList.equals(that.taskList) : that.taskList != null) return false;
+        if (getTaskList() != null ? !getTaskList().equals(that.getTaskList()) : that.getTaskList() != null)
+            return false;
         return getTeamMembers() != null ? getTeamMembers().equals(that.getTeamMembers()) : that.getTeamMembers() == null;
     }
 
@@ -246,7 +247,7 @@ public class Requirement implements Serializable {
         result = 31 * result + (isFunctional() ? 1 : 0);
         result = 31 * result + getPriority();
         result = 31 * result + getEstimatedTime();
-        result = 31 * result + (taskList != null ? taskList.hashCode() : 0);
+        result = 31 * result + (getTaskList() != null ? getTaskList().hashCode() : 0);
         result = 31 * result + (getTeamMembers() != null ? getTeamMembers().hashCode() : 0);
         return result;
     }

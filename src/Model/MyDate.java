@@ -105,17 +105,6 @@ public class MyDate  implements Serializable {
       throw new IllegalDateException();
   }
 
-  /**
-   * Copy-Constructor
-   * @param obj copied object
-   */
-  public MyDate(MyDate obj){
-    this.day = obj.getDay();
-    this.month = obj.getMonth();
-    this.year = obj.getYear();
-  }
-
-
   public String toString(){
     return day + "/" + month + "/" + year;
   }
@@ -226,7 +215,14 @@ public class MyDate  implements Serializable {
    * @return copy of MyDate object
    */
   public MyDate copy(){
-    MyDate date = new MyDate(this);
+    MyDate date;
+    try
+  {
+    date = new MyDate(this.day, this.month, this.year);
+  }
+  catch (IllegalDateException e){
+      return null;
+  }
     return date;
   }
 
