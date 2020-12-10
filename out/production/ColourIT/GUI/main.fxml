@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.mainController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="514.0" minWidth="10.0" prefWidth="514.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="86.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="355.0" minHeight="10.0" prefHeight="328.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ListView fx:id="projects" prefHeight="308.0" prefWidth="201.0">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
+               </GridPane.margin>
+            </ListView>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1" />
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+               <children>
+                  <Button fx:id="Add" mnemonicParsing="false" onAction="#handleAddProject" prefHeight="25.0" prefWidth="118.0" text="Add">
+                     <VBox.margin>
+                        <Insets right="10.0" top="10.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="Edit" mnemonicParsing="false" onAction="#handleEditProject" prefHeight="25.0" prefWidth="101.0" text="Edit">
+                     <VBox.margin>
+                        <Insets right="10.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="Delete" mnemonicParsing="false" onAction="#handleDelete" prefHeight="25.0" prefWidth="112.0" text="Delete">
+                     <VBox.margin>
+                        <Insets right="10.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="View" mnemonicParsing="false" onAction="#detailedProjectView" prefHeight="25.0" prefWidth="108.0" text="View">
+                     <VBox.margin>
+                        <Insets right="10.0" />
+                     </VBox.margin></Button>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+   </children>
+</VBox>
