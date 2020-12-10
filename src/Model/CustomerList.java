@@ -54,6 +54,7 @@ public class CustomerList  implements Serializable {
      * @return the list of customers
      */
     public ArrayList<Customer> getCustomers() {
+
         return customers;
     }
 
