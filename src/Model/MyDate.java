@@ -2,41 +2,79 @@ package Model;
 import java.io.Serializable;
 import java.util.GregorianCalendar;
 
+/**
+ * A class representing date
+ * @author bladee
+ * @version ?
+ */
 public class MyDate  implements Serializable {
   private int day;
   private int month;
   private int year;
 
+  /**
+   * Sets the value of the day instance
+   * @param day day of the month
+   * @throws IllegalDateException if day instance is lesser than 1 and greater than
+   * 31
+   */
   public void setDay(int day)  throws IllegalDateException {
     if (day >= 1 && day <= 31)
       this.day = day;
     else throw new IllegalDateException();
   }
 
+  /**
+   * Sets the value of the month instance
+   * @param month month
+   * @throws IllegalDateException if month instance is lesser than 1 and greater
+   * than 12
+   */
   public void setMonth(int month)  throws IllegalDateException {
     if (month >= 1 && month <= 12)
       this.month = month;
     else throw new IllegalDateException();
   }
 
+  /**
+   * Sets the value the year instance
+   * @param year year
+   * @throws IllegalDateException if year instance is lesser than 1 and greater
+   * than 9999
+   */
   public void setYear(int year)  throws IllegalDateException {
     if (year >= 1 && year <= 9999)
       this.year = year;
     else throw new IllegalDateException();
   }
 
+  /**
+   * Gets the value of the day instance
+   * @return day
+   */
   public int getDay(){
     return day;
   }
 
+  /**
+   * Gets the value of the month instance
+   * @return month
+   */
   public int getMonth(){
     return month;
   }
 
+  /**
+   * Gets the value of the year instance
+   * @return year
+   */
   public int getYear(){
     return year;
   }
 
+  /**
+   * No-argument constructor initializing MyDate Object with current date
+   */
   public MyDate(){
     GregorianCalendar currentDateConstructor = new GregorianCalendar();
     this.day = currentDateConstructor.get(GregorianCalendar.DATE);
@@ -44,6 +82,14 @@ public class MyDate  implements Serializable {
     this.year = currentDateConstructor.get(GregorianCalendar.YEAR);
   }
 
+  /**
+   * 3-argument constructor initializing MyDate object with parameters listed
+   * below
+   * @param day day of the month
+   * @param month month
+   * @param year year
+   * @throws IllegalDateException if incorrect date is entered
+   */
   public MyDate(int day, int month, int year) throws IllegalDateException {
     if (day >= 1 && day <= 31)
       this.day = day;
@@ -59,16 +105,25 @@ public class MyDate  implements Serializable {
       throw new IllegalDateException();
   }
 
+  /**
+   * Copy-Constructor
+   * @param obj copied object
+   */
   public MyDate(MyDate obj){
     this.day = obj.getDay();
     this.month = obj.getMonth();
     this.year = obj.getYear();
   }
 
+
   public String toString(){
     return day + "/" + month + "/" + year;
   }
 
+  /**
+   * Checks if given year is a leap year
+   * @return true or false
+   */
   public boolean isLeapYear(){
     if (this.year > 0 & this.year < 10000) {
       if ((this.year % 4 == 0 && this.year % 100 != 0) || (this.year % 400 == 0))
@@ -79,6 +134,11 @@ public class MyDate  implements Serializable {
       return false;
   }
 
+  /**
+   * Checks the number of days in inputted month
+   * @param month month
+   * @return number of days
+   */
   public int daysInMonth(int month){
 
     switch (month) {
@@ -111,6 +171,11 @@ public class MyDate  implements Serializable {
     }
   }
 
+  /**
+   * A method returning the name of inputted month
+   * @param monthNum month to be checked
+   * @return month name
+   */
   public String getMonthName(int monthNum){
     switch(monthNum) {
       case 1:
@@ -143,6 +208,7 @@ public class MyDate  implements Serializable {
     }
   }
 
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -155,11 +221,20 @@ public class MyDate  implements Serializable {
     return getYear() == myDate.getYear();
   }
 
+  /**
+   * Method copying a MyDate object
+   * @return copy of MyDate object
+   */
   public MyDate copy(){
     MyDate date = new MyDate(this);
     return date;
   }
 
+  /**
+   * A method returning current date
+   * @return currentDateObj
+   * @throws IllegalDateException _______
+   */
   public static MyDate today() throws IllegalDateException{
     GregorianCalendar currentDate = new GregorianCalendar();
     int currentDay = currentDate.get(GregorianCalendar.DATE);
@@ -169,6 +244,11 @@ public class MyDate  implements Serializable {
     return currentDateObj;
   }
 
+  /**
+   * A method checking if inputted date is before a date
+   * @param obj inputted object
+   * @return false/true
+   */
   public boolean isBefore (MyDate obj){
     if (this.year > obj.getYear()){
       return false;

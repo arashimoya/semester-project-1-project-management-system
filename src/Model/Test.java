@@ -4,7 +4,7 @@ package Model;
 import FileIO.MyFileIO;
 
 public class Test {
-    public static void main(String[] args) {
+    public static <RequirementNotFoundException> void main(String[] args) throws ObjectAlreadyExistsException {
         ColourITFileAdapter colourITFileAdapter = new ColourITFileAdapter("data.bin", "data.xml");
 
         ColourIT colourIT = new ColourIT();
@@ -72,7 +72,7 @@ public class Test {
             project2.getRequirements().getRequirement("requirementname3").getTasks().addTask(task6);
             project2.getRequirements().getRequirement("requirementname4").getTasks().addTask(task7);
             project2.getRequirements().getRequirement("requirementname4").getTasks().addTask(task8);
-        } catch (RequirementNotFoundException e) {
+        } catch (CustomNotFoundException | ObjectAlreadyExistsException e) {
             e.printStackTrace();
         }
 
