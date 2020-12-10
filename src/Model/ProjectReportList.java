@@ -76,7 +76,9 @@ public class ProjectReportList implements Serializable {
      * @return the new project report
      * @throws ObjectAlreadyExistsException if such project already exists
      */
+
     public ProjectReport createProjectReport(TeamMember scrumMaster, String message) throws ObjectAlreadyExistsException {
+
         ProjectReport newProjectReport = new ProjectReport(idCounter++, scrumMaster, message);
         if (!projectReports.contains(newProjectReport)) {
             projectReports.add(newProjectReport);
