@@ -157,7 +157,8 @@ public class Test {
 
         task8.getTeamMemberList().addTeamMember(teamMember15);
         task8.getTeamMemberList().addTeamMember(teamMember16);
-
+        colourIT.getCustomerList().addCustomer(customer1);
+        colourIT.getCustomerList().addCustomer(customer2);
         colourITFileAdapter.save(colourIT);
         colourITFileAdapter.saveToXml(colourIT);
 

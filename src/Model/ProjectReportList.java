@@ -18,6 +18,7 @@ public class ProjectReportList implements Serializable {
 
     /**
      * to search for a project report by id
+     *
      * @param id id to search for
      * @return the found project report
      */
@@ -32,6 +33,7 @@ public class ProjectReportList implements Serializable {
 
     /**
      * to get the full list of project reports
+     *
      * @return full list of project reports
      */
     public ArrayList<ProjectReport> getProjectReports() {
@@ -40,20 +42,21 @@ public class ProjectReportList implements Serializable {
 
     /**
      * to add a project to the list
+     *
      * @param projectReport the project report to be added
      * @throws ObjectAlreadyExistsException if the project report is already in the list
      */
     public void addProjectReport(ProjectReport projectReport) throws ObjectAlreadyExistsException {
         if (!projectReports.contains(projectReport)) {
             projectReports.add(projectReport);
-        }
-        else {
+        } else {
             throw new ObjectAlreadyExistsException();
         }
     }
 
     /**
      * to delete a project report from the list
+     *
      * @param projectReport the project report to be deleted
      * @throws CustomNotFoundException if the project was not found
      */
@@ -67,12 +70,13 @@ public class ProjectReportList implements Serializable {
 
     /**
      * to create a new project report
+     *
      * @param scrumMaster scrum master that writes the project report
-     * @param message  message of the project report
+     * @param message     message of the project report
      * @return the new project report
      * @throws ObjectAlreadyExistsException if such project already exists
      */
-    public ProjectReport createProjectReport(ScrumMaster scrumMaster, String message) throws ObjectAlreadyExistsException{
+    public ProjectReport createProjectReport(TeamMember scrumMaster, String message) throws ObjectAlreadyExistsException {
         ProjectReport newProjectReport = new ProjectReport(idCounter++, scrumMaster, message);
         if (!projectReports.contains(newProjectReport)) {
             projectReports.add(newProjectReport);

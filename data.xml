@@ -464,7 +464,16 @@
       <projectReports/>
     </projects>
   </projectList>
-  <customerList/>
+  <customerList>
+    <customers>
+      <name>Alex</name>
+      <id>0</id>
+    </customers>
+    <customers>
+      <name>Dan</name>
+      <id>1</id>
+    </customers>
+  </customerList>
   <teamMemberList>
     <teamMembers>
       <name>name1</name>

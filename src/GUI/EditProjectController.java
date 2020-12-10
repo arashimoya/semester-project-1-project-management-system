@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.w3c.dom.Text;
@@ -20,8 +21,6 @@ public class EditProjectController {
     @FXML
     Button next;
     @FXML
-    TextField idField;
-    @FXML
     TextField nameField;
     @FXML
     TextField dayField;
@@ -30,25 +29,16 @@ public class EditProjectController {
     @FXML
     TextField yearField;
     @FXML
-    TextField scrumMasterNameField;
+    ComboBox<String> scrumMasterNameField;
     @FXML
-    TextField projectCreatorNameField;
+    ComboBox<String> projectCreatorNameField;
     @FXML
-    TextField projectOwnerNameField;
+    ComboBox<String> projectOwnerNameField;
     @FXML
-    TextField customerNameField;
-    @FXML
-    TextField scrumMasterID;
-    @FXML
-    TextField productOwnerID;
+    ComboBox<String> customerNameField;
     @FXML
     TextField projectID;
-    @FXML
-    TextField customerID;
-    @FXML
-    TextField projectCreatorID;
     private Project project;
-
     private final ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "data.xml");
 
     public void initData(Project project) {
@@ -58,37 +48,41 @@ public class EditProjectController {
         dayField.setText(Integer.toString(project.getDeadline().getDay()));
         monthField.setText(Integer.toString(project.getDeadline().getMonth()));
         yearField.setText(Integer.toString(project.getDeadline().getYear()));
-        projectOwnerNameField.setText(project.getProductOwner().getName());
-        projectCreatorNameField.setText(project.getProjectCreator().getName());
-        customerNameField.setText(project.getCustomer().getName());
-        customerID.setText(Integer.toString(project.getCustomer().getId()));
-        productOwnerID.setText(Integer.toString(project.getProductOwner().getId()));
-        projectCreatorID.setText(Integer.toString(project.getProjectCreator().getId()));
-        projectID.setText(Integer.toString(project.getId()));
-        scrumMasterNameField.setText(project.getScrumMaster().getName());
-        scrumMasterID.setText(Integer.toString(project.getScrumMaster().getId()));
-
+        projectCreatorNameField.getSelectionModel().select(project.getProjectCreator().getName());
+        customerNameField.getSelectionModel().select(project.getCustomer().getName());
+        scrumMasterNameField.getSelectionModel().select(project.getScrumMaster().getName());
+        projectOwnerNameField.getSelectionModel().select(project.getProductOwner().getName());
+        ColourIT colourIT = adapter.getColourIt();
+        for (Customer customer : colourIT.getCustomerList().getCustomers()) {
+            customerNameField.getItems().add(customer.getName());
+        }
+        for (TeamMember teamMember : colourIT.getTeamMemberList().getTeamMembers()) {
+            System.out.println(teamMember);
+            scrumMasterNameField.getItems().add(teamMember.getName());
+            projectCreatorNameField.getItems().add(teamMember.getName());
+            projectOwnerNameField.getItems().add(teamMember.getName());
+        }
     }
 
-    public void handleNext(ActionEvent e) throws IllegalDateException, CustomNotFoundException, IOException, ObjectAlreadyExistsException {
+    public void handleNext(ActionEvent e) throws IllegalDateException, CustomNotFoundException, IOException {
+        int id = Integer.parseInt(projectID.getText());
         ColourIT colourIT = adapter.getColourIt();
         String name = nameField.getText();
-        String scrumMasterName = scrumMasterNameField.getText();
-        String customerName = customerNameField.getText();
-        String projectCreatorName = projectCreatorNameField.getText();
-        String projectOwnerName = projectOwnerNameField.getText();
+        String scrumMasterName = scrumMasterNameField.getValue();
+        String customerName = customerNameField.getValue();
+        String projectOwnerName = projectOwnerNameField.getValue();
+        for (Project project1 : colourIT.getProjectList().getProjects()) {
+            if (project1.getId() == id) {
+                project = project1;
+                break;
+            }
+        }
         int day = Integer.parseInt(dayField.getText());
         int month = Integer.parseInt(monthField.getText());
         int year = Integer.parseInt(yearField.getText());
-        if (!(colourIT.getTeamMemberList().getTeamMembers().contains(colourIT.getTeamMemberList().getTeamMember(scrumMasterName))))
-            colourIT.getTeamMemberList().createTeamMember(scrumMasterName);
-        if (!(colourIT.getTeamMemberList().getTeamMembers().contains(colourIT.getTeamMemberList().getTeamMember(projectOwnerName))))
-            colourIT.getTeamMemberList().createTeamMember(projectOwnerName);
-        if (!(colourIT.getCustomerList().getCustomers().contains(colourIT.getCustomerList().getCustomer(customerName))))
-            colourIT.getCustomerList().createCustomer(customerName);
         MyDate deadline = new MyDate(day, month, year);
         colourIT.getProjectList().editProject(project, name, colourIT.getTeamMemberList().getTeamMember(scrumMasterName),
-                colourIT.getTeamMemberList().getTeamMember(projectOwnerName), colourIT.getTeamMemberList().getTeamMember(projectCreatorName),
+                colourIT.getTeamMemberList().getTeamMember(projectOwnerName),
                 deadline, colourIT.getCustomerList().getCustomer(customerName), "huj");
         adapter.save(colourIT);
         changeScene(e);
