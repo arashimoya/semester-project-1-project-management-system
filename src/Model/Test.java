@@ -58,20 +58,20 @@ public class Test {
         Task task7 = new Task(6, 3, "Short description of task 7", "taskname7", myDate1, 35);
         Task task8 = new Task(7, 3, "Short description of task 8", "taskname8", myDate1, 40);
 
-        project1.getRequirements().addRequirement(requirement1);
-        project1.getRequirements().addRequirement(requirement2);
-        project2.getRequirements().addRequirement(requirement3);
-        project2.getRequirements().addRequirement(requirement4);
+        project1.getRequirementList().addRequirement(requirement1);
+        project1.getRequirementList().addRequirement(requirement2);
+        project2.getRequirementList().addRequirement(requirement3);
+        project2.getRequirementList().addRequirement(requirement4);
 
         try {
-            project1.getRequirements().getRequirement("requirementname1").getTasks().addTask(task1);
-            project1.getRequirements().getRequirement("requirementname1").getTasks().addTask(task2);
-            project1.getRequirements().getRequirement("requirementname2").getTasks().addTask(task3);
-            project1.getRequirements().getRequirement("requirementname2").getTasks().addTask(task4);
-            project2.getRequirements().getRequirement("requirementname3").getTasks().addTask(task5);
-            project2.getRequirements().getRequirement("requirementname3").getTasks().addTask(task6);
-            project2.getRequirements().getRequirement("requirementname4").getTasks().addTask(task7);
-            project2.getRequirements().getRequirement("requirementname4").getTasks().addTask(task8);
+            project1.getRequirementList().getRequirement("requirementname1").getTaskList().addTask(task1);
+            project1.getRequirementList().getRequirement("requirementname1").getTaskList().addTask(task2);
+            project1.getRequirementList().getRequirement("requirementname2").getTaskList().addTask(task3);
+            project1.getRequirementList().getRequirement("requirementname2").getTaskList().addTask(task4);
+            project2.getRequirementList().getRequirement("requirementname3").getTaskList().addTask(task5);
+            project2.getRequirementList().getRequirement("requirementname3").getTaskList().addTask(task6);
+            project2.getRequirementList().getRequirement("requirementname4").getTaskList().addTask(task7);
+            project2.getRequirementList().getRequirement("requirementname4").getTaskList().addTask(task8);
         } catch (CustomNotFoundException | ObjectAlreadyExistsException e) {
             e.printStackTrace();
         }
@@ -96,23 +96,23 @@ public class Test {
         colourIT.getTeamMemberList().addTeamMember(teamMember15);
         colourIT.getTeamMemberList().addTeamMember(teamMember16);
 
-        project1.getTeamMembers().addTeamMember(teamMember1);
-        project1.getTeamMembers().addTeamMember(teamMember2);
-        project1.getTeamMembers().addTeamMember(teamMember3);
-        project1.getTeamMembers().addTeamMember(teamMember4);
-        project1.getTeamMembers().addTeamMember(teamMember5);
-        project1.getTeamMembers().addTeamMember(teamMember6);
-        project1.getTeamMembers().addTeamMember(teamMember7);
-        project1.getTeamMembers().addTeamMember(teamMember8);
+        project1.getTeamMemberList().addTeamMember(teamMember1);
+        project1.getTeamMemberList().addTeamMember(teamMember2);
+        project1.getTeamMemberList().addTeamMember(teamMember3);
+        project1.getTeamMemberList().addTeamMember(teamMember4);
+        project1.getTeamMemberList().addTeamMember(teamMember5);
+        project1.getTeamMemberList().addTeamMember(teamMember6);
+        project1.getTeamMemberList().addTeamMember(teamMember7);
+        project1.getTeamMemberList().addTeamMember(teamMember8);
 
-        project2.getTeamMembers().addTeamMember(teamMember9);
-        project2.getTeamMembers().addTeamMember(teamMember10);
-        project2.getTeamMembers().addTeamMember(teamMember11);
-        project2.getTeamMembers().addTeamMember(teamMember12);
-        project2.getTeamMembers().addTeamMember(teamMember13);
-        project2.getTeamMembers().addTeamMember(teamMember14);
-        project2.getTeamMembers().addTeamMember(teamMember15);
-        project2.getTeamMembers().addTeamMember(teamMember16);
+        project2.getTeamMemberList().addTeamMember(teamMember9);
+        project2.getTeamMemberList().addTeamMember(teamMember10);
+        project2.getTeamMemberList().addTeamMember(teamMember11);
+        project2.getTeamMemberList().addTeamMember(teamMember12);
+        project2.getTeamMemberList().addTeamMember(teamMember13);
+        project2.getTeamMemberList().addTeamMember(teamMember14);
+        project2.getTeamMemberList().addTeamMember(teamMember15);
+        project2.getTeamMemberList().addTeamMember(teamMember16);
 
         requirement1.getTeamMembers().addTeamMember(teamMember1);
         requirement1.getTeamMembers().addTeamMember(teamMember2);
@@ -134,29 +134,29 @@ public class Test {
         requirement4.getTeamMembers().addTeamMember(teamMember15);
         requirement4.getTeamMembers().addTeamMember(teamMember16);
 
-        task1.getTeamMembers().addTeamMember(teamMember1);
-        task1.getTeamMembers().addTeamMember(teamMember2);
+        task1.getTeamMemberList().addTeamMember(teamMember1);
+        task1.getTeamMemberList().addTeamMember(teamMember2);
 
-        task2.getTeamMembers().addTeamMember(teamMember3);
-        task2.getTeamMembers().addTeamMember(teamMember4);
+        task2.getTeamMemberList().addTeamMember(teamMember3);
+        task2.getTeamMemberList().addTeamMember(teamMember4);
 
-        task3.getTeamMembers().addTeamMember(teamMember5);
-        task3.getTeamMembers().addTeamMember(teamMember6);
+        task3.getTeamMemberList().addTeamMember(teamMember5);
+        task3.getTeamMemberList().addTeamMember(teamMember6);
 
-        task4.getTeamMembers().addTeamMember(teamMember7);
-        task4.getTeamMembers().addTeamMember(teamMember8);
+        task4.getTeamMemberList().addTeamMember(teamMember7);
+        task4.getTeamMemberList().addTeamMember(teamMember8);
 
-        task5.getTeamMembers().addTeamMember(teamMember9);
-        task5.getTeamMembers().addTeamMember(teamMember10);
+        task5.getTeamMemberList().addTeamMember(teamMember9);
+        task5.getTeamMemberList().addTeamMember(teamMember10);
 
-        task6.getTeamMembers().addTeamMember(teamMember11);
-        task6.getTeamMembers().addTeamMember(teamMember12);
+        task6.getTeamMemberList().addTeamMember(teamMember11);
+        task6.getTeamMemberList().addTeamMember(teamMember12);
 
-        task7.getTeamMembers().addTeamMember(teamMember13);
-        task7.getTeamMembers().addTeamMember(teamMember14);
+        task7.getTeamMemberList().addTeamMember(teamMember13);
+        task7.getTeamMemberList().addTeamMember(teamMember14);
 
-        task8.getTeamMembers().addTeamMember(teamMember15);
-        task8.getTeamMembers().addTeamMember(teamMember16);
+        task8.getTeamMemberList().addTeamMember(teamMember15);
+        task8.getTeamMemberList().addTeamMember(teamMember16);
 
         colourITFileAdapter.save(colourIT);
         colourITFileAdapter.saveToXml(colourIT);

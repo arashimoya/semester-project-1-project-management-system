@@ -6,17 +6,26 @@ package Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Objects;
+
 
 public class TeamMemberList implements Serializable {
     private ArrayList<TeamMember> teamMembers;
     private static int idCounter;
 
+    /**
+     * no argument constructor to initliaze the team member list and the id counter
+     */
     public TeamMemberList() {
         teamMembers = new ArrayList<TeamMember>();
         idCounter = 0;
     }
 
+    /**
+     * to get team member by id
+     * @param id id to search the team member by
+     * @return the found team member
+     * @throws CustomNotFoundException if the team member was not found
+     */
     public TeamMember getTeamMember(int id) throws CustomNotFoundException {
         for (TeamMember teamMember : teamMembers) {
             if (teamMember.getId() == id)
@@ -25,6 +34,12 @@ public class TeamMemberList implements Serializable {
         throw new CustomNotFoundException();
     }
 
+    /**
+     * to get the team member by name
+     * @param name the name to find the team member by
+     * @return the found team member
+     * @throws CustomNotFoundException if the team member was not found
+     */
     public TeamMember getTeamMember(String name) throws CustomNotFoundException {
         for (TeamMember teamMember : teamMembers) {
             if (teamMember.getName().equals(name))
@@ -33,10 +48,19 @@ public class TeamMemberList implements Serializable {
         throw new CustomNotFoundException();
     }
 
+    /**
+     * to get the list of the team members
+     * @return the list of the team members
+     */
     public ArrayList<TeamMember> getTeamMembers() {
         return teamMembers;
     }
 
+    /**
+     * to add a team member to the list
+     * @param teamMember the team member to be added
+     * @throws ObjectAlreadyExistsException if the team member already exists
+     */
     public void addTeamMember(TeamMember teamMember) throws ObjectAlreadyExistsException {
         if (!teamMembers.contains(teamMember)) {
             teamMembers.add(teamMember);

@@ -6,13 +6,26 @@ import java.util.ArrayList;
 import Model.ProjectList;
 import parser.*;
 
+/**
+ * class to save data to a binary file
+ */
 public class MyFileIO {
     String fileName;
 
+    /**
+     * one argument constructor specifying the filename where the binary data should be saved
+     * @param fileName the filename of the data
+     */
     public MyFileIO(String fileName) {
         this.fileName = fileName;
     }
 
+    /**
+     * for saving object to a binary file
+     * @param obj the object to be saved
+     * @throws FileNotFoundException if the file was not found or could not be created
+     * @throws IOException if the operation failed
+     */
     public void writeToFile(Object obj) throws FileNotFoundException, IOException {
         ObjectOutputStream write = null;
         try {
@@ -30,6 +43,13 @@ public class MyFileIO {
         }
     }
 
+    /**
+     * for loading object from file
+     * @return the read object
+     * @throws ClassNotFoundException
+     * @throws FileNotFoundException if the specified file was not found
+     * @throws IOException if the operation failed
+     */
     public Object readFromFile() throws ClassNotFoundException, FileNotFoundException, IOException {
         Object obj = null;
         ObjectInputStream readFromFile = null;

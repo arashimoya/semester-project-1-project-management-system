@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
+ * A class representing a team member
  * @author alex
  * @version 1.0
  */
@@ -11,19 +12,36 @@ public class TeamMember implements Serializable {
     private int id;
     private String name;
 
+    /**
+     * A two-argument constructor
+     * @param id id of the team member
+     * @param name name of the team member
+     */
     public TeamMember(int id, String name) {
         this.name = name;
         this.id = id;
     }
 
+    /**
+     * Gets the ID of the team member
+     * @return id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Gets the name of the team member
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets the name of the team member
+     * @param name name of the team member
+     */
     public void setName(String name) {
         this.name = name;
     }
