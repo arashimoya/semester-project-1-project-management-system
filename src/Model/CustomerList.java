@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class CustomerList  implements Serializable {
     private ArrayList<Customer> customers;
-    private int idCounter;
+    private static int idCounter;
 
     public CustomerList() {
         customers = new ArrayList<Customer>();
@@ -35,58 +35,41 @@ public class CustomerList  implements Serializable {
         return customers;
     }
 
-    public void addCustomer(Customer customer) {
+    public void addCustomer(Customer customer) throws ObjectAlreadyExistsException{
         if (!customers.contains(customer)) {
             customers.add(customer);
         }
         else {
-            System.out.println("Customer already exists");
+            throw new ObjectAlreadyExistsException();
         }
     }
 
     public void deleteCustomer(Customer customer) throws CustomNotFoundException {
-        boolean removed = false;
-        for (Customer customer1 :
-                customers) {
-            if (customer1.equals(customer)) {
-                customers.remove(customer);
-                removed = true;
-            }
+        if (customers.contains(customer)) {
+            customers.remove(customer);
         }
-        if (!removed)
+        else
             throw new CustomNotFoundException();
     }
 
-    public void createCustomer(String name) {
+    public Customer createCustomer(String name) throws ObjectAlreadyExistsException {
         Customer customer = new Customer(idCounter++, name);
-        customers.add(customer);
-    }
-
-    public void editCustomer(int id, String name) throws CustomNotFoundException {
-        boolean found = false;
-        for (Customer customer :
-                customers) {
-            if (customer.getId() == id) {
-                customer.setName(name);
-                found = true;
-            }
-
+        if (!customers.contains(customer)){
+            customers.add(customer);
+            return customer;
         }
-        if (!found)
+        else {
+            throw new ObjectAlreadyExistsException();
+        }
+    }
+
+    public void editCustomer(Customer customer, String name) throws CustomNotFoundException {
+        if (customers.contains(customer)){
+            customer.setName(name);
+        } else {
             throw new CustomNotFoundException();
+        }
+
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CustomerList that = (CustomerList) o;
-        return idCounter == that.idCounter &&
-                Objects.equals(customers, that.customers);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(customers, idCounter);
-    }
 }

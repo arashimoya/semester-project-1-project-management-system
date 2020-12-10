@@ -105,11 +105,15 @@ public class Project implements Serializable {
         return customer;
     }
 
+
     /**
      * Gets the description of the project
      * @return
      */
     public String getDescription(){
+
+    public String getDescription() {
+
         return description;
     }
 
@@ -145,6 +149,7 @@ public class Project implements Serializable {
         this.name = name;
     }
 
+
     /**
      * Sets the scrum master of the project
      * @param scrumMaster scrum master of the project
@@ -159,6 +164,14 @@ public class Project implements Serializable {
      */
     public void setProductOwner(ProductOwner productOwner) {
         this.productOwner = productOwner;
+
+    public void setScrumMaster(TeamMember scrumMaster) {
+        this.scrumMaster = new ScrumMaster(scrumMaster);
+    }
+
+    public void setProductOwner(TeamMember productOwner) {
+        this.productOwner = new ProductOwner(productOwner);
+
     }
 
     /**
