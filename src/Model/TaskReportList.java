@@ -12,14 +12,12 @@ import java.util.ArrayList;
 
 public class TaskReportList implements Serializable {
     private ArrayList<TaskReport> taskReports;
-    private static int idCounter;
 
     /**
      * No-argument constructor initializing the TaskReportList
      */
     public TaskReportList() {
         taskReports = new ArrayList<TaskReport>();
-        idCounter = 0;
     }
 
     /**
@@ -80,9 +78,10 @@ public class TaskReportList implements Serializable {
      * @param reportDate   date the report was sent
      */
     public TaskReport createTaskReport(int teamMemberID, String report, MyDate reportDate) throws ObjectAlreadyExistsException{
-        TaskReport newTaskReport = new TaskReport(idCounter++, teamMemberID, report, reportDate);
+        TaskReport newTaskReport = new TaskReport(ColourIT.getTaskReportId(), teamMemberID, report, reportDate);
         if (!taskReports.contains(newTaskReport)) {
             taskReports.add(newTaskReport);
+            ColourIT.setTaskReportId(ColourIT.getTaskReportId()+1);
             return newTaskReport;
         } else {
             throw new ObjectAlreadyExistsException();
