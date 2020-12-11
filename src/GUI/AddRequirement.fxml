@@ -124,14 +124,14 @@
         </GridPane>
         <HBox alignment="CENTER" prefHeight="48.0" prefWidth="500.0">
             <children>
-                <Button fx:id="previousButton" mnemonicParsing="false" text="Previous">
+                <Button fx:id="previousButton" mnemonicParsing="false" onAction="#goBack" text="Previous">
                     <HBox.margin>
                         <Insets />
                     </HBox.margin>
                 </Button>
-                <Button fx:id="cancelButton" mnemonicParsing="false" text="Cancel" />
-                <Button fx:id="okButton" mnemonicParsing="false" text="OK" />
-                <Button fx:id="nextButton" mnemonicParsing="false" text="Next">
+                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#goBack" text="Cancel" />
+                <Button fx:id="okButton" mnemonicParsing="false" onAction="#handleNext" text="OK" />
+                <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handleNext" text="Next">
                     <HBox.margin>
                         <Insets />
                     </HBox.margin>

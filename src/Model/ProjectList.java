@@ -136,4 +136,7 @@ public class ProjectList implements Serializable {
         }
     }
 
+    public int getIdCounter() {
+        return idCounter;
+    }
 }

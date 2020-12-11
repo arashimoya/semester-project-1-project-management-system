@@ -12,12 +12,14 @@ import java.util.ArrayList;
 
 public class TaskReportList implements Serializable {
     private ArrayList<TaskReport> taskReports;
+    private int idCounter;
 
     /**
      * No-argument constructor initializing the TaskReportList
      */
     public TaskReportList() {
         taskReports = new ArrayList<TaskReport>();
+        idCounter = 0;
     }
 
     /**
@@ -53,16 +55,13 @@ public class TaskReportList implements Serializable {
     public void addTaskReport(TaskReport taskReport) throws ObjectAlreadyExistsException {
         if (!taskReports.contains(taskReport)) {
             taskReports.add(taskReport);
-        }
-        else {
+        } else {
             throw new ObjectAlreadyExistsException();
         }
     }
 
     /**
      * Removes a task report of the chosen id from the list
-     *
-     *
      */
     public void deleteTaskReport(TaskReport taskReport) throws CustomNotFoundException {
         if (taskReports.contains(taskReport)) {
@@ -77,11 +76,10 @@ public class TaskReportList implements Serializable {
      * @param report       report represented by String
      * @param reportDate   date the report was sent
      */
-    public TaskReport createTaskReport(int teamMemberID, String report, MyDate reportDate) throws ObjectAlreadyExistsException{
-        TaskReport newTaskReport = new TaskReport(ColourIT.getTaskReportId(), teamMemberID, report, reportDate);
+    public TaskReport createTaskReport(int teamMemberID, String report, MyDate reportDate) throws ObjectAlreadyExistsException {
+        TaskReport newTaskReport = new TaskReport(idCounter++, teamMemberID, report, reportDate);
         if (!taskReports.contains(newTaskReport)) {
             taskReports.add(newTaskReport);
-            ColourIT.setTaskReportId(ColourIT.getTaskReportId()+1);
             return newTaskReport;
         } else {
             throw new ObjectAlreadyExistsException();

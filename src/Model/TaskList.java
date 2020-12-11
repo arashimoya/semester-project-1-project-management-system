@@ -120,4 +120,8 @@ public class TaskList implements Serializable {
         } else
             throw new CustomNotFoundException();
     }
+
+    public int getIdCounter() {
+        return idCounter;
+    }
 }

@@ -23,6 +23,7 @@ public class RequirementList implements Serializable {
 
     /**
      * to get requirement by id
+     *
      * @param ID the id by which you are searching for the requirement
      * @return the found requirement
      * @throws CustomNotFoundException if the requirement was not found
@@ -39,6 +40,7 @@ public class RequirementList implements Serializable {
 
     /**
      * to get the requirement by name
+     *
      * @param name the name by which you are searching for the requirement
      * @return the found requirement
      * @throws CustomNotFoundException if the requirement was not found
@@ -55,6 +57,7 @@ public class RequirementList implements Serializable {
 
     /**
      * to get all of the requirements
+     *
      * @return the list of requirements
      */
     public ArrayList<Requirement> getRequirements() {
@@ -63,14 +66,14 @@ public class RequirementList implements Serializable {
 
     /**
      * to add a requirement
+     *
      * @param requirement the requirement to be added
      * @throws ObjectAlreadyExistsException if the requirement is already added
      */
     public void addRequirement(Requirement requirement) throws ObjectAlreadyExistsException {
         if (!requirements.contains(requirement)) {
             requirements.add(requirement);
-        }
-        else {
+        } else {
             throw new ObjectAlreadyExistsException();
         }
 
@@ -78,11 +81,12 @@ public class RequirementList implements Serializable {
 
     /**
      * to delete a requirement
+     *
      * @param requirement the requirement to be deleted
      * @throws CustomNotFoundException if the requirement was not found
      */
-    public void deleteRequirement(Requirement requirement) throws CustomNotFoundException{
-        if(requirements.contains(requirement)){
+    public void deleteRequirement(Requirement requirement) throws CustomNotFoundException {
+        if (requirements.contains(requirement)) {
             requirements.remove(requirement);
         } else {
             throw new CustomNotFoundException();
@@ -91,13 +95,14 @@ public class RequirementList implements Serializable {
 
     /**
      * to create a new requirement
-     * @param projectID the id of the project to which the requirement belongs to
+     *
+     * @param projectID     the id of the project to which the requirement belongs to
      * @param userStoryText user story text of the new requirement
-     * @param status status of the new requirement
-     * @param name name of the new requirement
-     * @param deadline deadline of the new requirement
-     * @param functional whether the requirement is functional
-     * @param priority priority of the new requirement
+     * @param status        status of the new requirement
+     * @param name          name of the new requirement
+     * @param deadline      deadline of the new requirement
+     * @param functional    whether the requirement is functional
+     * @param priority      priority of the new requirement
      * @param estimatedTime estimated time of the new requirement
      * @return the newly created requirement object
      * @throws ObjectAlreadyExistsException if the requirement already exists
@@ -109,38 +114,40 @@ public class RequirementList implements Serializable {
             requirements.add(requirement);
             idCounter++;
             return requirement;
-        }
-        else throw new ObjectAlreadyExistsException();
+        } else throw new ObjectAlreadyExistsException();
     }
 
 
     /**
      * to edit a requirement
-     * @param requirement the requirement to be edited
+     *
+     * @param requirement   the requirement to be edited
      * @param userStoryText new user story text of the requirement
-     * @param status new status of the requirement
-     * @param name new name of the requirement
-     * @param deadline new deadline of the requirement
-     * @param functional whether the requirement is functional
-     * @param priority new priority of the requirement
+     * @param status        new status of the requirement
+     * @param name          new name of the requirement
+     * @param deadline      new deadline of the requirement
+     * @param functional    whether the requirement is functional
+     * @param priority      new priority of the requirement
      * @param estimatedTime new estimated time of the requirement
      * @throws CustomNotFoundException if the requirement was not found
      */
     public void editRequirement(Requirement requirement, String userStoryText, String status, String name, MyDate deadline, boolean functional, int priority, int estimatedTime) throws CustomNotFoundException {
         if (requirements.contains(requirement)) {
-                requirement.setDeadline(deadline);
-                requirement.setFunctional(functional);
-                requirement.setName(name);
-                requirement.setPriority(priority);
-                requirement.setUserStoryText(userStoryText);
-                requirement.setEstimatedTime(estimatedTime);
-            } else {
+            requirement.setDeadline(deadline);
+            requirement.setFunctional(functional);
+            requirement.setName(name);
+            requirement.setPriority(priority);
+            requirement.setUserStoryText(userStoryText);
+            requirement.setEstimatedTime(estimatedTime);
+        } else {
             throw new CustomNotFoundException();
         }
 
     }
 
-
+    public int getIdCounter() {
+        return idCounter;
+    }
 }
 
 
