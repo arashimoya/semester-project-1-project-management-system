@@ -1,10 +1,8 @@
 package GUI;
 
-import Model.ColourITFileAdapter;
-import Model.Project;
-import Model.Requirement;
-import Model.RequirementList;
+import Model.*;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -46,6 +44,15 @@ public class ProjectFieldsController {
     Button goBack;
     @FXML
     TextArea descriptionLabel;
+    @FXML
+    Button addRequirement;
+    @FXML
+    Button editRequirement;
+    @FXML
+    Button viewRequirement;
+    @FXML
+    Button deleteRequirement;
+
 
     public void initData(Project project) {
         selectedProject = project;
@@ -59,7 +66,7 @@ public class ProjectFieldsController {
         descriptionLabel.setText(project.getDescription());
         ArrayList<Requirement> reqs = project.getRequirementList().getRequirements();
         for (Requirement requirement : reqs)
-            requirementsListView.getItems().add("ID: " + requirement.getID() + "    Name:  " + requirement.getName());
+            requirementsListView.getItems().add(requirement.getName());
     }
 
     public void changeScene(ActionEvent e) throws IOException {
@@ -69,6 +76,34 @@ public class ProjectFieldsController {
         Scene MainParentVIew = new Scene(mainParent);
         Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
         window.setScene(MainParentVIew);
+        window.show();
+    }
+
+    public Requirement viewDetails() throws CustomNotFoundException {
+        String currentSelectedItem;
+        Project project = null;
+        currentSelectedItem = requirementsListView.getSelectionModel().getSelectedItem();
+        for (Project project1 : adapter.getColourIt().getProjectList().getProjects()) {
+            if (project1.getId() == Integer.parseInt(idLabel.getText()))
+                project = project1;
+        }
+        assert project != null;
+        return project.getRequirementList().getRequirement(currentSelectedItem);
+    }
+
+    public void addRequirement(ActionEvent e) {
+
+    }
+
+    public void viewDetailedRequirement(ActionEvent e) throws IOException, CustomNotFoundException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("RequirementFields.fxml"));
+        Parent requirementFieldsParent = loader.load();
+        Scene detailedRequirementView = new Scene(requirementFieldsParent);
+        RequirementFieldsController controller = loader.getController();
+        controller.initData(viewDetails());
+        Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        window.setScene(detailedRequirementView);
         window.show();
     }
 
