@@ -12,6 +12,7 @@ public class ProjectReportList implements Serializable {
      */
     public ProjectReportList() {
         this.projectReports = new ArrayList<ProjectReport>();
+        idCounter = 0;
     }
 
     /**
@@ -85,5 +86,9 @@ public class ProjectReportList implements Serializable {
         } else {
             throw new ObjectAlreadyExistsException();
         }
+    }
+
+    public int getIdCounter() {
+        return idCounter;
     }
 }

@@ -82,6 +82,7 @@ public class AddProjectController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ColourIT colourIT = adapter.getColourIt();
         customerNameField.getItems().add(new Customer(2115, "adam").getName());
+        idField.setText(Integer.toString(colourIT.getProjectList().getIdCounter()));
         for (Customer customer : colourIT.getCustomerList().getCustomers()) {
             customerNameField.getItems().add(customer.getName());
         }
@@ -91,7 +92,7 @@ public class AddProjectController implements Initializable {
             projectCreatorNameField.getItems().add(teamMember.getName());
             projectOwnerNameField.getItems().add(teamMember.getName());
         }
-        idField.appendText(Integer.toString(ColourIT.getProjectId()));
+
 
     }
 
