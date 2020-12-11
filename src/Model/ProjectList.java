@@ -9,12 +9,14 @@ import java.util.ArrayList;
  */
 public class ProjectList implements Serializable {
     private ArrayList<Project> projects;
+    private int idCounter;
 
     /**
      * no args constructor initializing the project list and a counter for IDs
      */
     public ProjectList() {
         projects = new ArrayList<Project>();
+        idCounter = 0;
     }
 
     /**
@@ -99,10 +101,10 @@ public class ProjectList implements Serializable {
      * @throws ObjectAlreadyExistsException if such project was already inside the list
      */
     public Project createProject(String name, TeamMember scrumMaster, TeamMember productOwner, TeamMember projectCreator, MyDate deadline, Customer customer, String description) throws ObjectAlreadyExistsException {
-        Project newProject = new Project(ColourIT.getProjectId(), name, scrumMaster, productOwner, projectCreator, deadline, customer, description);
+        Project newProject = new Project(idCounter, name, scrumMaster, productOwner, projectCreator, deadline, customer, description);
         if (!projects.contains(newProject)) {
             projects.add(newProject);
-            ColourIT.setProjectId(ColourIT.getProjectId()+1);
+            idCounter++;
             return newProject;
         } else {
             throw new ObjectAlreadyExistsException();
