@@ -91,8 +91,14 @@ public class ProjectFieldsController {
         return project.getRequirementList().getRequirement(currentSelectedItem);
     }
 
-    public void addRequirement(ActionEvent e) {
-
+    public void addRequirement(ActionEvent e) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("AddRequirement.fxml"));
+        Parent addRequirementParent = loader.load();
+        Scene addRequirementView = new Scene(addRequirementParent);
+        Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        window.setScene(addRequirementView);
+        window.show();
     }
 
     public void viewDetailedRequirement(ActionEvent e) throws IOException, CustomNotFoundException {
