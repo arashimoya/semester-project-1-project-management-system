@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class TaskList implements Serializable {
 
     private ArrayList<Task> tasks;
-    private static int idCounter;
+    private int idCounter;
 
     /**
      * No-argument constructor initializing TaskList
@@ -92,9 +92,10 @@ public class TaskList implements Serializable {
      * @param estimatedTime estimated time of task completion
      */
     public Task createTask(int requirementID, String description, String name, MyDate deadline, int estimatedTime) throws ObjectAlreadyExistsException {
-        Task newTask = new Task(idCounter++, requirementID, description, name, deadline, estimatedTime);
+        Task newTask = new Task(idCounter, requirementID, description, name, deadline, estimatedTime);
         if (!tasks.contains(newTask)) {
             tasks.add(newTask);
+            idCounter++;
             return newTask;
         } else {
             throw new ObjectAlreadyExistsException();
