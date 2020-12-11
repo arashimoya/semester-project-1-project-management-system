@@ -47,6 +47,9 @@ public class AddRequirementController implements Initializable {
     Button nextButton;
     ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "data.xml");
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
 
 }
