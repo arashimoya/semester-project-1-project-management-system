@@ -9,11 +9,13 @@ import java.util.ArrayList;
  */
 public class CustomerList  implements Serializable {
     private ArrayList<Customer> customers;
+    private int idCounter;
     /**
      * no args constructor initializing the customer list and the id count
      */
     public CustomerList() {
         customers = new ArrayList<Customer>();
+        idCounter = 0;
     }
 
     /**
@@ -89,10 +91,10 @@ public class CustomerList  implements Serializable {
      * @throws ObjectAlreadyExistsException if the object already exists in the list
      */
     public Customer createCustomer(String name) throws ObjectAlreadyExistsException {
-        Customer customer = new Customer(ColourIT.getCustomerId(), name);
+        Customer customer = new Customer(idCounter, name);
         if (!customers.contains(customer)){
             customers.add(customer);
-            ColourIT.setCustomerId(ColourIT.getCustomerId()+1);
+            idCounter++;
             return customer;
         }
         else {

@@ -10,12 +10,14 @@ import java.util.ArrayList;
 
 public class TeamMemberList implements Serializable {
     private ArrayList<TeamMember> teamMembers;
+    private int idCounter;
 
     /**
      * no argument constructor to initliaze the team member list and the id counter
      */
     public TeamMemberList() {
         teamMembers = new ArrayList<TeamMember>();
+        idCounter = 0;
     }
 
     /**
@@ -76,10 +78,10 @@ public class TeamMemberList implements Serializable {
     }
 
     public TeamMember createTeamMember(String name) throws ObjectAlreadyExistsException{
-        TeamMember teamMember = new TeamMember(ColourIT.getTeamMemberId(), name);
+        TeamMember teamMember = new TeamMember(idCounter, name);
         if (!teamMembers.contains(teamMember)){
             teamMembers.add(teamMember);
-            ColourIT.setTeamMemberId(ColourIT.getTeamMemberId()+1);
+            idCounter++;
             return teamMember;
         }
         throw new ObjectAlreadyExistsException();

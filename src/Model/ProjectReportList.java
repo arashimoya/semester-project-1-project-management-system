@@ -5,12 +5,14 @@ import java.util.ArrayList;
 
 public class ProjectReportList implements Serializable {
     private ArrayList<ProjectReport> projectReports;
+    private int idCounter;
 
     /**
      * no argument constructor initializing the project report list and the id counter
      */
     public ProjectReportList() {
         this.projectReports = new ArrayList<ProjectReport>();
+        idCounter = 0;
     }
 
     /**
@@ -70,10 +72,10 @@ public class ProjectReportList implements Serializable {
      * @throws ObjectAlreadyExistsException if such project already exists
      */
     public ProjectReport createProjectReport(TeamMember scrumMaster, String message) throws ObjectAlreadyExistsException{
-        ProjectReport newProjectReport = new ProjectReport(ColourIT.getProjectReportId(), scrumMaster, message);
+        ProjectReport newProjectReport = new ProjectReport(idCounter, scrumMaster, message);
         if (!projectReports.contains(newProjectReport)) {
             projectReports.add(newProjectReport);
-            ColourIT.setProjectReportId(ColourIT.getProjectId()+1);
+            idCounter++;
             return newProjectReport;
         } else {
             throw new ObjectAlreadyExistsException();
