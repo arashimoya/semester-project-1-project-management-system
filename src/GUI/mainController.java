@@ -71,6 +71,8 @@ public class mainController implements Initializable {
         return adapter.getColourIt().getProjectList().getProject(currentSelectedItem);
     }
 
+
+
     public void detailedProjectView(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("ProjectFields.fxml"));
@@ -80,6 +82,25 @@ public class mainController implements Initializable {
         controller.initData(viewDetails());
         Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
         window.setScene(detailedProjectView);
+        window.show();
+    }
+
+    public TeamMember viewMembersDetails() throws CustomNotFoundException
+    {
+        String currentSelectedItem;
+        currentSelectedItem = teamMembers.getSelectionModel().getSelectedItem();
+        System.out.println(adapter.getColourIt().getTeamMemberList().getTeamMember(currentSelectedItem));
+        return adapter.getColourIt().getTeamMemberList().getTeamMember(currentSelectedItem);
+    }
+    public void detailedTeamMemberView(ActionEvent e) throws IOException, CustomNotFoundException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("TeamMemberFields.fxml"));
+        Parent TeamMemberFieldsParent = loader.load();
+        Scene detailedTeamMemberView = new Scene(TeamMemberFieldsParent);
+        TeamMemberFieldsController controller = loader.getController();
+        controller.initData(viewMembersDetails());
+        Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        window.setScene((detailedTeamMemberView));
         window.show();
     }
 
