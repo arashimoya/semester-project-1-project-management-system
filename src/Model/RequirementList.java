@@ -11,12 +11,14 @@ import java.util.ArrayList;
  */
 public class RequirementList implements Serializable {
     private ArrayList<Requirement> requirements;
+    private int idCounter;
 
     /**
      * no argument constructor that initializes the requirements list
      */
     public RequirementList() {
         requirements = new ArrayList<Requirement>();
+        idCounter = 0;
     }
 
     /**
@@ -102,10 +104,10 @@ public class RequirementList implements Serializable {
      */
     public Requirement createRequirement(int projectID, String userStoryText, String status, String name, MyDate deadline, boolean functional, int priority, int estimatedTime) throws ObjectAlreadyExistsException {
 
-        Requirement requirement = new Requirement(.getRequirementId(), projectID, userStoryText, status, name, deadline, functional, priority, estimatedTime);
+        Requirement requirement = new Requirement(idCounter, projectID, userStoryText, status, name, deadline, functional, priority, estimatedTime);
         if (!requirements.contains(requirement)) {
             requirements.add(requirement);
-            ColourIT.setRequirementId(ColourIT.getRequirementId()+1);
+            idCounter++;
             return requirement;
         }
         else throw new ObjectAlreadyExistsException();
