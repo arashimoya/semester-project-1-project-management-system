@@ -102,7 +102,7 @@ public class RequirementList implements Serializable {
      */
     public Requirement createRequirement(int projectID, String userStoryText, String status, String name, MyDate deadline, boolean functional, int priority, int estimatedTime) throws ObjectAlreadyExistsException {
 
-        Requirement requirement = new Requirement(ColourIT.getRequirementId(), projectID, userStoryText, status, name, deadline, functional, priority, estimatedTime);
+        Requirement requirement = new Requirement(.getRequirementId(), projectID, userStoryText, status, name, deadline, functional, priority, estimatedTime);
         if (!requirements.contains(requirement)) {
             requirements.add(requirement);
             ColourIT.setRequirementId(ColourIT.getRequirementId()+1);

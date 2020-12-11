@@ -91,6 +91,8 @@ public class AddProjectController implements Initializable {
             projectCreatorNameField.getItems().add(teamMember.getName());
             projectOwnerNameField.getItems().add(teamMember.getName());
         }
+        idField.appendText(Integer.toString(ColourIT.getProjectId()));
+
     }
 
 }

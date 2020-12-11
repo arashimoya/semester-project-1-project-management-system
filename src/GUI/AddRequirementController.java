@@ -54,7 +54,7 @@ public class AddRequirementController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         functionalComboBox.getItems().addAll("true", "false");
-        projectIdTextField.setText("0");
+        projectIdTextField.setText();
     }
 
     public void handleNext(ActionEvent e) throws IllegalDateException, CustomNotFoundException, ObjectAlreadyExistsException, IOException {
