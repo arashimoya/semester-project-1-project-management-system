@@ -2,6 +2,7 @@ package GUI;
 
 
 import Model.ColourIT;
+import Model.ColourITFileAdapter;
 import Model.Customer;
 import Model.TeamMember;
 import javafx.fxml.FXML;
@@ -44,7 +45,7 @@ public class AddRequirementController implements Initializable {
     Button okButton;
     @FXML
     Button nextButton;
-
+    ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "data.xml");
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
