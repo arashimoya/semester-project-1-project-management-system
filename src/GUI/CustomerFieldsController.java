@@ -1,5 +1,6 @@
 package GUI;
 
+import Model.Customer;
 import Model.TeamMember;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,22 +14,20 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class TeamMemberFieldsController
+public class CustomerFieldsController
 {
   @FXML
   Label idLabel;
   @FXML
   Label nameLabel;
   @FXML
-  Button cancelButton;
-  @FXML
   Button okButton;
-  TeamMember selectedTeamMember;
+  Customer selectedCustomer;
 
-  public void initData (TeamMember teamMember){
-    selectedTeamMember = teamMember;
-    idLabel.setText(Integer.toString(teamMember.getId()));
-    nameLabel.setText(teamMember.getName());
+  public void initData (Customer customer){
+    selectedCustomer = customer;
+    idLabel.setText(Integer.toString(customer.getId()));
+    nameLabel.setText(customer.getName());
   }
   public void changeScene(ActionEvent e) throws IOException
   {

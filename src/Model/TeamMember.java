@@ -44,6 +44,8 @@ public class TeamMember implements Serializable {
      */
     public void setName(String name) {
         this.name = name;
+        System.out.println("chuj");
+        System.out.println(this);
     }
 
 
