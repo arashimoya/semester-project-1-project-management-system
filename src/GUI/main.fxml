@@ -103,22 +103,22 @@
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1" />
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                            <children>
-                              <Button fx:id="Add1" mnemonicParsing="false" onAction="#handleAddProject" prefHeight="25.0" prefWidth="118.0" text="Add">
+                              <Button fx:id="addTeamMemberButton" mnemonicParsing="false" onAction="#handleAddTeamMember" prefHeight="25.0" prefWidth="118.0" text="Add">
                                  <VBox.margin>
                                     <Insets right="10.0" top="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="Edit1" mnemonicParsing="false" onAction="#handleEditProject" prefHeight="25.0" prefWidth="101.0" text="Edit">
+                              <Button fx:id="Edit1" mnemonicParsing="false" onAction="#handleEditTeamMember" prefHeight="25.0" prefWidth="101.0" text="Edit">
                                  <VBox.margin>
                                     <Insets right="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="Delete1" mnemonicParsing="false" onAction="#handleDelete" prefHeight="25.0" prefWidth="112.0" text="Delete">
+                              <Button fx:id="Delete1" mnemonicParsing="false" onAction="#handleDeleteTeamMember" prefHeight="25.0" prefWidth="112.0" text="Delete">
                                  <VBox.margin>
                                     <Insets right="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="View1" mnemonicParsing="false" onAction="#detailedProjectView" prefHeight="25.0" prefWidth="108.0" text="View">
+                              <Button fx:id="View1" mnemonicParsing="false" onAction="#detailedTeamMemberView" prefHeight="25.0" prefWidth="108.0" text="View">
                                  <VBox.margin>
                                     <Insets right="10.0" />
                                  </VBox.margin>
@@ -149,22 +149,22 @@
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1" />
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                            <children>
-                              <Button fx:id="Add2" mnemonicParsing="false" onAction="#handleAddProject" prefHeight="25.0" prefWidth="118.0" text="Add">
+                              <Button fx:id="Add2" mnemonicParsing="false" onAction="#handleAddCustomer" prefHeight="25.0" prefWidth="118.0" text="Add">
                                  <VBox.margin>
                                     <Insets right="10.0" top="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="Edit2" mnemonicParsing="false" onAction="#handleEditProject" prefHeight="25.0" prefWidth="101.0" text="Edit">
+                              <Button fx:id="Edit2" mnemonicParsing="false" onAction="#handleEditCustomer" prefHeight="25.0" prefWidth="101.0" text="Edit">
                                  <VBox.margin>
                                     <Insets right="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="Delete2" mnemonicParsing="false" onAction="#handleDelete" prefHeight="25.0" prefWidth="112.0" text="Delete">
+                              <Button fx:id="Delete2" mnemonicParsing="false" onAction="#handleDeleteCustomer" prefHeight="25.0" prefWidth="112.0" text="Delete">
                                  <VBox.margin>
                                     <Insets right="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="View2" mnemonicParsing="false" onAction="#detailedProjectView" prefHeight="25.0" prefWidth="108.0" text="View">
+                              <Button fx:id="View2" mnemonicParsing="false" onAction="#detailedCustomerView" prefHeight="25.0" prefWidth="108.0" text="View">
                                  <VBox.margin>
                                     <Insets right="10.0" />
                                  </VBox.margin>
