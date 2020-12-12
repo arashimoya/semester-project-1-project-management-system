@@ -101,6 +101,18 @@ public class ProjectFieldsController {
         window.show();
     }
 
+    public void editRequirement(ActionEvent e) throws IOException, CustomNotFoundException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("EditRequirement.fxml"));
+        Parent editRequirement = loader.load();
+        Scene editRequirementView = new Scene(editRequirement);
+        EditRequirementController controller = loader.getController();
+        controller.initData(viewDetails());
+        Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        window.setScene(editRequirementView);
+        window.show();
+    }
+
     public void viewDetailedRequirement(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("RequirementFields.fxml"));

@@ -91,7 +91,7 @@
                         <VBox prefHeight="131.0" prefWidth="120.0" GridPane.columnIndex="1">
                            <children>
                               <Button fx:id="addRequirement" mnemonicParsing="false" onAction="#addRequirement" prefHeight="25.0" prefWidth="202.0" text="Add" />
-                              <Button fx:id="editRequirement" mnemonicParsing="false" prefHeight="25.0" prefWidth="231.0" text="Edit" />
+                              <Button fx:id="editRequirement" mnemonicParsing="false" onAction="#editRequirement" prefHeight="25.0" prefWidth="231.0" text="Edit" />
                               <Button fx:id="deleteRequirement" mnemonicParsing="false" prefHeight="25.0" prefWidth="216.0" text="Delete" />
                               <Button fx:id="viewRequirement" mnemonicParsing="false" onAction="#viewDetailedRequirement" prefHeight="25.0" prefWidth="254.0" text="View Requirement" />
                               <Button fx:id="goBack" mnemonicParsing="false" onAction="#changeScene" prefHeight="27.0" prefWidth="129.0" text="Back" />

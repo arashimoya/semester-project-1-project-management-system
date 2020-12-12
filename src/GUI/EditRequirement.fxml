@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="475.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefHeight="475.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EditRequirementController">
    <children>
       <GridPane alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="483.0">
          <columnConstraints>
@@ -26,6 +26,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="54.0" minHeight="0.0" prefHeight="54.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="54.0" minHeight="0.0" prefHeight="54.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="103.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
          </rowConstraints>
@@ -70,7 +71,7 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
-            <Label text="User Story Text: " GridPane.rowIndex="7">
+            <Label text="User Story Text: " GridPane.rowIndex="8">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
@@ -100,7 +101,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
             </TextField>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <TextField fx:id="priorityTextField" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
@@ -115,11 +116,21 @@
                   <Insets left="10.0" right="10.0" />
                </GridPane.margin>
             </TextField>
-            <TextArea fx:id="userStoryTextTextArea" prefHeight="57.0" prefWidth="373.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <TextArea fx:id="userStoryTextTextArea" prefHeight="57.0" prefWidth="373.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
             </TextArea>
+            <Label text="Status:" GridPane.rowIndex="7">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="statusLabel" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </TextField>
          </children>
       </GridPane>
       <HBox alignment="CENTER" prefHeight="48.0" prefWidth="500.0">
@@ -129,9 +140,9 @@
                   <Insets />
                </HBox.margin>
             </Button>
-            <Button fx:id="cancelButton" mnemonicParsing="false" text="Cancel" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
             <Button fx:id="okButton" mnemonicParsing="false" text="OK" />
-            <Button fx:id="nextButton" mnemonicParsing="false" text="Next">
+            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handleNext" text="Next">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
