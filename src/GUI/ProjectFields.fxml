@@ -115,10 +115,9 @@
                         <ListView fx:id="teammembersListView" prefHeight="200.0" prefWidth="200.0" />
                         <VBox prefHeight="131.0" prefWidth="120.0" GridPane.columnIndex="1">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="Add" />
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="231.0" text="Edit" />
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="216.0" text="Delete" />
-                              <Button fx:id="viewTeamMember" mnemonicParsing="false" onAction="#handleViewTeammember" prefHeight="25.0" prefWidth="254.0" text="View Members" />
+                              <Button fx:id="addTeamMember" mnemonicParsing="false" onAction="#handleAddTeammember" prefHeight="25.0" prefWidth="202.0" text="Add" />
+                              <Button fx:id="deleteTeamMember" mnemonicParsing="false" onAction="#handleDeleteTeamMember" prefHeight="25.0" prefWidth="216.0" text="Delete" />
+                              <Button fx:id="viewTeamMember" mnemonicParsing="false" onAction="#handleViewTeammember" prefHeight="25.0" prefWidth="254.0" text="View Team member" />
                               <Button fx:id="goBack1" mnemonicParsing="false" onAction="#changeScene" prefHeight="27.0" prefWidth="129.0" text="Back" />
                            </children>
                         </VBox>
@@ -137,14 +136,14 @@
                         <RowConstraints maxHeight="336.0" minHeight="10.0" prefHeight="266.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <ListView fx:id="requirementsListView2" prefHeight="200.0" prefWidth="200.0" />
+                        <ListView fx:id="projectReportsListView" prefHeight="200.0" prefWidth="200.0" />
                         <VBox prefHeight="131.0" prefWidth="120.0" GridPane.columnIndex="1">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="Add" />
+                              <Button fx:id="addProjectReport" mnemonicParsing="false" onAction="#handleAddProjectReport" prefHeight="25.0" prefWidth="202.0" text="Add" />
                               <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="231.0" text="Edit" />
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="216.0" text="Delete" />
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="254.0" text="View Reports" />
-                              <Button fx:id="goBack2" mnemonicParsing="false" onAction="#changeScene" prefHeight="27.0" prefWidth="129.0" text="Back" />
+                              <Button fx:id="deleteProjectReport" mnemonicParsing="false" prefHeight="25.0" prefWidth="216.0" text="Delete" />
+                              <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="129.0" text="Back" />
+                              <Button fx:id="viewProjectReport" mnemonicParsing="false" onAction="#handleViewProjectReport" prefHeight="25.0" prefWidth="254.0" text="View Reports" />
                            </children>
                         </VBox>
                      </children>

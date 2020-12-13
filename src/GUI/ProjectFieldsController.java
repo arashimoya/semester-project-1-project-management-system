@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ProjectFieldsController {
@@ -61,7 +62,17 @@ public class ProjectFieldsController {
     @FXML
     Button deleteTeamMember;
     @FXML
+    Button addProjectReport;
+    @FXML
+    Button editProjectReport;
+    @FXML
+    Button viewProjectReport;
+    @FXML
+    Button deleteProjectReport;
+    @FXML
     ListView<String> teammembersListView;
+    @FXML
+    ListView<String> projectReportsListView;
 
 
     public void initData(Project project) {
@@ -76,12 +87,15 @@ public class ProjectFieldsController {
         descriptionLabel.setText(project.getDescription());
         ArrayList<Requirement> reqs = project.getRequirementList().getRequirements();
         ArrayList<TeamMember> members = project.getTeamMemberList().getTeamMembers();
-        System.out.println(members);
+        ArrayList<ProjectReport> reports = project.getProjectReportList().getProjectReports();
         for (Requirement requirement : reqs)
             requirementsListView.getItems().add(requirement.getName());
         for (TeamMember teamMember : members) {
             String name = teamMember.getName();
             teammembersListView.getItems().add(name);
+        }
+        for (ProjectReport report : reports) {
+            projectReportsListView.getItems().add(Integer.toString(report.getID()));
         }
     }
 
@@ -182,13 +196,51 @@ public class ProjectFieldsController {
         window.show();
     }
 
-    public void handleAddTeammember(ActionEvent e) throws IOException {
+    public void handleAddTeammember(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("AddTeamMember.fxml"));
+        loader.setLocation(getClass().getResource("AddTeamMemberToProject.fxml"));
         Parent addTeamMemberParent = loader.load();
         Scene addTeamMember = new Scene(addTeamMemberParent);
+        AddTeamMemberToProjectController controller = loader.getController();
+        controller.initData(adapter.getColourIt().getProjectList().getProject(Integer.parseInt(idLabel.getText())));
         Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
         window.setScene(addTeamMember);
+    }
+
+    public void handleDeleteTeamMember(ActionEvent e) throws CustomNotFoundException {
+        String name = teammembersListView.getSelectionModel().getSelectedItem();
+        ColourIT colourIT = adapter.getColourIt();
+        TeamMember teamMember = colourIT.getProjectList().getProject(Integer.parseInt(idLabel.getText())).getTeamMemberList().getTeamMember(name);
+        colourIT.getProjectList().getProject(Integer.parseInt(idLabel.getText())).getTeamMemberList().deleteTeamMember(teamMember);
+        adapter.save(colourIT);
+        teammembersListView.getItems().remove(name);
+    }
+
+    public void handleViewProjectReport(ActionEvent e) throws IOException, CustomNotFoundException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ProjectReportFields.fxml"));
+        Parent teamMemberParent = loader.load();
+        Scene detailedTeamMember = new Scene(teamMemberParent);
+        ProjectReportController controller = loader.getController();
+        Project project = adapter.getColourIt().getProjectList().getProject(Integer.parseInt(idLabel.getText()));
+        ProjectReport projectReport = project.getProjectReportList().getProjectReport(Integer.parseInt(projectReportsListView.getSelectionModel().getSelectedItem()));
+        controller.initData(projectReport);
+        Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        window.setScene(detailedTeamMember);
+        window.show();
+    }
+
+    public void handleAddProjectReport(ActionEvent e) throws IOException, CustomNotFoundException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("AddProjectReportFields.fxml"));
+        Parent addProjectReportParent = loader.load();
+        Scene detailedTeamMember = new Scene(addProjectReportParent);
+        int projectID = Integer.parseInt(idLabel.getText());
+        AddProjectReportController controller = loader.getController();
+        controller.initData(projectID);
+        Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        window.setScene(detailedTeamMember);
+        window.show();
     }
 
 }
