@@ -39,6 +39,7 @@ public class EditTeamMemberController {
         TeamMember teamMember = colourIT.getTeamMemberList().getTeamMember(id);
         colourIT.getTeamMemberList().editTeamMember(teamMember, name);
         adapter.save(colourIT);
+        adapter.saveToXml(colourIT);
         changeScene(e);
     }
 

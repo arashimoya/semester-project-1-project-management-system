@@ -63,6 +63,7 @@ public class AddProjectController implements Initializable {
                 colourIT.getTeamMemberList().getTeamMember(projectOwnerName), colourIT.getTeamMemberList().getTeamMember(projectCreatorName),
                 deadline, colourIT.getCustomerList().getCustomer(customerName), description);
         adapter.save(colourIT);
+        adapter.saveToXml(colourIT);
         changeScene(e);
 
 

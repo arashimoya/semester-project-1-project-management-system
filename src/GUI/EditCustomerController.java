@@ -37,6 +37,7 @@ public class EditCustomerController {
         Customer customer = colourIT.getCustomerList().getCustomer(id);
         colourIT.getCustomerList().editCustomer(customer, name);
         adapter.save(colourIT);
+        adapter.saveToXml(colourIT);
         changeScene(e);
     }
 

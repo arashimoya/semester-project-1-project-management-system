@@ -41,6 +41,7 @@ public class AddTeamMemberToProjectController {
         TeamMember teamMember = colourIT.getTeamMemberList().getTeamMember(name);
         colourIT.getProjectList().getProject(Integer.parseInt(projectID.getText())).getTeamMemberList().addTeamMember(teamMember);
         adapter.save(colourIT);
+        adapter.saveToXml(colourIT);
         teamMemberComboBox.getSelectionModel().selectFirst();
         teamMemberComboBox.getItems().remove(name);
     }

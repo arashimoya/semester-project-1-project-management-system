@@ -46,6 +46,7 @@ public class AddTeamMemberToRequirementController {
         colourIT.getProjectList().getProject(Integer.parseInt(projectIDText.getText())).getRequirementList().
                 getRequirement(Integer.parseInt(requirementIDText.getText())).getTeamMembers().addTeamMember(teamMember);
         adapter.save(colourIT);
+        adapter.saveToXml(colourIT);
         teamMemberComboBox.getSelectionModel().selectFirst();
         teamMemberComboBox.getItems().remove(name);
     }

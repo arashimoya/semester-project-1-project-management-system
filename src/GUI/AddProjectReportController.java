@@ -54,6 +54,7 @@ public class AddProjectReportController {
         colourIT.getProjectList().getProject(project.getId()).
                 getProjectReportList().createProjectReport(scrumMaster, message);
         adapter.save(colourIT);
+        adapter.saveToXml(colourIT);
         cancel(e);
     }
 

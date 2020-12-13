@@ -37,6 +37,7 @@ public class AddCustomerController {
         String id = idField.getText();
         colourIT.getCustomerList().createCustomer(name);
         adapter.save(colourIT);
+        adapter.saveToXml(colourIT);
         changeScene(e);
     }
     public void handleNext(ActionEvent e) throws IOException, ObjectAlreadyExistsException
@@ -46,6 +47,7 @@ public class AddCustomerController {
         String id = idField.getText();
         colourIT.getCustomerList().createCustomer(name);
         adapter.save(colourIT);
+        adapter.saveToXml(colourIT);
         idField.clear();
         nameField.clear();
     }

@@ -78,6 +78,7 @@ public class AddRequirementController implements Initializable {
         colourIT.getProjectList().getProject(projectID - 1).getRequirementList().createRequirement(projectID - 1, userStoryText,
                 status, name, deadline, functional, priority, estimatedTime);
         adapter.save(colourIT);
+        adapter.saveToXml(colourIT);
         goBack(e);
     }
 

@@ -84,6 +84,7 @@ public class EditProjectController {
                 colourIT.getTeamMemberList().getTeamMember(projectOwnerName),
                 deadline, colourIT.getCustomerList().getCustomer(customerName), "huj");
         adapter.save(colourIT);
+        adapter.saveToXml(colourIT);
         changeScene(e);
 
 

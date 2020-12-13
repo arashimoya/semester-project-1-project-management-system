@@ -59,5 +59,6 @@ public class AddTaskController {
         int timeSpent = Integer.parseInt(timeSpentTextField.getText());
         ColourIT colourIT = new ColourIT();
         colourIT.getProjectList().getProject()
+        adapter.saveToXml(colourIT);
     }
 }

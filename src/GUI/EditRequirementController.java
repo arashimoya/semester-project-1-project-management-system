@@ -93,6 +93,7 @@ public class EditRequirementController implements Initializable {
                         .getProject(projectID).getRequirementList().getRequirement(requirementID), userStoryText,
                 status, name, deadline, functional, priority, estimatedTime);
         adapter.save(colourIT);
+        adapter.saveToXml(colourIT);
         handleCancel(e);
     }
 
