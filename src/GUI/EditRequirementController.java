@@ -66,8 +66,6 @@ public class EditRequirementController implements Initializable {
             functional = "true";
         } else functional = "false";
         functionalComboBox.getSelectionModel().select(functional);
-        System.out.println(requirement.getProjectID());
-        System.out.println(requirement.getID());
 
     }
 
@@ -91,9 +89,6 @@ public class EditRequirementController implements Initializable {
         String userStoryText = userStoryTextTextArea.getText();
         ColourIT colourIT = adapter.getColourIt();
         String status = "not started";
-        System.out.println(projectID);
-        System.out.println(requirementID);
-        System.out.println(colourIT.getProjectList().getProject(projectID).getRequirementList().getRequirement(requirementID));
         colourIT.getProjectList().getProject(projectID).getRequirementList().editRequirement(colourIT.getProjectList()
                         .getProject(projectID).getRequirementList().getRequirement(requirementID), userStoryText,
                 status, name, deadline, functional, priority, estimatedTime);

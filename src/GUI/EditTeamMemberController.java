@@ -36,7 +36,6 @@ public class EditTeamMemberController
     String name = nameField.getText();
     ColourIT colourIT = adapter.getColourIt();
     colourIT.getTeamMemberList().editTeamMember(teamMember, name);
-    System.out.println(name);
     adapter.save(colourIT);
     changeScene(e);
   }

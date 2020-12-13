@@ -56,12 +56,10 @@ public class mainController implements Initializable {
             projects.getItems().add(project.getName());
         }
         for (TeamMember teamMember : teamMembersList) {
-            System.out.println(teamMember);
             teamMembers.getItems().add(teamMember.getName());
         }
         System.out.println(customersList);
         for (Customer customer : customersList) {
-            System.out.println(customer);
             customers.getItems().add(customer.getName());
         }
 
@@ -72,7 +70,6 @@ public class mainController implements Initializable {
         currentSelectedItem = projects.getSelectionModel().getSelectedItem();
         return adapter.getColourIt().getProjectList().getProject(currentSelectedItem);
     }
-
 
 
     public void detailedProjectView(ActionEvent e) throws IOException, CustomNotFoundException {
@@ -87,13 +84,13 @@ public class mainController implements Initializable {
         window.show();
     }
 
-    public TeamMember viewMembersDetails() throws CustomNotFoundException
-    {
+    public TeamMember viewMembersDetails() throws CustomNotFoundException {
         String currentSelectedItem;
         currentSelectedItem = teamMembers.getSelectionModel().getSelectedItem();
         System.out.println(adapter.getColourIt().getTeamMemberList().getTeamMember(currentSelectedItem));
         return adapter.getColourIt().getTeamMemberList().getTeamMember(currentSelectedItem);
     }
+
     public void detailedTeamMemberView(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("TeamMemberFields.fxml"));
@@ -105,13 +102,14 @@ public class mainController implements Initializable {
         window.setScene((detailedTeamMemberView));
         window.show();
     }
-    public Customer viewCustomerDetails() throws CustomNotFoundException
-    {
+
+    public Customer viewCustomerDetails() throws CustomNotFoundException {
         String currentSelectedItem;
         currentSelectedItem = customers.getSelectionModel().getSelectedItem();
         System.out.println(adapter.getColourIt().getCustomerList().getCustomer(currentSelectedItem));
         return adapter.getColourIt().getCustomerList().getCustomer(currentSelectedItem);
     }
+
     public void detailedCustomerView(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("CustomerFields.fxml"));
@@ -147,6 +145,7 @@ public class mainController implements Initializable {
         window.show();
 
     }
+
     public void handleAddCustomer(ActionEvent e) throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -194,6 +193,7 @@ public class mainController implements Initializable {
         adapter.save(colourIT);
         teamMembers.getItems().remove(teamMembers.getSelectionModel().getSelectedItem());
     }
+
     public void handleDeleteCustomer(ActionEvent e) throws IOException, CustomNotFoundException {
 
         ColourIT colourIT = adapter.getColourIt();
@@ -211,6 +211,7 @@ public class mainController implements Initializable {
         adapter.save(colourIT);
         customers.getItems().remove(customers.getSelectionModel().getSelectedItem());
     }
+
     public void handleEditProject(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("EditProject.fxml"));
@@ -222,8 +223,8 @@ public class mainController implements Initializable {
         window.setScene(editProjectView);
         window.show();
     }
-    public void handleEditTeamMember(ActionEvent e) throws IOException, CustomNotFoundException
-    {
+
+    public void handleEditTeamMember(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("EditTeamMember.fxml"));
         Parent editTeamMemberParent = loader.load();
@@ -235,8 +236,7 @@ public class mainController implements Initializable {
         window.show();
     }
 
-    public void handleEditCustomer(ActionEvent e) throws IOException, CustomNotFoundException
-    {
+    public void handleEditCustomer(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("EditCustomer.fxml"));
         Parent editCustomerParent = loader.load();

@@ -75,7 +75,7 @@ public class AddRequirementController implements Initializable {
         String userStoryText = userStoryTextTextArea.getText();
         ColourIT colourIT = adapter.getColourIt();
         String status = "not started";
-        colourIT.getProjectList().getProject(projectID).getRequirementList().createRequirement(projectID, userStoryText,
+        colourIT.getProjectList().getProject(projectID - 1).getRequirementList().createRequirement(projectID - 1, userStoryText,
                 status, name, deadline, functional, priority, estimatedTime);
         adapter.save(colourIT);
         goBack(e);

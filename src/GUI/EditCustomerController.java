@@ -34,7 +34,6 @@ public class EditCustomerController
     String name = nameField.getText();
     ColourIT colourIT = adapter.getColourIt();
     colourIT.getCustomerList().editCustomer(customer, name);
-    System.out.println(name);
     adapter.save(colourIT);
     changeScene(e);
   }

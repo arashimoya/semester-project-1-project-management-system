@@ -52,6 +52,16 @@ public class ProjectFieldsController {
     Button viewRequirement;
     @FXML
     Button deleteRequirement;
+    @FXML
+    Button addTeamMember;
+    @FXML
+    Button editTeamMember;
+    @FXML
+    Button viewTeamMember;
+    @FXML
+    Button deleteTeamMember;
+    @FXML
+    ListView<String> teammembersListView;
 
 
     public void initData(Project project) {
@@ -65,8 +75,14 @@ public class ProjectFieldsController {
         customerLabel.setText(project.getCustomer().getName());
         descriptionLabel.setText(project.getDescription());
         ArrayList<Requirement> reqs = project.getRequirementList().getRequirements();
+        ArrayList<TeamMember> members = project.getTeamMemberList().getTeamMembers();
+        System.out.println(members);
         for (Requirement requirement : reqs)
             requirementsListView.getItems().add(requirement.getName());
+        for (TeamMember teamMember : members) {
+            String name = teamMember.getName();
+            teammembersListView.getItems().add(name);
+        }
     }
 
     public void changeScene(ActionEvent e) throws IOException {
@@ -123,6 +139,56 @@ public class ProjectFieldsController {
         Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
         window.setScene(detailedRequirementView);
         window.show();
+    }
+
+    public void handleDeleteRequirement(ActionEvent e) throws CustomNotFoundException {
+        ColourIT colourIT = adapter.getColourIt();
+        Requirement requirement = null;
+        Project project = colourIT.getProjectList().getProject(Integer.parseInt(idLabel.getText()));
+        for (Requirement requirement1 :
+                project.getRequirementList().getRequirements()) {
+            if (requirement1.getID() == viewDetails().getID())
+                requirement = requirement1;
+        }
+
+        colourIT.getProjectList().getProject(project.getId()).getRequirementList().deleteRequirement(requirement);
+        adapter.save(colourIT);
+        requirementsListView.getItems().remove(requirementsListView.getSelectionModel().getSelectedItem());
+    }
+
+    public TeamMember viewTeamMemberDetails() throws CustomNotFoundException {
+        String currentSelectedItem;
+        Project project = null;
+        currentSelectedItem = teammembersListView.getSelectionModel().getSelectedItem();
+        for (Project project1 : adapter.getColourIt().getProjectList().getProjects()) {
+            if (project1.getId() == Integer.parseInt(idLabel.getText()))
+                project = project1;
+        }
+        assert project != null;
+        System.out.println(currentSelectedItem);
+        return project.getTeamMemberList().getTeamMember(currentSelectedItem);
+
+    }
+
+    public void handleViewTeammember(ActionEvent e) throws IOException, CustomNotFoundException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("TeamMemberFields.fxml"));
+        Parent teamMemberParent = loader.load();
+        Scene detailedTeamMember = new Scene(teamMemberParent);
+        TeamMemberFieldsController controller = loader.getController();
+        controller.initData(viewTeamMemberDetails());
+        Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        window.setScene(detailedTeamMember);
+        window.show();
+    }
+
+    public void handleAddTeammember(ActionEvent e) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("AddTeamMember.fxml"));
+        Parent addTeamMemberParent = loader.load();
+        Scene addTeamMember = new Scene(addTeamMemberParent);
+        Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        window.setScene(addTeamMember);
     }
 
 }
