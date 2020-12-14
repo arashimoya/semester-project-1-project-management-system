@@ -55,8 +55,6 @@ $(function () {
 
     }
 
-
-
     if (localStorage.getItem("customerName") === null) {
         projectForm.submit(function () {
             customerNameInput = customerName.val();

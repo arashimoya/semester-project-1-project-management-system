@@ -12,6 +12,7 @@ public class ProjectReportList implements Serializable {
      */
     public ProjectReportList() {
         this.projectReports = new ArrayList<ProjectReport>();
+        idCounter = 0;
     }
 
     /**
