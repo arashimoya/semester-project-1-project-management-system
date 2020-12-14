@@ -13,6 +13,7 @@ public class TaskReport implements Serializable {
   private TeamMember teamMember;
   private String report;
   private MyDate reportDate;
+  private int timeSpent;
 
   /**
    * A 4-argument constructor replacing parameters listed below
@@ -22,11 +23,12 @@ public class TaskReport implements Serializable {
    * @param report     report represented by String
    * @param reportDate date the report was sent
    */
-  public TaskReport(int id, TeamMember teamMember, String report, MyDate reportDate) {
+  public TaskReport(int id, TeamMember teamMember, String report, MyDate reportDate, int timeSpent) {
     this.id = id;
     this.teamMember = teamMember;
     this.report = report;
     this.reportDate = reportDate;
+    this.timeSpent = timeSpent;
   }
 
   /**
@@ -54,6 +56,14 @@ public class TaskReport implements Serializable {
    */
   public String getReport() {
     return report;
+  }
+
+  /**
+   * gets the time spent
+   * @return the time spent
+   */
+  public int getTimeSpent() {
+    return timeSpent;
   }
 
 
