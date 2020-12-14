@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AddTaskController {
+public class EditTaskController {
     @FXML
     TextField projectID;
     @FXML
@@ -50,12 +50,20 @@ public class AddTaskController {
     Button nextButton;
     ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "data.xml");
 
-    public void initData(Requirement requirement) {
-        idTextField.setText(Integer.toString(requirement.getTaskList().getIdCounter()));
+    public void initData(Requirement requirement, Task task) {
+        nameTextField.setText(task.getName());
+        idTextField.setText(Integer.toString(task.getId()));
         requirementIdTextField.setText(Integer.toString(requirement.getID()));
         projectID.setText(Integer.toString(requirement.getProjectID()));
         statusTextField.setText("Not started");
         timeSpentTextField.setText("0");
+        descriptionTextField.setText(task.getDescription());
+        estimatedTimeTextField.setText(Integer.toString(task.getEstimatedTime()));
+        statusTextField.setText(task.getStatus());
+        dayField.setText(Integer.toString(task.getDeadline().getDay()));
+        monthField.setText(Integer.toString(task.getDeadline().getMonth()));
+        yearField.setText(Integer.toString(task.getDeadline().getYear()));
+        timeSpentTextField.setText(Integer.toString(task.getTimeSpent()));
     }
 
     public void handleNext(ActionEvent e) throws IllegalDateException, CustomNotFoundException, ObjectAlreadyExistsException {
@@ -64,30 +72,24 @@ public class AddTaskController {
         int day = Integer.parseInt(dayField.getText());
         int month = Integer.parseInt(monthField.getText());
         int year = Integer.parseInt(yearField.getText());
+        String status = statusTextField.getText();
         MyDate date = new MyDate(day, month, year);
         int estimatedTime = Integer.parseInt(estimatedTimeTextField.getText());
         ColourIT colourIT = adapter.getColourIt();
-        System.out.println(colourIT.getProjectList().getProjects());
-        System.out.println(colourIT.getProjectList().getProject(Integer.parseInt(projectID.getText())));
+        System.out.println(colourIT.getProjectList().getProject(Integer.parseInt(projectID.getText())).getRequirementList().
+                getRequirement(Integer.parseInt(requirementIdTextField.getText())).
+                getTaskList().getTask(Integer.parseInt(idTextField.getText())));
         colourIT.getProjectList().getProject(Integer.parseInt(projectID.getText())).getRequirementList().
                 getRequirement(Integer.parseInt(requirementIdTextField.getText())).
-                getTaskList().createTask(Integer.parseInt(requirementIdTextField.getText()), description, name, date, estimatedTime);
+                getTaskList().editTask(colourIT.getProjectList().getProject(Integer.parseInt(projectID.getText()))
+                .getRequirementList().getRequirement(Integer.parseInt(requirementIdTextField.getText())).getTaskList()
+                .getTask(Integer.parseInt(idTextField.getText())), status, description, name, date, estimatedTime);
+
         adapter.saveToXml(colourIT);
         adapter.save(colourIT);
-        if (e.getSource() == nextButton)
-            setUpForNext(adapter.getColourIt().getProjectList().
-                    getProject(Integer.parseInt(projectID.getText())).getRequirementList().getRequirement(Integer.parseInt(requirementIdTextField.getText())));
+
     }
 
-    public void setUpForNext(Requirement requirement) {
-        nameTextField.clear();
-        descriptionTextField.clear();
-        dayField.clear();
-        monthField.clear();
-        yearField.clear();
-        estimatedTimeTextField.clear();
-        initData(requirement);
-    }
 
     public void handleOk(ActionEvent e) throws IOException, CustomNotFoundException, IllegalDateException, ObjectAlreadyExistsException {
         handleNext(e);
@@ -103,4 +105,19 @@ public class AddTaskController {
         window.setScene(detailedRequirementView);
         window.show();
     }
+
+    public void handleCancel(ActionEvent e) throws IOException, CustomNotFoundException {
+        ColourIT colourIT = adapter.getColourIt();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("RequirementFields.fxml"));
+        Parent requirementFieldsParent = loader.load();
+        Scene detailedRequirementView = new Scene(requirementFieldsParent);
+        RequirementFieldsController controller = loader.getController();
+        controller.initData(colourIT.getProjectList().getProject(Integer.parseInt(projectID.getText())).
+                getRequirementList().getRequirement(Integer.parseInt(requirementIdTextField.getText())));
+        Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        window.setScene(detailedRequirementView);
+        window.show();
+    }
+
 }

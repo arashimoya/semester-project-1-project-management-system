@@ -110,7 +110,10 @@ public class RequirementFieldsController {
         String name = teamMembersView.getSelectionModel().getSelectedItem();
         ColourIT colourIT = adapter.getColourIt();
         TeamMember teamMember = colourIT.getTeamMemberList().getTeamMember(name);
-        colourIT.getProjectList().getProject(Integer.parseInt(projectIDLabel.getText())).getTeamMemberList().deleteTeamMember(teamMember);
+        colourIT.getProjectList().getProject(Integer.parseInt(projectIDLabel.getText())).getRequirementList().getRequirement(Integer.parseInt(idLabel.getText())).getTeamMembers().deleteTeamMember(teamMember);
+        teamMembersView.getItems().remove(name);
+        adapter.save(colourIT);
+        adapter.saveToXml(colourIT);
     }
 
     public void handleViewTask(ActionEvent e) throws CustomNotFoundException, IOException {
@@ -124,9 +127,51 @@ public class RequirementFieldsController {
         Parent requirementFieldsParent = loader.load();
         Scene detailedRequirementView = new Scene(requirementFieldsParent);
         TaskFieldsController controller = loader.getController();
-        controller.initData(task);
+        controller.initData(task,requirement);
         Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
         window.setScene(detailedRequirementView);
         window.show();
+    }
+
+    public void handleAddTask(ActionEvent e) throws IOException, CustomNotFoundException {
+        ColourIT colourIT = adapter.getColourIt();
+        Project project = colourIT.getProjectList().getProject(Integer.parseInt(projectIDLabel.getText()));
+        Requirement requirement = project.getRequirementList().getRequirement(Integer.parseInt(idLabel.getText()));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("AddTask.fxml"));
+        Parent requirementFieldsParent = loader.load();
+        Scene detailedRequirementView = new Scene(requirementFieldsParent);
+        AddTaskController controller = loader.getController();
+        controller.initData(requirement);
+        Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        window.setScene(detailedRequirementView);
+        window.show();
+    }
+
+    public void handleEditTask(ActionEvent e) throws IOException, CustomNotFoundException {
+        ColourIT colourIT = adapter.getColourIt();
+        Project project = colourIT.getProjectList().getProject(Integer.parseInt(projectIDLabel.getText()));
+        Requirement requirement = project.getRequirementList().getRequirement(Integer.parseInt(idLabel.getText()));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("EditTask.fxml"));
+        Parent requirementFieldsParent = loader.load();
+        Scene detailedRequirementView = new Scene(requirementFieldsParent);
+        EditTaskController controller = loader.getController();
+        controller.initData(requirement, requirement.getTaskList().getTask(tasksListView.getSelectionModel().getSelectedItem()));
+        Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        window.setScene(detailedRequirementView);
+        window.show();
+    }
+
+    public void handleDeleteTask(ActionEvent e) throws CustomNotFoundException {
+        ColourIT colourIT = adapter.getColourIt();
+        String name = tasksListView.getSelectionModel().getSelectedItem();
+        Task task = colourIT.getProjectList().getProject(Integer.parseInt(projectIDLabel.getText())).getRequirementList().
+                getRequirement(Integer.parseInt(idLabel.getText())).getTaskList().getTask(name);
+        colourIT.getProjectList().getProject(Integer.parseInt(projectIDLabel.getText())).getRequirementList().
+                getRequirement(Integer.parseInt(idLabel.getText())).getTaskList().deleteTask(task);
+        adapter.save(colourIT);
+        adapter.saveToXml(colourIT);
+        tasksListView.getItems().remove(name);
     }
 }

@@ -20,7 +20,7 @@
       <deadline>
         <month>12</month>
         <year>2020</year>
-        <day>11</day>
+        <day>14</day>
       </deadline>
       <teamMembers>
         <idCounter>0</idCounter>
@@ -56,6 +56,14 @@
           <name>name8</name>
           <id>8</id>
         </teamMembers>
+        <teamMembers>
+          <name>name11</name>
+          <id>11</id>
+        </teamMembers>
+        <teamMembers>
+          <name>name15</name>
+          <id>15</id>
+        </teamMembers>
       </teamMembers>
       <requirementList>
         <requirements>
@@ -69,7 +77,57 @@
             <tasks>
               <estimatedTime>5</estimatedTime>
               <taskReportList>
-                <idCounter>0</idCounter>
+                <idCounter>5</idCounter>
+                <taskReports>
+                  <reportDate>
+                    <month>12</month>
+                    <year>2020</year>
+                    <day>14</day>
+                  </reportDate>
+                  <teamMemberID>0</teamMemberID>
+                  <report>prejsabrejsanumanumajej</report>
+                  <id>0</id>
+                </taskReports>
+                <taskReports>
+                  <reportDate>
+                    <month>12</month>
+                    <year>2020</year>
+                    <day>14</day>
+                  </reportDate>
+                  <teamMemberID>0</teamMemberID>
+                  <report>prejsabrejsanumanumajej</report>
+                  <id>1</id>
+                </taskReports>
+                <taskReports>
+                  <reportDate>
+                    <month>12</month>
+                    <year>2020</year>
+                    <day>14</day>
+                  </reportDate>
+                  <teamMemberID>0</teamMemberID>
+                  <report>prejsabrejsanumanumajej</report>
+                  <id>2</id>
+                </taskReports>
+                <taskReports>
+                  <reportDate>
+                    <month>12</month>
+                    <year>2020</year>
+                    <day>14</day>
+                  </reportDate>
+                  <teamMemberID>0</teamMemberID>
+                  <report>prejsabrejsanumanumajej</report>
+                  <id>3</id>
+                </taskReports>
+                <taskReports>
+                  <reportDate>
+                    <month>12</month>
+                    <year>2020</year>
+                    <day>14</day>
+                  </reportDate>
+                  <teamMemberID>0</teamMemberID>
+                  <report>prejsabrejsanumanumajej</report>
+                  <id>4</id>
+                </taskReports>
               </taskReportList>
               <timeSpent>0</timeSpent>
               <name>taskname1</name>
@@ -90,7 +148,7 @@
               <deadline>
                 <month>12</month>
                 <year>2020</year>
-                <day>11</day>
+                <day>14</day>
               </deadline>
             </tasks>
             <tasks>
@@ -117,7 +175,7 @@
               <deadline>
                 <month>12</month>
                 <year>2020</year>
-                <day>11</day>
+                <day>14</day>
               </deadline>
             </tasks>
           </taskList>
@@ -125,7 +183,7 @@
           <deadline>
             <month>12</month>
             <year>2020</year>
-            <day>11</day>
+            <day>14</day>
           </deadline>
           <priority>0</priority>
           <teamMembers>
@@ -182,7 +240,7 @@
               <deadline>
                 <month>12</month>
                 <year>2020</year>
-                <day>11</day>
+                <day>14</day>
               </deadline>
             </tasks>
             <tasks>
@@ -209,7 +267,7 @@
               <deadline>
                 <month>12</month>
                 <year>2020</year>
-                <day>11</day>
+                <day>14</day>
               </deadline>
             </tasks>
           </taskList>
@@ -217,7 +275,7 @@
           <deadline>
             <month>12</month>
             <year>2020</year>
-            <day>11</day>
+            <day>14</day>
           </deadline>
           <priority>1</priority>
           <teamMembers>
@@ -271,7 +329,7 @@
       <deadline>
         <month>12</month>
         <year>2020</year>
-        <day>11</day>
+        <day>14</day>
       </deadline>
       <teamMembers>
         <idCounter>0</idCounter>
@@ -316,11 +374,21 @@
           <timeSpent>0</timeSpent>
           <name>requirementname3</name>
           <taskList>
-            <idCounter>0</idCounter>
+            <idCounter>1</idCounter>
             <tasks>
               <estimatedTime>25</estimatedTime>
               <taskReportList>
-                <idCounter>0</idCounter>
+                <idCounter>1</idCounter>
+                <taskReports>
+                  <reportDate>
+                    <month>12</month>
+                    <year>2020</year>
+                    <day>14</day>
+                  </reportDate>
+                  <teamMemberID>9</teamMemberID>
+                  <report>huj huj</report>
+                  <id>0</id>
+                </taskReports>
               </taskReportList>
               <timeSpent>0</timeSpent>
               <name>taskname5</name>
@@ -341,7 +409,7 @@
               <deadline>
                 <month>12</month>
                 <year>2020</year>
-                <day>11</day>
+                <day>14</day>
               </deadline>
             </tasks>
             <tasks>
@@ -368,7 +436,40 @@
               <deadline>
                 <month>12</month>
                 <year>2020</year>
-                <day>11</day>
+                <day>14</day>
+              </deadline>
+            </tasks>
+            <tasks>
+              <estimatedTime>1</estimatedTime>
+              <taskReportList>
+                <idCounter>1</idCounter>
+                <taskReports>
+                  <reportDate>
+                    <month>12</month>
+                    <year>2020</year>
+                    <day>14</day>
+                  </reportDate>
+                  <teamMemberID>10</teamMemberID>
+                  <report>1111</report>
+                  <id>0</id>
+                </taskReports>
+              </taskReportList>
+              <timeSpent>0</timeSpent>
+              <name>huj</name>
+              <description>jebac1</description>
+              <id>0</id>
+              <teamMemberList>
+                <idCounter>0</idCounter>
+                <teamMembers>
+                  <name>name10</name>
+                  <id>10</id>
+                </teamMembers>
+              </teamMemberList>
+              <requirementID>2</requirementID>
+              <deadline>
+                <month>1</month>
+                <year>1</year>
+                <day>1</day>
               </deadline>
             </tasks>
           </taskList>
@@ -376,7 +477,7 @@
           <deadline>
             <month>12</month>
             <year>2020</year>
-            <day>11</day>
+            <day>14</day>
           </deadline>
           <priority>1</priority>
           <teamMembers>
@@ -396,6 +497,10 @@
             <teamMembers>
               <name>name12</name>
               <id>12</id>
+            </teamMembers>
+            <teamMembers>
+              <name>name16</name>
+              <id>16</id>
             </teamMembers>
           </teamMembers>
           <projectID>1</projectID>
@@ -433,13 +538,23 @@
               <deadline>
                 <month>12</month>
                 <year>2020</year>
-                <day>11</day>
+                <day>14</day>
               </deadline>
             </tasks>
             <tasks>
               <estimatedTime>40</estimatedTime>
               <taskReportList>
-                <idCounter>0</idCounter>
+                <idCounter>1</idCounter>
+                <taskReports>
+                  <reportDate>
+                    <month>12</month>
+                    <year>2020</year>
+                    <day>14</day>
+                  </reportDate>
+                  <teamMemberID>15</teamMemberID>
+                  <report>huj</report>
+                  <id>0</id>
+                </taskReports>
               </taskReportList>
               <timeSpent>0</timeSpent>
               <name>taskname8</name>
@@ -460,7 +575,7 @@
               <deadline>
                 <month>12</month>
                 <year>2020</year>
-                <day>11</day>
+                <day>14</day>
               </deadline>
             </tasks>
           </taskList>
@@ -468,7 +583,7 @@
           <deadline>
             <month>12</month>
             <year>2020</year>
-            <day>11</day>
+            <day>14</day>
           </deadline>
           <priority>3</priority>
           <teamMembers>
@@ -500,10 +615,58 @@
         <id>1</id>
       </customer>
       <projectReports>
+        <idCounter>1</idCounter>
+        <projectReports>
+          <date>
+            <month>12</month>
+            <year>2020</year>
+            <day>14</day>
+          </date>
+          <scrumMaster>
+            <name>name1</name>
+            <id>0</id>
+          </scrumMaster>
+          <id>0</id>
+          <message>adam chuj</message>
+        </projectReports>
+      </projectReports>
+    </projects>
+    <projects>
+      <scrumMaster>
+        <name>name2</name>
+        <id>1</id>
+      </scrumMaster>
+      <name>adamchuj</name>
+      <description>adamchuj</description>
+      <projectCreator>
+        <name>name3</name>
+        <id>3</id>
+      </projectCreator>
+      <id>0</id>
+      <productOwner>
+        <name>name5</name>
+        <id>5</id>
+      </productOwner>
+      <deadline>
+        <month>1</month>
+        <year>1</year>
+        <day>1</day>
+      </deadline>
+      <teamMembers>
+        <idCounter>0</idCounter>
+      </teamMembers>
+      <requirementList>
+        <idCounter>0</idCounter>
+      </requirementList>
+      <customer>
+        <name>Alex</name>
+        <id>0</id>
+      </customer>
+      <projectReports>
         <idCounter>0</idCounter>
       </projectReports>
     </projects>
-    <idCounter>0</idCounter>
+    <idCounter>1</idCounter>
   </projectList>
   <customerList>
     <idCounter>0</idCounter>

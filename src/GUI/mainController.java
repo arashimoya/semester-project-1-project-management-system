@@ -42,11 +42,11 @@ public class mainController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         adapter = new ColourITFileAdapter("data.bin", "data.xml");
         ColourIT colourIT = adapter.getColourIt();
-        ArrayList<Project> projectList;
+
         ArrayList<TeamMember> teamMembersList;
         ArrayList<Customer> customersList;
 
-        projectList = colourIT.getProjectList().getProjects();
+        ArrayList<Project> projectList = colourIT.getProjectList().getProjects();
         teamMembersList = colourIT.getTeamMemberList().getTeamMembers();
         customersList = colourIT.getCustomerList().getCustomers();
         customersList.add(new Customer(1, "huj"));
@@ -82,6 +82,7 @@ public class mainController implements Initializable {
         Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
         window.setScene(detailedProjectView);
         window.show();
+        System.out.println(adapter.getColourIt().getProjectList().getProjects());
     }
 
     public TeamMember viewMembersDetails() throws CustomNotFoundException {
