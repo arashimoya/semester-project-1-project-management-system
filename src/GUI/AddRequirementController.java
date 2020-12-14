@@ -56,7 +56,7 @@ public class AddRequirementController implements Initializable {
         functionalComboBox.getItems().addAll("true", "false");
         projectIdTextField.setText(Integer.toString(adapter.getColourIt().getProjectList().getIdCounter() - 1));
         try {
-            idTextField.setText(Integer.toString(adapter.getColourIt().getProjectList().getProject(Integer.parseInt(projectIdTextField.getText()) - 1).getRequirementList().getIdCounter()));
+            idTextField.setText(Integer.toString(adapter.getColourIt().getProjectList().getProject(Integer.parseInt(projectIdTextField.getText())).getRequirementList().getIdCounter()));
         } catch (CustomNotFoundException e) {
             e.printStackTrace();
         }
@@ -75,7 +75,7 @@ public class AddRequirementController implements Initializable {
         String userStoryText = userStoryTextTextArea.getText();
         ColourIT colourIT = adapter.getColourIt();
         String status = "not started";
-        colourIT.getProjectList().getProject(projectID - 1).getRequirementList().createRequirement(projectID - 1, userStoryText,
+        colourIT.getProjectList().getProject(projectID).getRequirementList().createRequirement(projectID, userStoryText,
                 status, name, deadline, functional, priority, estimatedTime);
         adapter.save(colourIT);
         adapter.saveToXml(colourIT);

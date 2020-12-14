@@ -60,7 +60,7 @@ public class AddTaskReportController {
         MyDate today = new MyDate();
         colourIT.getProjectList().getProject(project.getId()).getRequirementList().
                 getRequirement(requirement.getID()).getTaskList().getTask(task.getId()).
-                getTaskReportList().createTaskReport(teamMember.getId(), report, today);
+                getTaskReportList().createTaskReport(teamMember, report, today,10);
         adapter.save(colourIT);
         adapter.saveToXml(colourIT);
         handleCancel(e);
