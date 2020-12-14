@@ -87,4 +87,8 @@ public class ProjectReportList implements Serializable {
             throw new ObjectAlreadyExistsException();
         }
     }
+
+    public int getIdCounter() {
+        return idCounter;
+    }
 }

@@ -96,5 +96,8 @@ public class TeamMemberList implements Serializable {
         }
     }
 
+    public int getIdCounter() {
+        return ++idCounter;
+    }
 }
 
