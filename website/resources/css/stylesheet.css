@@ -181,6 +181,14 @@ table td {
             z-index: 50;
             margin:auto;
         }
+#team-content {
+    width: 100%;
+}
+
+    #team-table {
+        margin:auto;
+        text-align: center;
+    }
 
 /* some changes to make everything fit correctly in mobile layout */
 @media only screen and (max-width: 768px) {

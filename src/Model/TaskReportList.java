@@ -76,12 +76,12 @@ public class TaskReportList implements Serializable {
     /**
      * Creates a new task report and adds it to the list
      *
-     * @param teamMemberID ID of the team member reporting
+     * @param teamMember   the team member reporting
      * @param report       report represented by String
      * @param reportDate   date the report was sent
      */
-    public TaskReport createTaskReport(int teamMemberID, String report, MyDate reportDate) throws ObjectAlreadyExistsException {
-        TaskReport newTaskReport = new TaskReport(idCounter++, teamMemberID, report, reportDate);
+    public TaskReport createTaskReport(TeamMember teamMember, String report, MyDate reportDate, int timeSpent) throws ObjectAlreadyExistsException {
+        TaskReport newTaskReport = new TaskReport(idCounter++, teamMember, report, reportDate, timeSpent);
         if (!taskReports.contains(newTaskReport)) {
             taskReports.add(newTaskReport);
             return newTaskReport;
