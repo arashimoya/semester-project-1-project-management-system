@@ -158,10 +158,21 @@ public class Task implements Serializable {
         this.deadline = deadline;
     }
 
+    /**
+     * Replaces the estimated time of the task
+     * @param estimatedTime the estimated time to replace with
+     */
     public void setEstimatedTime(int estimatedTime) {
         this.estimatedTime = estimatedTime;
     }
 
+    /**
+     * Replaces the time spent of the task
+     * @param timeSpent the time spent to replace with
+     */
+    public void setTimeSpent(int timeSpent) {
+        this.timeSpent = timeSpent;
+    }
 
     public boolean equals(Object o) {
         if (this == o) return true;

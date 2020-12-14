@@ -75,6 +75,7 @@ public class TaskReport implements Serializable {
     TaskReport that = (TaskReport) o;
 
     if (getId() != that.getId()) return false;
+    if (getTimeSpent() != that.getTimeSpent()) return false;
     if (getTeamMember() != null ? !getTeamMember().equals(that.getTeamMember()) : that.getTeamMember() != null)
       return false;
     if (getReport() != null ? !getReport().equals(that.getReport()) : that.getReport() != null) return false;
@@ -87,6 +88,7 @@ public class TaskReport implements Serializable {
     result = 31 * result + (getTeamMember() != null ? getTeamMember().hashCode() : 0);
     result = 31 * result + (getReport() != null ? getReport().hashCode() : 0);
     result = 31 * result + (reportDate != null ? reportDate.hashCode() : 0);
+    result = 31 * result + getTimeSpent();
     return result;
   }
 
@@ -97,6 +99,7 @@ public class TaskReport implements Serializable {
             ", teamMember=" + teamMember +
             ", report='" + report + '\'' +
             ", reportDate=" + reportDate +
+            ", timeSpent=" + timeSpent +
             '}';
   }
 }
