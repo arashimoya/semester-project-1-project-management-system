@@ -63,6 +63,7 @@ public class AddProjectController implements Initializable {
                 colourIT.getTeamMemberList().getTeamMember(projectOwnerName), colourIT.getTeamMemberList().getTeamMember(projectCreatorName),
                 deadline, colourIT.getCustomerList().getCustomer(customerName), description);
         adapter.save(colourIT);
+        adapter.saveToXml(colourIT);
         changeScene(e);
 
 
@@ -87,7 +88,6 @@ public class AddProjectController implements Initializable {
             customerNameField.getItems().add(customer.getName());
         }
         for (TeamMember teamMember : colourIT.getTeamMemberList().getTeamMembers()) {
-            System.out.println(teamMember);
             scrumMasterNameField.getItems().add(teamMember.getName());
             projectCreatorNameField.getItems().add(teamMember.getName());
             projectOwnerNameField.getItems().add(teamMember.getName());

@@ -57,7 +57,6 @@ public class EditProjectController {
             customerNameField.getItems().add(customer.getName());
         }
         for (TeamMember teamMember : colourIT.getTeamMemberList().getTeamMembers()) {
-            System.out.println(teamMember);
             scrumMasterNameField.getItems().add(teamMember.getName());
             projectCreatorNameField.getItems().add(teamMember.getName());
             projectOwnerNameField.getItems().add(teamMember.getName());
@@ -85,6 +84,7 @@ public class EditProjectController {
                 colourIT.getTeamMemberList().getTeamMember(projectOwnerName),
                 deadline, colourIT.getCustomerList().getCustomer(customerName), "huj");
         adapter.save(colourIT);
+        adapter.saveToXml(colourIT);
         changeScene(e);
 
 

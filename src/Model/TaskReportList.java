@@ -69,6 +69,10 @@ public class TaskReportList implements Serializable {
         } else throw new CustomNotFoundException();
     }
 
+    public int getIdCounter() {
+        return idCounter;
+    }
+
     /**
      * Creates a new task report and adds it to the list
      *

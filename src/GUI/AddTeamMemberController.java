@@ -43,6 +43,7 @@ public class AddTeamMemberController {
     String id = idField.getText();
     colourIT.getTeamMemberList().createTeamMember(name);
     adapter.save(colourIT);
+    adapter.saveToXml(colourIT);
     idField.clear();
     nameField.clear();
   }

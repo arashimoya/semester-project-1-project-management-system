@@ -92,11 +92,11 @@
                         <ListView fx:id="tasksListView" prefHeight="278.0" prefWidth="326.0" GridPane.rowSpan="2" />
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                            <children>
-                              <Button fx:id="addButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Add" />
-                              <Button fx:id="editButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" text="Edit" />
-                              <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Delete" />
-                              <Button fx:id="viewButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="View" />
-                              <Button fx:id="backButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="127.0" text="Back" />
+                              <Button fx:id="addButton" mnemonicParsing="false" onAction="#handleAddTask" prefHeight="25.0" prefWidth="100.0" text="Add" />
+                              <Button fx:id="editButton" mnemonicParsing="false" onAction="#handleEditTask" prefHeight="25.0" prefWidth="139.0" text="Edit" />
+                              <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDeleteTask" prefHeight="25.0" prefWidth="141.0" text="Delete" />
+                              <Button fx:id="viewTaskButton" mnemonicParsing="false" onAction="#handleViewTask" prefHeight="25.0" prefWidth="121.0" text="View" />
+                              <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleCancel" prefHeight="25.0" prefWidth="127.0" text="Back" />
                            </children>
                         </VBox>
                      </children>
@@ -114,13 +114,12 @@
                         <RowConstraints maxHeight="280.0" minHeight="10.0" prefHeight="270.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <ListView prefHeight="240.0" prefWidth="281.0" />
+                        <ListView fx:id="teamMembersView" prefHeight="240.0" prefWidth="281.0" />
                         <VBox prefHeight="240.0" prefWidth="100.0" GridPane.columnIndex="1">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Add" />
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Edit" />
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" text="Delete" />
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" text="Button" />
+                              <Button fx:id="addTeamMemberButton" mnemonicParsing="false" onAction="#handleAddTeamMember" prefHeight="25.0" prefWidth="100.0" text="Add" />
+                              <Button fx:id="deleteTeamMemberButton" mnemonicParsing="false" onAction="#handleDeleteTeamMember" prefHeight="25.0" prefWidth="117.0" text="Remove" />
+                              <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancel" prefHeight="25.0" prefWidth="132.0" text="Back" />
                            </children>
                         </VBox>
                      </children>
