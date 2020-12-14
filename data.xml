@@ -6,21 +6,21 @@
         <name>name1</name>
         <id>0</id>
       </scrumMaster>
-      <name>ProjectName1</name>
-      <description>This is a short description of project1</description>
+      <name>chuj adam</name>
+      <description>adam to chuj</description>
       <projectCreator>
-        <name>name3</name>
-        <id>3</id>
+        <name>name2</name>
+        <id>1</id>
       </projectCreator>
       <id>0</id>
       <productOwner>
-        <name>name2</name>
-        <id>1</id>
+        <name>name3</name>
+        <id>3</id>
       </productOwner>
       <deadline>
-        <month>12</month>
-        <year>2020</year>
-        <day>14</day>
+        <month>10</month>
+        <year>10</year>
+        <day>10</day>
       </deadline>
       <teamMembers>
         <idCounter>0</idCounter>
@@ -40,266 +40,8 @@
           <name>name4</name>
           <id>4</id>
         </teamMembers>
-        <teamMembers>
-          <name>name5</name>
-          <id>5</id>
-        </teamMembers>
-        <teamMembers>
-          <name>name6</name>
-          <id>6</id>
-        </teamMembers>
-        <teamMembers>
-          <name>name7</name>
-          <id>7</id>
-        </teamMembers>
-        <teamMembers>
-          <name>name8</name>
-          <id>8</id>
-        </teamMembers>
-        <teamMembers>
-          <name>name11</name>
-          <id>11</id>
-        </teamMembers>
-        <teamMembers>
-          <name>name15</name>
-          <id>15</id>
-        </teamMembers>
       </teamMembers>
       <requirementList>
-        <requirements>
-          <estimatedTime>20</estimatedTime>
-          <functional>false</functional>
-          <userStoryText>someuserstorytext1</userStoryText>
-          <timeSpent>0</timeSpent>
-          <name>requirementname1</name>
-          <taskList>
-            <idCounter>0</idCounter>
-            <tasks>
-              <estimatedTime>5</estimatedTime>
-              <taskReportList>
-                <idCounter>5</idCounter>
-                <taskReports>
-                  <reportDate>
-                    <month>12</month>
-                    <year>2020</year>
-                    <day>14</day>
-                  </reportDate>
-                  <teamMemberID>0</teamMemberID>
-                  <report>prejsabrejsanumanumajej</report>
-                  <id>0</id>
-                </taskReports>
-                <taskReports>
-                  <reportDate>
-                    <month>12</month>
-                    <year>2020</year>
-                    <day>14</day>
-                  </reportDate>
-                  <teamMemberID>0</teamMemberID>
-                  <report>prejsabrejsanumanumajej</report>
-                  <id>1</id>
-                </taskReports>
-                <taskReports>
-                  <reportDate>
-                    <month>12</month>
-                    <year>2020</year>
-                    <day>14</day>
-                  </reportDate>
-                  <teamMemberID>0</teamMemberID>
-                  <report>prejsabrejsanumanumajej</report>
-                  <id>2</id>
-                </taskReports>
-                <taskReports>
-                  <reportDate>
-                    <month>12</month>
-                    <year>2020</year>
-                    <day>14</day>
-                  </reportDate>
-                  <teamMemberID>0</teamMemberID>
-                  <report>prejsabrejsanumanumajej</report>
-                  <id>3</id>
-                </taskReports>
-                <taskReports>
-                  <reportDate>
-                    <month>12</month>
-                    <year>2020</year>
-                    <day>14</day>
-                  </reportDate>
-                  <teamMemberID>0</teamMemberID>
-                  <report>prejsabrejsanumanumajej</report>
-                  <id>4</id>
-                </taskReports>
-              </taskReportList>
-              <timeSpent>0</timeSpent>
-              <name>taskname1</name>
-              <description>Short description of task 1</description>
-              <id>0</id>
-              <teamMemberList>
-                <idCounter>0</idCounter>
-                <teamMembers>
-                  <name>name1</name>
-                  <id>0</id>
-                </teamMembers>
-                <teamMembers>
-                  <name>name2</name>
-                  <id>1</id>
-                </teamMembers>
-              </teamMemberList>
-              <requirementID>0</requirementID>
-              <deadline>
-                <month>12</month>
-                <year>2020</year>
-                <day>14</day>
-              </deadline>
-            </tasks>
-            <tasks>
-              <estimatedTime>10</estimatedTime>
-              <taskReportList>
-                <idCounter>0</idCounter>
-              </taskReportList>
-              <timeSpent>0</timeSpent>
-              <name>taskname2</name>
-              <description>Short description of task 2</description>
-              <id>1</id>
-              <teamMemberList>
-                <idCounter>0</idCounter>
-                <teamMembers>
-                  <name>name3</name>
-                  <id>3</id>
-                </teamMembers>
-                <teamMembers>
-                  <name>name4</name>
-                  <id>4</id>
-                </teamMembers>
-              </teamMemberList>
-              <requirementID>0</requirementID>
-              <deadline>
-                <month>12</month>
-                <year>2020</year>
-                <day>14</day>
-              </deadline>
-            </tasks>
-          </taskList>
-          <ID>0</ID>
-          <deadline>
-            <month>12</month>
-            <year>2020</year>
-            <day>14</day>
-          </deadline>
-          <priority>0</priority>
-          <teamMembers>
-            <idCounter>0</idCounter>
-            <teamMembers>
-              <name>name1</name>
-              <id>0</id>
-            </teamMembers>
-            <teamMembers>
-              <name>name2</name>
-              <id>1</id>
-            </teamMembers>
-            <teamMembers>
-              <name>name3</name>
-              <id>3</id>
-            </teamMembers>
-            <teamMembers>
-              <name>name4</name>
-              <id>4</id>
-            </teamMembers>
-          </teamMembers>
-          <projectID>0</projectID>
-          <status>somestatus1</status>
-        </requirements>
-        <requirements>
-          <estimatedTime>25</estimatedTime>
-          <functional>true</functional>
-          <userStoryText>someuserstorytext2</userStoryText>
-          <timeSpent>0</timeSpent>
-          <name>requirementname2</name>
-          <taskList>
-            <idCounter>0</idCounter>
-            <tasks>
-              <estimatedTime>15</estimatedTime>
-              <taskReportList>
-                <idCounter>0</idCounter>
-              </taskReportList>
-              <timeSpent>0</timeSpent>
-              <name>taskname3</name>
-              <description>Short description of task 3</description>
-              <id>2</id>
-              <teamMemberList>
-                <idCounter>0</idCounter>
-                <teamMembers>
-                  <name>name5</name>
-                  <id>5</id>
-                </teamMembers>
-                <teamMembers>
-                  <name>name6</name>
-                  <id>6</id>
-                </teamMembers>
-              </teamMemberList>
-              <requirementID>1</requirementID>
-              <deadline>
-                <month>12</month>
-                <year>2020</year>
-                <day>14</day>
-              </deadline>
-            </tasks>
-            <tasks>
-              <estimatedTime>20</estimatedTime>
-              <taskReportList>
-                <idCounter>0</idCounter>
-              </taskReportList>
-              <timeSpent>0</timeSpent>
-              <name>taskname4</name>
-              <description>Short description of task 4</description>
-              <id>3</id>
-              <teamMemberList>
-                <idCounter>0</idCounter>
-                <teamMembers>
-                  <name>name7</name>
-                  <id>7</id>
-                </teamMembers>
-                <teamMembers>
-                  <name>name8</name>
-                  <id>8</id>
-                </teamMembers>
-              </teamMemberList>
-              <requirementID>1</requirementID>
-              <deadline>
-                <month>12</month>
-                <year>2020</year>
-                <day>14</day>
-              </deadline>
-            </tasks>
-          </taskList>
-          <ID>1</ID>
-          <deadline>
-            <month>12</month>
-            <year>2020</year>
-            <day>14</day>
-          </deadline>
-          <priority>1</priority>
-          <teamMembers>
-            <idCounter>0</idCounter>
-            <teamMembers>
-              <name>name5</name>
-              <id>5</id>
-            </teamMembers>
-            <teamMembers>
-              <name>name6</name>
-              <id>6</id>
-            </teamMembers>
-            <teamMembers>
-              <name>name7</name>
-              <id>7</id>
-            </teamMembers>
-            <teamMembers>
-              <name>name8</name>
-              <id>8</id>
-            </teamMembers>
-          </teamMembers>
-          <projectID>0</projectID>
-          <status>somestatus2</status>
-        </requirements>
         <idCounter>0</idCounter>
       </requirementList>
       <customer>
@@ -315,348 +57,68 @@
         <name>name1</name>
         <id>0</id>
       </scrumMaster>
-      <name>ProjectName2</name>
-      <description>This is a short description of project2</description>
+      <name>2</name>
+      <description>2</description>
       <projectCreator>
-        <name>name3</name>
-        <id>3</id>
+        <name>name2</name>
+        <id>1</id>
       </projectCreator>
       <id>1</id>
       <productOwner>
-        <name>name2</name>
-        <id>1</id>
+        <name>name3</name>
+        <id>3</id>
       </productOwner>
       <deadline>
-        <month>12</month>
-        <year>2020</year>
-        <day>14</day>
+        <month>2</month>
+        <year>2</year>
+        <day>2</day>
       </deadline>
       <teamMembers>
         <idCounter>0</idCounter>
-        <teamMembers>
-          <name>name9</name>
-          <id>9</id>
-        </teamMembers>
-        <teamMembers>
-          <name>name10</name>
-          <id>10</id>
-        </teamMembers>
-        <teamMembers>
-          <name>name11</name>
-          <id>11</id>
-        </teamMembers>
-        <teamMembers>
-          <name>name12</name>
-          <id>12</id>
-        </teamMembers>
-        <teamMembers>
-          <name>name13</name>
-          <id>13</id>
-        </teamMembers>
-        <teamMembers>
-          <name>name14</name>
-          <id>14</id>
-        </teamMembers>
-        <teamMembers>
-          <name>name15</name>
-          <id>15</id>
-        </teamMembers>
-        <teamMembers>
-          <name>name16</name>
-          <id>16</id>
-        </teamMembers>
       </teamMembers>
       <requirementList>
         <requirements>
-          <estimatedTime>15</estimatedTime>
+          <estimatedTime>1</estimatedTime>
           <functional>true</functional>
-          <userStoryText>someuserstorytext3</userStoryText>
+          <userStoryText>1</userStoryText>
           <timeSpent>0</timeSpent>
-          <name>requirementname3</name>
+          <name>huj</name>
           <taskList>
             <idCounter>1</idCounter>
             <tasks>
-              <estimatedTime>25</estimatedTime>
-              <taskReportList>
-                <idCounter>1</idCounter>
-                <taskReports>
-                  <reportDate>
-                    <month>12</month>
-                    <year>2020</year>
-                    <day>14</day>
-                  </reportDate>
-                  <teamMemberID>9</teamMemberID>
-                  <report>huj huj</report>
-                  <id>0</id>
-                </taskReports>
-              </taskReportList>
-              <timeSpent>0</timeSpent>
-              <name>taskname5</name>
-              <description>Short description of task 5</description>
-              <id>4</id>
-              <teamMemberList>
-                <idCounter>0</idCounter>
-                <teamMembers>
-                  <name>name9</name>
-                  <id>9</id>
-                </teamMembers>
-                <teamMembers>
-                  <name>name10</name>
-                  <id>10</id>
-                </teamMembers>
-              </teamMemberList>
-              <requirementID>2</requirementID>
-              <deadline>
-                <month>12</month>
-                <year>2020</year>
-                <day>14</day>
-              </deadline>
-            </tasks>
-            <tasks>
-              <estimatedTime>30</estimatedTime>
-              <taskReportList>
-                <idCounter>0</idCounter>
-              </taskReportList>
-              <timeSpent>0</timeSpent>
-              <name>taskname6</name>
-              <description>Short description of task 6</description>
-              <id>5</id>
-              <teamMemberList>
-                <idCounter>0</idCounter>
-                <teamMembers>
-                  <name>name11</name>
-                  <id>11</id>
-                </teamMembers>
-                <teamMembers>
-                  <name>name12</name>
-                  <id>12</id>
-                </teamMembers>
-              </teamMemberList>
-              <requirementID>2</requirementID>
-              <deadline>
-                <month>12</month>
-                <year>2020</year>
-                <day>14</day>
-              </deadline>
-            </tasks>
-            <tasks>
               <estimatedTime>1</estimatedTime>
               <taskReportList>
-                <idCounter>1</idCounter>
-                <taskReports>
-                  <reportDate>
-                    <month>12</month>
-                    <year>2020</year>
-                    <day>14</day>
-                  </reportDate>
-                  <teamMemberID>10</teamMemberID>
-                  <report>1111</report>
-                  <id>0</id>
-                </taskReports>
+                <idCounter>0</idCounter>
               </taskReportList>
               <timeSpent>0</timeSpent>
-              <name>huj</name>
-              <description>jebac1</description>
+              <name>task1</name>
+              <description>lalaalalal</description>
               <id>0</id>
               <teamMemberList>
                 <idCounter>0</idCounter>
-                <teamMembers>
-                  <name>name10</name>
-                  <id>10</id>
-                </teamMembers>
               </teamMemberList>
-              <requirementID>2</requirementID>
+              <requirementID>0</requirementID>
               <deadline>
-                <month>1</month>
-                <year>1</year>
-                <day>1</day>
+                <month>2</month>
+                <year>2</year>
+                <day>2</day>
               </deadline>
             </tasks>
           </taskList>
-          <ID>2</ID>
+          <ID>0</ID>
           <deadline>
-            <month>12</month>
-            <year>2020</year>
-            <day>14</day>
+            <month>1</month>
+            <year>1</year>
+            <day>1</day>
           </deadline>
           <priority>1</priority>
           <teamMembers>
             <idCounter>0</idCounter>
-            <teamMembers>
-              <name>name9</name>
-              <id>9</id>
-            </teamMembers>
-            <teamMembers>
-              <name>name10</name>
-              <id>10</id>
-            </teamMembers>
-            <teamMembers>
-              <name>name11</name>
-              <id>11</id>
-            </teamMembers>
-            <teamMembers>
-              <name>name12</name>
-              <id>12</id>
-            </teamMembers>
-            <teamMembers>
-              <name>name16</name>
-              <id>16</id>
-            </teamMembers>
           </teamMembers>
           <projectID>1</projectID>
-          <status>somestatus3</status>
+          <status>not started</status>
         </requirements>
-        <requirements>
-          <estimatedTime>40</estimatedTime>
-          <functional>false</functional>
-          <userStoryText>someuserstorytext4</userStoryText>
-          <timeSpent>0</timeSpent>
-          <name>requirementname4</name>
-          <taskList>
-            <idCounter>0</idCounter>
-            <tasks>
-              <estimatedTime>35</estimatedTime>
-              <taskReportList>
-                <idCounter>0</idCounter>
-              </taskReportList>
-              <timeSpent>0</timeSpent>
-              <name>taskname7</name>
-              <description>Short description of task 7</description>
-              <id>6</id>
-              <teamMemberList>
-                <idCounter>0</idCounter>
-                <teamMembers>
-                  <name>name13</name>
-                  <id>13</id>
-                </teamMembers>
-                <teamMembers>
-                  <name>name14</name>
-                  <id>14</id>
-                </teamMembers>
-              </teamMemberList>
-              <requirementID>3</requirementID>
-              <deadline>
-                <month>12</month>
-                <year>2020</year>
-                <day>14</day>
-              </deadline>
-            </tasks>
-            <tasks>
-              <estimatedTime>40</estimatedTime>
-              <taskReportList>
-                <idCounter>1</idCounter>
-                <taskReports>
-                  <reportDate>
-                    <month>12</month>
-                    <year>2020</year>
-                    <day>14</day>
-                  </reportDate>
-                  <teamMemberID>15</teamMemberID>
-                  <report>huj</report>
-                  <id>0</id>
-                </taskReports>
-              </taskReportList>
-              <timeSpent>0</timeSpent>
-              <name>taskname8</name>
-              <description>Short description of task 8</description>
-              <id>7</id>
-              <teamMemberList>
-                <idCounter>0</idCounter>
-                <teamMembers>
-                  <name>name15</name>
-                  <id>15</id>
-                </teamMembers>
-                <teamMembers>
-                  <name>name16</name>
-                  <id>16</id>
-                </teamMembers>
-              </teamMemberList>
-              <requirementID>3</requirementID>
-              <deadline>
-                <month>12</month>
-                <year>2020</year>
-                <day>14</day>
-              </deadline>
-            </tasks>
-          </taskList>
-          <ID>3</ID>
-          <deadline>
-            <month>12</month>
-            <year>2020</year>
-            <day>14</day>
-          </deadline>
-          <priority>3</priority>
-          <teamMembers>
-            <idCounter>0</idCounter>
-            <teamMembers>
-              <name>name13</name>
-              <id>13</id>
-            </teamMembers>
-            <teamMembers>
-              <name>name14</name>
-              <id>14</id>
-            </teamMembers>
-            <teamMembers>
-              <name>name15</name>
-              <id>15</id>
-            </teamMembers>
-            <teamMembers>
-              <name>name16</name>
-              <id>16</id>
-            </teamMembers>
-          </teamMembers>
-          <projectID>1</projectID>
-          <status>somestatus4</status>
-        </requirements>
-        <idCounter>0</idCounter>
-      </requirementList>
-      <customer>
-        <name>Dan</name>
-        <id>1</id>
-      </customer>
-      <projectReports>
         <idCounter>1</idCounter>
-        <projectReports>
-          <date>
-            <month>12</month>
-            <year>2020</year>
-            <day>14</day>
-          </date>
-          <scrumMaster>
-            <name>name1</name>
-            <id>0</id>
-          </scrumMaster>
-          <id>0</id>
-          <message>adam chuj</message>
-        </projectReports>
-      </projectReports>
-    </projects>
-    <projects>
-      <scrumMaster>
-        <name>name2</name>
-        <id>1</id>
-      </scrumMaster>
-      <name>adamchuj</name>
-      <description>adamchuj</description>
-      <projectCreator>
-        <name>name3</name>
-        <id>3</id>
-      </projectCreator>
-      <id>0</id>
-      <productOwner>
-        <name>name5</name>
-        <id>5</id>
-      </productOwner>
-      <deadline>
-        <month>1</month>
-        <year>1</year>
-        <day>1</day>
-      </deadline>
-      <teamMembers>
-        <idCounter>0</idCounter>
-      </teamMembers>
-      <requirementList>
-        <idCounter>0</idCounter>
       </requirementList>
       <customer>
         <name>Alex</name>
@@ -666,7 +128,7 @@
         <idCounter>0</idCounter>
       </projectReports>
     </projects>
-    <idCounter>1</idCounter>
+    <idCounter>2</idCounter>
   </projectList>
   <customerList>
     <idCounter>0</idCounter>
