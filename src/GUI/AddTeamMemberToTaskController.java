@@ -67,6 +67,7 @@ public class AddTeamMemberToTaskController {
         Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
         window.setScene(detailedRequirementView);
         window.show();
+
     }
 
 }
