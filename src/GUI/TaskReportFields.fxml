@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TaskReportFieldsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TaskReportFieldsController">
    <children>
-      <MenuBar prefHeight="95.0" prefWidth="419.0">
+      <MenuBar prefHeight="10.0" prefWidth="439.0">
          <menus>
             <Menu mnemonicParsing="false" text="File">
                <items>
@@ -32,7 +32,7 @@
             </Menu>
          </menus>
       </MenuBar>
-      <GridPane alignment="CENTER">
+      <GridPane alignment="CENTER" prefHeight="573.0" prefWidth="800.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="121.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="277.0" minWidth="10.0" prefWidth="277.0" />
@@ -81,6 +81,6 @@
             </Label>
          </children>
       </GridPane>
-      <Button fx:id="okButton" mnemonicParsing="false" onAction="#handleOk" prefHeight="19.0" prefWidth="525.0" text="Ok" />
+      <Button fx:id="okButton" mnemonicParsing="false" onAction="#handleOk" prefHeight="25.0" prefWidth="1052.0" text="Ok" />
    </children>
 </VBox>

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="368.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.mainController">
+<VBox prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.mainController">
    <children>
       <MenuBar>
         <menus>
@@ -35,18 +35,17 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TabPane prefHeight="351.0" prefWidth="619.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="577.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Projects">
                <content>
-                  <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="600.0">
+                  <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="800.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="514.0" minWidth="10.0" prefWidth="514.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="86.0" />
                      </columnConstraints>
                      <rowConstraints>
-                        <RowConstraints maxHeight="355.0" minHeight="10.0" prefHeight="237.00001525878906" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="76.99998474121094" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="547.0" minHeight="10.0" prefHeight="460.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <ListView fx:id="projects" prefHeight="308.0" prefWidth="201.0">
@@ -54,25 +53,24 @@
                               <Insets bottom="10.0" left="10.0" top="10.0" />
                            </GridPane.margin>
                         </ListView>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1" />
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                            <children>
-                              <Button fx:id="Add" mnemonicParsing="false" onAction="#handleAddProject" prefHeight="25.0" prefWidth="118.0" text="Add">
+                              <Button fx:id="Add" mnemonicParsing="false" onAction="#handleAddProject" prefHeight="25.0" prefWidth="305.0" text="Add">
                                  <VBox.margin>
                                     <Insets right="10.0" top="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="Edit" mnemonicParsing="false" onAction="#handleEditProject" prefHeight="25.0" prefWidth="101.0" text="Edit">
+                              <Button fx:id="Edit" mnemonicParsing="false" onAction="#handleEditProject" prefHeight="25.0" prefWidth="348.0" text="Edit">
                                  <VBox.margin>
                                     <Insets right="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="Delete" mnemonicParsing="false" onAction="#handleDelete" prefHeight="25.0" prefWidth="112.0" text="Delete">
+                              <Button fx:id="Delete" mnemonicParsing="false" onAction="#handleDelete" prefHeight="25.0" prefWidth="321.0" text="Delete">
                                  <VBox.margin>
                                     <Insets right="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="View" mnemonicParsing="false" onAction="#detailedProjectView" prefHeight="25.0" prefWidth="108.0" text="View">
+                              <Button fx:id="View" mnemonicParsing="false" onAction="#detailedProjectView" prefHeight="25.0" prefWidth="283.0" text="View">
                                  <VBox.margin>
                                     <Insets right="10.0" />
                                  </VBox.margin>
@@ -85,14 +83,14 @@
           </Tab>
             <Tab text="Team members">
                <content>
-                  <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="600.0">
+                  <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="800.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="514.0" minWidth="10.0" prefWidth="514.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="86.0" />
                      </columnConstraints>
                      <rowConstraints>
-                        <RowConstraints maxHeight="355.0" minHeight="10.0" prefHeight="237.00001525878906" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="76.99998474121094" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="545.0" minHeight="10.0" prefHeight="545.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="195.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <ListView fx:id="teamMembers" prefHeight="308.0" prefWidth="201.0">
@@ -103,22 +101,22 @@
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1" />
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                            <children>
-                              <Button fx:id="addTeamMemberButton" mnemonicParsing="false" onAction="#handleAddTeamMember" prefHeight="25.0" prefWidth="118.0" text="Add">
+                              <Button fx:id="addTeamMemberButton" mnemonicParsing="false" onAction="#handleAddTeamMember" prefHeight="25.0" prefWidth="324.0" text="Add">
                                  <VBox.margin>
                                     <Insets right="10.0" top="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="Edit1" mnemonicParsing="false" onAction="#handleEditTeamMember" prefHeight="25.0" prefWidth="101.0" text="Edit">
+                              <Button fx:id="Edit1" mnemonicParsing="false" onAction="#handleEditTeamMember" prefHeight="25.0" prefWidth="280.0" text="Edit">
                                  <VBox.margin>
                                     <Insets right="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="Delete1" mnemonicParsing="false" onAction="#handleDeleteTeamMember" prefHeight="25.0" prefWidth="112.0" text="Delete">
+                              <Button fx:id="Delete1" mnemonicParsing="false" onAction="#handleDeleteTeamMember" prefHeight="25.0" prefWidth="306.0" text="Delete">
                                  <VBox.margin>
                                     <Insets right="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="View1" mnemonicParsing="false" onAction="#detailedTeamMemberView" prefHeight="25.0" prefWidth="108.0" text="View">
+                              <Button fx:id="View1" mnemonicParsing="false" onAction="#detailedTeamMemberView" prefHeight="25.0" prefWidth="438.0" text="View">
                                  <VBox.margin>
                                     <Insets right="10.0" />
                                  </VBox.margin>
@@ -131,14 +129,13 @@
             </Tab>
             <Tab text="Customers">
                <content>
-                  <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="600.0">
+                  <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="514.0" minWidth="10.0" prefWidth="514.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="86.0" />
                      </columnConstraints>
                      <rowConstraints>
-                        <RowConstraints maxHeight="355.0" minHeight="10.0" prefHeight="237.00001525878906" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="76.99998474121094" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="550.0" minHeight="10.0" prefHeight="550.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <ListView fx:id="customers" prefHeight="308.0" prefWidth="201.0">
@@ -146,25 +143,24 @@
                               <Insets bottom="10.0" left="10.0" top="10.0" />
                            </GridPane.margin>
                         </ListView>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1" />
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                            <children>
-                              <Button fx:id="Add2" mnemonicParsing="false" onAction="#handleAddCustomer" prefHeight="25.0" prefWidth="118.0" text="Add">
+                              <Button fx:id="Add2" mnemonicParsing="false" onAction="#handleAddCustomer" prefHeight="25.0" prefWidth="408.0" text="Add">
                                  <VBox.margin>
                                     <Insets right="10.0" top="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="Edit2" mnemonicParsing="false" onAction="#handleEditCustomer" prefHeight="25.0" prefWidth="101.0" text="Edit">
+                              <Button fx:id="Edit2" mnemonicParsing="false" onAction="#handleEditCustomer" prefHeight="25.0" prefWidth="384.0" text="Edit">
                                  <VBox.margin>
                                     <Insets right="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="Delete2" mnemonicParsing="false" onAction="#handleDeleteCustomer" prefHeight="25.0" prefWidth="112.0" text="Delete">
+                              <Button fx:id="Delete2" mnemonicParsing="false" onAction="#handleDeleteCustomer" prefHeight="25.0" prefWidth="284.0" text="Delete">
                                  <VBox.margin>
                                     <Insets right="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="View2" mnemonicParsing="false" onAction="#detailedCustomerView" prefHeight="25.0" prefWidth="108.0" text="View">
+                              <Button fx:id="View2" mnemonicParsing="false" onAction="#detailedCustomerView" prefHeight="25.0" prefWidth="283.0" text="View">
                                  <VBox.margin>
                                     <Insets right="10.0" />
                                  </VBox.margin>

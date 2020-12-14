@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="493.0" prefWidth="569.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ProjectFieldsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ProjectFieldsController">
    <children>
       <MenuBar prefHeight="0.0" prefWidth="569.0">
          <menus>
@@ -74,27 +74,43 @@
             </TextArea>
          </children>
       </GridPane>
-      <TabPane prefHeight="231.0" prefWidth="439.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="400.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
             <Tab text="Requirements">
                <content>
-                  <GridPane prefHeight="131.0" prefWidth="497.0">
+                  <GridPane prefHeight="269.0" prefWidth="279.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="440.66664632161456" minWidth="10.0" prefWidth="440.66664632161456" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="46.66668701171875" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="440.0" minWidth="10.0" prefWidth="440.66664632161456" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="400.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="0.0" prefWidth="0.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints maxHeight="336.0" minHeight="10.0" prefHeight="266.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ListView fx:id="requirementsListView" prefHeight="200.0" prefWidth="200.0" />
-                        <VBox prefHeight="131.0" prefWidth="120.0" GridPane.columnIndex="1">
+                        <ListView fx:id="requirementsListView" prefHeight="200.0" prefWidth="300.0" />
+                        <VBox prefHeight="258.0" prefWidth="380.0" GridPane.columnIndex="1">
                            <children>
-                              <Button fx:id="addRequirement" mnemonicParsing="false" onAction="#addRequirement" prefHeight="25.0" prefWidth="202.0" text="Add" />
-                              <Button fx:id="editRequirement" mnemonicParsing="false" onAction="#editRequirement" prefHeight="25.0" prefWidth="231.0" text="Edit" />
-                              <Button fx:id="deleteRequirement" mnemonicParsing="false" onAction="#handleDeleteRequirement" prefHeight="25.0" prefWidth="216.0" text="Delete" />
-                              <Button fx:id="viewRequirement" mnemonicParsing="false" onAction="#viewDetailedRequirement" prefHeight="25.0" prefWidth="254.0" text="View Requirement" />
-                              <Button fx:id="goBack" mnemonicParsing="false" onAction="#changeScene" prefHeight="27.0" prefWidth="129.0" text="Back" />
+                              <Button fx:id="addRequirement" mnemonicParsing="false" onAction="#addRequirement" prefHeight="25.0" prefWidth="474.0" text="Add">
+                                 <padding>
+                                    <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                                 </padding></Button>
+                              <Button fx:id="editRequirement" mnemonicParsing="false" onAction="#editRequirement" prefHeight="25.0" prefWidth="424.0" text="Edit">
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
+                                 </padding></Button>
+                              <Button fx:id="deleteRequirement" mnemonicParsing="false" onAction="#handleDeleteRequirement" prefHeight="25.0" prefWidth="409.0" text="Delete">
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding></Button>
+                              <Button fx:id="viewRequirement" mnemonicParsing="false" onAction="#viewDetailedRequirement" prefHeight="25.0" prefWidth="476.0" text="View Requirement">
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding></Button>
+                              <Button fx:id="goBack" mnemonicParsing="false" onAction="#changeScene" prefHeight="48.0" prefWidth="380.0" text="Back">
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding></Button>
                            </children>
                         </VBox>
                      </children>
@@ -103,22 +119,44 @@
             </Tab>
             <Tab text="Team Members">
                <content>
-                  <GridPane prefHeight="131.0" prefWidth="497.0">
+                  <GridPane prefHeight="269.0" prefWidth="279.0">
                      <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="440.66664632161456" minWidth="10.0" prefWidth="440.66664632161456" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="46.66668701171875" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="440.0" minWidth="10.0" prefWidth="440.66664632161456" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="400.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="0.0" prefWidth="0.0" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints maxHeight="336.0" minHeight="10.0" prefHeight="266.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <ListView fx:id="teammembersListView" prefHeight="200.0" prefWidth="200.0" />
-                        <VBox prefHeight="131.0" prefWidth="120.0" GridPane.columnIndex="1">
+                        <ListView fx:id="teammembersListView" prefHeight="200.0" prefWidth="300.0" />
+                        <VBox prefHeight="258.0" prefWidth="380.0" GridPane.columnIndex="1">
                            <children>
-                              <Button fx:id="addTeamMember" mnemonicParsing="false" onAction="#handleAddTeammember" prefHeight="25.0" prefWidth="202.0" text="Add" />
-                              <Button fx:id="deleteTeamMember" mnemonicParsing="false" onAction="#handleDeleteTeamMember" prefHeight="25.0" prefWidth="216.0" text="Delete" />
-                              <Button fx:id="viewTeamMember" mnemonicParsing="false" onAction="#handleViewTeammember" prefHeight="25.0" prefWidth="254.0" text="View Team member" />
-                              <Button fx:id="goBack1" mnemonicParsing="false" onAction="#changeScene" prefHeight="27.0" prefWidth="129.0" text="Back" />
+                              <Button fx:id="addTeamMember" mnemonicParsing="false" onAction="#handleAddTeammember" prefHeight="25.0" prefWidth="474.0" text="Add">
+                                 <padding>
+                                    <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                                 </padding>
+                              </Button>
+                              <Button fx:id="editTeamMember" mnemonicParsing="false" onAction="#editRequirement" prefHeight="25.0" prefWidth="424.0" text="Edit">
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
+                                 </padding>
+                              </Button>
+                              <Button fx:id="deleteTeamMember" mnemonicParsing="false" onAction="#handleDeleteTeamMember" prefHeight="25.0" prefWidth="409.0" text="Delete">
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                              </Button>
+                              <Button fx:id="viewTeamMember" mnemonicParsing="false" onAction="#handleViewTeammember" prefHeight="25.0" prefWidth="476.0" text="View Team Member">
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                              </Button>
+                              <Button fx:id="goBack1" mnemonicParsing="false" onAction="#changeScene" prefHeight="48.0" prefWidth="380.0" text="Back">
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                              </Button>
                            </children>
                         </VBox>
                      </children>
@@ -127,23 +165,44 @@
             </Tab>
             <Tab text="Project Reports">
                <content>
-                  <GridPane prefHeight="131.0" prefWidth="497.0">
+                  <GridPane prefHeight="269.0" prefWidth="279.0">
                      <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="440.66664632161456" minWidth="10.0" prefWidth="440.66664632161456" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="46.66668701171875" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="440.0" minWidth="10.0" prefWidth="440.66664632161456" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="400.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="0.0" prefWidth="0.0" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints maxHeight="336.0" minHeight="10.0" prefHeight="266.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <ListView fx:id="projectReportsListView" prefHeight="200.0" prefWidth="200.0" />
-                        <VBox prefHeight="131.0" prefWidth="120.0" GridPane.columnIndex="1">
+                        <ListView fx:id="projectReportsListView" prefHeight="200.0" prefWidth="300.0" />
+                        <VBox prefHeight="258.0" prefWidth="380.0" GridPane.columnIndex="1">
                            <children>
-                              <Button fx:id="addProjectReport" mnemonicParsing="false" onAction="#handleAddProjectReport" prefHeight="25.0" prefWidth="202.0" text="Add" />
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="231.0" text="Edit" />
-                              <Button fx:id="deleteProjectReport" mnemonicParsing="false" prefHeight="25.0" prefWidth="216.0" text="Delete" />
-                              <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="129.0" text="Back" />
-                              <Button fx:id="viewProjectReport" mnemonicParsing="false" onAction="#handleViewProjectReport" prefHeight="25.0" prefWidth="254.0" text="View Reports" />
+                              <Button fx:id="addProjectReport" mnemonicParsing="false" onAction="#handleAddProjectReport" prefHeight="25.0" prefWidth="474.0" text="Add">
+                                 <padding>
+                                    <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                                 </padding>
+                              </Button>
+                              <Button fx:id="editProjectReport" mnemonicParsing="false" onAction="#editRequirement" prefHeight="25.0" prefWidth="424.0" text="Edit">
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
+                                 </padding>
+                              </Button>
+                              <Button fx:id="deleteProjectReport" mnemonicParsing="false" onAction="#handleDeleteRequirement" prefHeight="25.0" prefWidth="409.0" text="Delete">
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                              </Button>
+                              <Button fx:id="viewProjectReport" mnemonicParsing="false" onAction="#handleViewProjectReport" prefHeight="25.0" prefWidth="476.0" text="View Project Report">
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                              </Button>
+                              <Button fx:id="goBack2" mnemonicParsing="false" onAction="#changeScene" prefHeight="48.0" prefWidth="380.0" text="Back">
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                              </Button>
                            </children>
                         </VBox>
                      </children>
