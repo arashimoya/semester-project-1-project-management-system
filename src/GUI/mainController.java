@@ -52,27 +52,31 @@ public class mainController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         adapter = new ColourITFileAdapter("data.bin", "data.xml");
         ColourIT colourIT = adapter.getColourIt();
-
         ArrayList<TeamMember> teamMembersList;
         ArrayList<Customer> customersList;
+        ArrayList<Project> projectList;
+        try {
+            projectList = colourIT.getProjectList().getProjects();
+            teamMembersList = colourIT.getTeamMemberList().getTeamMembers();
+            customersList = colourIT.getCustomerList().getCustomers();
+            customersList.add(new Customer(1, "huj"));
 
-        ArrayList<Project> projectList = colourIT.getProjectList().getProjects();
-        teamMembersList = colourIT.getTeamMemberList().getTeamMembers();
-        customersList = colourIT.getCustomerList().getCustomers();
-        customersList.add(new Customer(1, "huj"));
 
-
-        for (Project project : projectList) {
-            projects.getItems().add(project.getName());
+            for (Project project : projectList) {
+                projects.getItems().add(project.getName());
+            }
+            for (TeamMember teamMember : teamMembersList) {
+                teamMembers.getItems().add(teamMember.getName());
+            }
+            System.out.println(customersList);
+            for (Customer customer : customersList) {
+                customers.getItems().add(customer.getName());
+            }
+        } catch(NullPointerException e){
+            ColourIT colourIT1 = new ColourIT();
+            adapter.save(colourIT1);
+            adapter.save(colourIT1);
         }
-        for (TeamMember teamMember : teamMembersList) {
-            teamMembers.getItems().add(teamMember.getName());
-        }
-        System.out.println(customersList);
-        for (Customer customer : customersList) {
-            customers.getItems().add(customer.getName());
-        }
-
     }
 
     /**
@@ -312,6 +316,7 @@ public class mainController implements Initializable {
         window.setScene(editProjectView);
         window.show();
     }
+
     /**
      * Launches GUI scene for editing TeamMembers
      *
@@ -330,6 +335,7 @@ public class mainController implements Initializable {
         window.setScene(editTeamMemberView);
         window.show();
     }
+
     /**
      * Launches GUI scene for editing Customers
      *

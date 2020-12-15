@@ -105,16 +105,19 @@ public class AddProjectController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ColourIT colourIT = adapter.getColourIt();
-        idField.setText(Integer.toString(colourIT.getProjectList().getIdCounter()));
-        for (Customer customer : colourIT.getCustomerList().getCustomers()) {
-            customerNameField.getItems().add(customer.getName());
+        try {
+            idField.setText(Integer.toString(colourIT.getProjectList().getIdCounter()));
+            for (Customer customer : colourIT.getCustomerList().getCustomers()) {
+                customerNameField.getItems().add(customer.getName());
+            }
+            for (TeamMember teamMember : colourIT.getTeamMemberList().getTeamMembers()) {
+                scrumMasterNameField.getItems().add(teamMember.getName());
+                projectCreatorNameField.getItems().add(teamMember.getName());
+                projectOwnerNameField.getItems().add(teamMember.getName());
+            }
+        }catch (NullPointerException e){
+            idField.setText("0");
         }
-        for (TeamMember teamMember : colourIT.getTeamMemberList().getTeamMembers()) {
-            scrumMasterNameField.getItems().add(teamMember.getName());
-            projectCreatorNameField.getItems().add(teamMember.getName());
-            projectOwnerNameField.getItems().add(teamMember.getName());
-        }
-
 
     }
 

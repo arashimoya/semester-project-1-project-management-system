@@ -6,6 +6,7 @@ import Model.ObjectAlreadyExistsException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,6 +15,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * Public class responsible for displaying UI for adding customer to ColourIT class
@@ -22,7 +25,7 @@ import java.io.IOException;
  * @author Tymon
  * @version 1.0
  */
-public class AddCustomerController {
+public class AddCustomerController implements Initializable {
 
     @FXML
     Button okButton;
@@ -55,21 +58,22 @@ public class AddCustomerController {
 
     /**
      * Allows to add customers one after another without going back to previous screen
+     *
      * @throws ObjectAlreadyExistsException if customer with the same parameters already exists
      */
-    public void handleNext() throws  ObjectAlreadyExistsException {
+    public void handleNext() throws ObjectAlreadyExistsException {
         ColourIT colourIT = adapter.getColourIt();
         String name = nameField.getText();
-        String id = idField.getText();
         colourIT.getCustomerList().createCustomer(name);
         adapter.save(colourIT);
         adapter.saveToXml(colourIT);
-        idField.clear();
+        idField.setText(Integer.toString(Integer.parseInt(idField.getText()) + 1));
         nameField.clear();
     }
 
     /**
      * goes back to the home screen
+     *
      * @param e object type ActionEvent used to get source of the window
      * @throws IOException if file was not found
      */
@@ -83,4 +87,14 @@ public class AddCustomerController {
         window.show();
     }
 
+    /**
+     * Initialises IdField with customer ID
+     *
+     * @param url
+     * @param resourceBundle
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        idField.setText(Integer.toString(adapter.getColourIt().getCustomerList().getIdCounter()));
+    }
 }
