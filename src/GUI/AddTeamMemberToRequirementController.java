@@ -16,6 +16,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * GUI scene for adding teamMember to requirement
+ * @author Tymon
+ *
+ */
 public class AddTeamMemberToRequirementController {
     @FXML
     ComboBox<String> teamMemberComboBox;
@@ -31,6 +36,12 @@ public class AddTeamMemberToRequirementController {
     Button cancelButton;
     ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "data.xml");
 
+    /**
+     * Initialises gui controllers and containers
+     * @param projectID id of project related to requirement, type int
+     * @param requirementID id of requirement, type int
+     * @throws CustomNotFoundException if project or requirement were not found
+     */
     public void initData(int projectID, int requirementID) throws CustomNotFoundException {
         for (TeamMember teamMember : adapter.getColourIt().getProjectList().getProject(projectID).getTeamMemberList().getTeamMembers()) {
             teamMemberComboBox.getItems().add(teamMember.getName());
@@ -39,6 +50,12 @@ public class AddTeamMemberToRequirementController {
         requirementIDText.setText(Integer.toString(requirementID));
     }
 
+    /**
+     * adds teamMember to teamMemberList inside requirement
+     * @param e ActionEvent type object for getting window source
+     * @throws CustomNotFoundException if requirement or projects were not found
+     * @throws ObjectAlreadyExistsException when teamMemberList already contains given teamMember
+     */
     public void handleNext(ActionEvent e) throws CustomNotFoundException, ObjectAlreadyExistsException {
         String name = teamMemberComboBox.getSelectionModel().getSelectedItem();
         ColourIT colourIT = adapter.getColourIt();
@@ -51,6 +68,11 @@ public class AddTeamMemberToRequirementController {
         teamMemberComboBox.getItems().remove(name);
     }
 
+    /**
+     * goes back to home scene
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException if source file cannot be opened
+     */
     public void handleCancel(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("main.fxml"));

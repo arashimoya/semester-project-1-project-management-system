@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * GUI scene for editing requirement
+ */
 public class EditRequirementController implements Initializable {
     @FXML
     TextField nameTextField;
@@ -49,6 +52,10 @@ public class EditRequirementController implements Initializable {
     ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "data.xml");
     Requirement requirement;
 
+    /**
+     * Initialises GUI with information about given requirement
+     * @param requirement requirement that will be edited
+     */
     public void initData(Requirement requirement) {
         this.requirement = requirement;
         nameTextField.setText(requirement.getName());
@@ -69,11 +76,23 @@ public class EditRequirementController implements Initializable {
 
     }
 
+    /**
+     * Initialises ComboBox with requirement type
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         functionalComboBox.getItems().addAll("true", "false");
     }
 
+    /**
+     * Saves changes
+     * @param e ActionEvent type object for getting window source
+     * @throws IllegalDateException if date format is incorrect
+     * @throws CustomNotFoundException if project or Requirement were not found
+     * @throws IOException if source file cannot be opened
+     */
     public void handleNext(ActionEvent e) throws IllegalDateException, CustomNotFoundException, IOException {
         String name = nameTextField.getText();
         int projectID = Integer.parseInt(projectIdTextField.getText());
@@ -97,6 +116,11 @@ public class EditRequirementController implements Initializable {
         handleCancel(e);
     }
 
+    /**
+     * goes back to GUI scene representing project fields
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException if source file cannot be found
+     */
     public void handleCancel(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("ProjectFields.fxml"));

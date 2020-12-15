@@ -17,6 +17,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * GUI scene for editing task
+ *
+ * @author Tymon
+ */
 public class EditTaskController {
     @FXML
     TextField projectID;
@@ -50,6 +55,12 @@ public class EditTaskController {
     Button nextButton;
     ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "data.xml");
 
+    /**
+     * Initialises GUI with data about task and requirement
+     *
+     * @param requirement that has taskList with given task
+     * @param task        that is going to be edited
+     */
     public void initData(Requirement requirement, Task task) {
         nameTextField.setText(task.getName());
         idTextField.setText(Integer.toString(task.getId()));
@@ -66,7 +77,14 @@ public class EditTaskController {
         timeSpentTextField.setText(Integer.toString(task.getTimeSpent()));
     }
 
-    public void handleNext(ActionEvent e) throws IllegalDateException, CustomNotFoundException, ObjectAlreadyExistsException {
+    /**
+     * saves changes
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IllegalDateException    if data format is incorrect
+     * @throws CustomNotFoundException if project or requirement or task were not found
+     */
+    public void handleNext(ActionEvent e) throws IllegalDateException, CustomNotFoundException {
         String name = nameTextField.getText();
         String description = descriptionTextField.getText();
         int day = Integer.parseInt(dayField.getText());
@@ -90,8 +108,15 @@ public class EditTaskController {
 
     }
 
-
-    public void handleOk(ActionEvent e) throws IOException, CustomNotFoundException, IllegalDateException, ObjectAlreadyExistsException {
+    /**
+     * Saves changes and goes back to home screen
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException             if source file cannot be found
+     * @throws CustomNotFoundException if Project was not found
+     * @throws IllegalDateException    if date format is incorrect
+     */
+    public void handleOk(ActionEvent e) throws IOException, CustomNotFoundException, IllegalDateException {
         handleNext(e);
         ColourIT colourIT = adapter.getColourIt();
         FXMLLoader loader = new FXMLLoader();
@@ -106,6 +131,13 @@ public class EditTaskController {
         window.show();
     }
 
+    /**
+     * goes back to requirements fields GUI scene
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException             if file cannot be opened
+     * @throws CustomNotFoundException if project or requirement or task were not found
+     */
     public void handleCancel(ActionEvent e) throws IOException, CustomNotFoundException {
         ColourIT colourIT = adapter.getColourIt();
         FXMLLoader loader = new FXMLLoader();

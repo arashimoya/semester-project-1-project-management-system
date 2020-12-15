@@ -19,6 +19,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Class responsible for displaying UI for adding requirement to the project, adding requirement to the project and saving it to file
+ *
+ * @author Tymon
+ */
 
 public class AddRequirementController implements Initializable {
     @FXML
@@ -51,6 +56,12 @@ public class AddRequirementController implements Initializable {
     Button nextButton;
     ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "data.xml");
 
+    /**
+     * Initialises ComboBoxes, displays value of project and requirement ID
+     *
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         functionalComboBox.getItems().addAll("true", "false");
@@ -62,6 +73,15 @@ public class AddRequirementController implements Initializable {
         }
     }
 
+    /**
+     * Creates requirement with data from input fields, adds it to RequirementList inside project
+     *
+     * @param e object type Action Event
+     * @throws IllegalDateException         if data is in wrong format
+     * @throws CustomNotFoundException      if project was not found
+     * @throws ObjectAlreadyExistsException if requirement already exists
+     * @throws IOException                  if file cannot be opened
+     */
     public void handleNext(ActionEvent e) throws IllegalDateException, CustomNotFoundException, ObjectAlreadyExistsException, IOException {
         String name = nameTextField.getText();
         int projectID = Integer.parseInt(projectIdTextField.getText());
@@ -82,6 +102,11 @@ public class AddRequirementController implements Initializable {
         goBack(e);
     }
 
+    /**
+     * changes scene to home scene
+     * @param e ActionEvent type object for getting window
+     * @throws IOException when source file cannot be opened
+     */
     public void goBack(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("main.fxml"));

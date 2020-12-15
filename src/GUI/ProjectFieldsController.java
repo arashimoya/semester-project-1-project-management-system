@@ -22,6 +22,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Gui scene for displaying project fields
+ *
+ * @author Tymon
+ */
 public class ProjectFieldsController {
     @FXML
     Label idLabel;
@@ -74,7 +79,11 @@ public class ProjectFieldsController {
     @FXML
     ListView<String> projectReportsListView;
 
-
+    /**
+     * Initialises GUI scene with information about the given project
+     *
+     * @param project that is going to be displayed
+     */
     public void initData(Project project) {
         selectedProject = project;
         idLabel.setText(Integer.toString(project.getId()));
@@ -99,6 +108,12 @@ public class ProjectFieldsController {
         }
     }
 
+    /**
+     * Goes back to home scene
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException if source file cannot be found
+     */
     public void changeScene(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("main.fxml"));
@@ -109,6 +124,12 @@ public class ProjectFieldsController {
         window.show();
     }
 
+    /**
+     * Gets chosen requirement
+     *
+     * @return requirement chosen via ListView
+     * @throws CustomNotFoundException if project or requirement were not found
+     */
     public Requirement viewDetails() throws CustomNotFoundException {
         String currentSelectedItem;
         Project project = null;
@@ -121,6 +142,12 @@ public class ProjectFieldsController {
         return project.getRequirementList().getRequirement(currentSelectedItem);
     }
 
+    /**
+     * Loads GUI scene for adding requirement
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException if source file cannot be found
+     */
     public void addRequirement(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("AddRequirement.fxml"));
@@ -131,6 +158,13 @@ public class ProjectFieldsController {
         window.show();
     }
 
+    /**
+     * Loads GUI scene for editing requirement
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException             if source file cannot be found
+     * @throws CustomNotFoundException if project or requirement were not found
+     */
     public void editRequirement(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("EditRequirement.fxml"));
@@ -143,6 +177,13 @@ public class ProjectFieldsController {
         window.show();
     }
 
+    /**
+     * Loads GUI scene for viewing requirement fields
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException             if source file cannot be found
+     * @throws CustomNotFoundException if project or requirement were not found
+     */
     public void viewDetailedRequirement(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("RequirementFields.fxml"));
@@ -155,6 +196,12 @@ public class ProjectFieldsController {
         window.show();
     }
 
+    /**
+     * Deletes chosen requirement
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws CustomNotFoundException if project or requirement were not found
+     */
     public void handleDeleteRequirement(ActionEvent e) throws CustomNotFoundException {
         ColourIT colourIT = adapter.getColourIt();
         Requirement requirement = null;
@@ -170,6 +217,12 @@ public class ProjectFieldsController {
         requirementsListView.getItems().remove(requirementsListView.getSelectionModel().getSelectedItem());
     }
 
+    /**
+     * gets TeamMember object from ListView
+     *
+     * @return TeamMember object
+     * @throws CustomNotFoundException if project or teamMember were not found
+     */
     public TeamMember viewTeamMemberDetails() throws CustomNotFoundException {
         String currentSelectedItem;
         Project project = null;
@@ -184,6 +237,13 @@ public class ProjectFieldsController {
 
     }
 
+    /**
+     * Launches GUI scene showing TeamMember fields
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException             if source file cannot be opened
+     * @throws CustomNotFoundException if project or teamMember were not found
+     */
     public void handleViewTeammember(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("TeamMemberFields.fxml"));
@@ -196,6 +256,13 @@ public class ProjectFieldsController {
         window.show();
     }
 
+    /**
+     * Launches GUI scene for adding teamMember into project
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException             if source file cannot be opened
+     * @throws CustomNotFoundException if project was not found
+     */
     public void handleAddTeammember(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("AddTeamMemberToProject.fxml"));
@@ -207,6 +274,12 @@ public class ProjectFieldsController {
         window.setScene(addTeamMember);
     }
 
+    /**
+     * Removes selected teamMember from the list
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws CustomNotFoundException if project or teamMember were not found
+     */
     public void handleDeleteTeamMember(ActionEvent e) throws CustomNotFoundException {
         String name = teammembersListView.getSelectionModel().getSelectedItem();
         ColourIT colourIT = adapter.getColourIt();
@@ -216,6 +289,13 @@ public class ProjectFieldsController {
         teammembersListView.getItems().remove(name);
     }
 
+    /**
+     * Launches GUI scene for viewing details about selected project report
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException             if file cannot be opened
+     * @throws CustomNotFoundException if project or project report cannot be found
+     */
     public void handleViewProjectReport(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("ProjectReportFields.fxml"));
@@ -230,6 +310,13 @@ public class ProjectFieldsController {
         window.show();
     }
 
+    /**
+     * Adds project report to project
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException             if source file cannot be opened
+     * @throws CustomNotFoundException if project or teamMember were not found
+     */
     public void handleAddProjectReport(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("AddProjectReportFields.fxml"));

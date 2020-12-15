@@ -19,7 +19,8 @@ import java.io.IOException;
 public class AddTaskReportController {
     @FXML
     Button okButton;
-
+    @FXML
+    TextField timeSpentTextField;
     @FXML
     TextField projectIDLabel;
     @FXML
@@ -60,7 +61,13 @@ public class AddTaskReportController {
         MyDate today = new MyDate();
         colourIT.getProjectList().getProject(project.getId()).getRequirementList().
                 getRequirement(requirement.getID()).getTaskList().getTask(task.getId()).
-                getTaskReportList().createTaskReport(teamMember, report, today,10);
+                getTaskReportList().createTaskReport(teamMember, report, today, Integer.parseInt(timeSpentTextField.getText()));
+        int taskTimeSpent = task.getTimeSpent();
+        colourIT.getProjectList().getProject(project.getId()).getRequirementList().getRequirement(requirement.getID()).
+                getTaskList().getTask(task.getId()).setTimeSpent(taskTimeSpent + Integer.parseInt(timeSpentTextField.getText()));
+        colourIT.getProjectList().getProject(project.getId()).getRequirementList().getRequirement(requirement.getID()).
+                setTimeSpent(colourIT.getProjectList().getProject(project.getId()).getRequirementList().getRequirement(requirement.getID()).
+                        getTaskList().getTask(task.getId()).getTimeSpent());
         adapter.save(colourIT);
         adapter.saveToXml(colourIT);
         handleCancel(e);

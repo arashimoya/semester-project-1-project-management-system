@@ -15,9 +15,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Public class responsible for displaying UI for adding customer to ColourIT class
+ * gets data from TextFields and saves it to file.
+ *
+ * @author Tymon
+ * @version 1.0
+ */
 public class AddCustomerController {
-    @FXML
-    Button Button;
+
     @FXML
     Button okButton;
     @FXML
@@ -27,11 +33,17 @@ public class AddCustomerController {
     @FXML
     TextField nameField;
 
-    private final ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin","data.xml");
+    private final ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "data.xml");
 
+    /**
+     * adds one Customer to customerList inside Colour IT
+     *
+     * @param e object type ActionEvent
+     * @throws IOException
+     * @throws ObjectAlreadyExistsException if customer with the same parameters already exists
+     */
     public void handleOK(ActionEvent e) throws IOException,
-        ObjectAlreadyExistsException
-    {
+            ObjectAlreadyExistsException {
         ColourIT colourIT = adapter.getColourIt();
         String name = nameField.getText();
         String id = idField.getText();
@@ -40,8 +52,12 @@ public class AddCustomerController {
         adapter.saveToXml(colourIT);
         changeScene(e);
     }
-    public void handleNext(ActionEvent e) throws IOException, ObjectAlreadyExistsException
-    {
+
+    /**
+     * Allows to add customers one after another without going back to previous screen
+     * @throws ObjectAlreadyExistsException if customer with the same parameters already exists
+     */
+    public void handleNext() throws  ObjectAlreadyExistsException {
         ColourIT colourIT = adapter.getColourIt();
         String name = nameField.getText();
         String id = idField.getText();
@@ -51,6 +67,12 @@ public class AddCustomerController {
         idField.clear();
         nameField.clear();
     }
+
+    /**
+     * goes back to the home screen
+     * @param e object type ActionEvent used to get source of the window
+     * @throws IOException if file was not found
+     */
     public void changeScene(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("main.fxml"));

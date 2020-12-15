@@ -36,6 +36,7 @@ public class TaskReportFieldsController {
         idLabel.setText(Integer.toString(task.getId()));
         teamMemberLabel.setText(task.getTaskReportList().getTaskReport(taskReportID).getTeamMember().getName());
         report.setText(task.getTaskReportList().getTaskReport(taskReportID).getReport());
+        timeSpentLabel.setText(Integer.toString(task.getTaskReportList().getTaskReport(taskReportID).getTimeSpent()));
     }
 
     public void handleOk(ActionEvent e) throws IOException {

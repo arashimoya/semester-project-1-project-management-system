@@ -15,6 +15,11 @@ import org.w3c.dom.Text;
 
 import java.io.IOException;
 
+/**
+ * GUI scene for editing projects
+ *
+ * @author Tymon
+ */
 public class EditProjectController {
     @FXML
     Button cancel;
@@ -41,6 +46,11 @@ public class EditProjectController {
     private Project project;
     private final ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "data.xml");
 
+    /**
+     * Initialises GUI containers and controllers with information about given project
+     *
+     * @param project that is going to be edited
+     */
     public void initData(Project project) {
         this.project = project;
         nameField.setText(project.getName());
@@ -63,6 +73,13 @@ public class EditProjectController {
         }
     }
 
+    /**
+     * saves changes and changes scene to home scene
+     * @param e ActionEvent type object for getting window source
+     * @throws IllegalDateException if date format is incorrect
+     * @throws CustomNotFoundException if project was not found
+     * @throws IOException if source file cannot be opened
+     */
     public void handleNext(ActionEvent e) throws IllegalDateException, CustomNotFoundException, IOException {
         int id = Integer.parseInt(projectID.getText());
         ColourIT colourIT = adapter.getColourIt();
@@ -90,6 +107,11 @@ public class EditProjectController {
 
     }
 
+    /**
+     * goes back to main scene
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException if source file cannot be opened
+     */
     public void changeScene(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("main.fxml"));

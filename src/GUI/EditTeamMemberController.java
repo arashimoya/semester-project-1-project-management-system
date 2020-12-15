@@ -13,6 +13,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * GUI scene for editing teamMember
+ * @author Tymon
+ */
 public class EditTeamMemberController {
     @FXML
     TextField idField;
@@ -25,12 +29,22 @@ public class EditTeamMemberController {
     private TeamMember teamMember;
     private final ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "data.xml");
 
+    /**
+     * Initialises GUI fields with information about teamMember
+     * @param teamMember that is going to be edited
+     */
     public void initData(TeamMember teamMember) {
         this.teamMember = teamMember;
         nameField.setText(teamMember.getName());
         idField.setText(Integer.toString(teamMember.getId()));
     }
 
+    /**
+     * saves changes and goes back to home screen
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException if source file cannot be found
+     * @throws CustomNotFoundException if teamMember cannot be found
+     */
     public void handleOK(ActionEvent e)
             throws IOException, CustomNotFoundException {
         int id = Integer.parseInt(idField.getText());
@@ -43,6 +57,11 @@ public class EditTeamMemberController {
         changeScene(e);
     }
 
+    /**
+     * Goes back to home scene
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException if source file cannot be opened
+     */
     public void changeScene(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("main.fxml"));

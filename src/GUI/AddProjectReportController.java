@@ -14,6 +14,10 @@ import org.w3c.dom.Text;
 
 import java.io.IOException;
 
+/**
+ * Class responsible for adding Project Report to project
+ * @author Tymon
+ */
 public class AddProjectReportController {
     @FXML
     TextField projectIDField;
@@ -35,6 +39,11 @@ public class AddProjectReportController {
     Button cancel;
     ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "data.xml");
 
+    /**
+     * initialises data when instance of this Class is being created in methods in this package
+     * @param projectID id of a project that project report is going to be added to
+     * @throws CustomNotFoundException if project was not found
+     */
     public void initData(int projectID) throws CustomNotFoundException {
         Project project = adapter.getColourIt().getProjectList().getProject(projectID);
         projectIDField.setText(Integer.toString(projectID));
@@ -46,6 +55,13 @@ public class AddProjectReportController {
         year.setText(Integer.toString(date.getYear()));
     }
 
+    /**
+     * adds project report to project and changes scene to home scene, saves data to file
+     * @param e object type ActionEvent for getting window source
+     * @throws CustomNotFoundException if project was not found
+     * @throws ObjectAlreadyExistsException when project report with given parameters already exists
+     * @throws IOException if source file cannot be opened
+     */
     public void handleOk(ActionEvent e) throws CustomNotFoundException, ObjectAlreadyExistsException, IOException {
         String message = Message.getText();
         Project project = adapter.getColourIt().getProjectList().getProject(Integer.parseInt(projectIDField.getText()));
@@ -58,6 +74,11 @@ public class AddProjectReportController {
         cancel(e);
     }
 
+    /**
+     * changes scene to home scene
+     * @param e ActionEvent object for getting window source
+     * @throws IOException if source file cannot be opened
+     */
     public void cancel(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("main.fxml"));

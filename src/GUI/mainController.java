@@ -18,6 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * GUI scene representing home scene
+ *
+ * @author Tymon
+ */
 public class mainController implements Initializable {
     @FXML
     Button Add;
@@ -37,7 +42,12 @@ public class mainController implements Initializable {
     ListView<String> customers;
     private ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "projects.xml");
 
-
+    /**
+     * Initialises home scene
+     *
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         adapter = new ColourITFileAdapter("data.bin", "data.xml");
@@ -65,13 +75,25 @@ public class mainController implements Initializable {
 
     }
 
+    /**
+     * Gets Project based on selected ListView item
+     *
+     * @return project based on data displayed in ListView
+     * @throws CustomNotFoundException if project was not found
+     */
     public Project viewDetails() throws CustomNotFoundException {
         String currentSelectedItem;
         currentSelectedItem = projects.getSelectionModel().getSelectedItem();
         return adapter.getColourIt().getProjectList().getProject(currentSelectedItem);
     }
 
-
+    /**
+     * Launches GUI Scene responsible for viewing project fields
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException             if source file was not found
+     * @throws CustomNotFoundException if project was not found
+     */
     public void detailedProjectView(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("ProjectFields.fxml"));
@@ -85,6 +107,12 @@ public class mainController implements Initializable {
         System.out.println(adapter.getColourIt().getProjectList().getProjects());
     }
 
+    /**
+     * Returns TeamMember Object based on selected item in ListView
+     *
+     * @return TeamMember Object if it was found with given name
+     * @throws CustomNotFoundException if teamMember was not found
+     */
     public TeamMember viewMembersDetails() throws CustomNotFoundException {
         String currentSelectedItem;
         currentSelectedItem = teamMembers.getSelectionModel().getSelectedItem();
@@ -92,6 +120,13 @@ public class mainController implements Initializable {
         return adapter.getColourIt().getTeamMemberList().getTeamMember(currentSelectedItem);
     }
 
+    /**
+     * Launches GUI Scene responsible for viewing TeamMember fields
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException             if source file was not found
+     * @throws CustomNotFoundException if TeamMember was not found
+     */
     public void detailedTeamMemberView(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("TeamMemberFields.fxml"));
@@ -104,6 +139,12 @@ public class mainController implements Initializable {
         window.show();
     }
 
+    /**
+     * Returns Customer Object based on selected item in ListView
+     *
+     * @return Customer Object if it was found with given name
+     * @throws CustomNotFoundException if Customer was not found
+     */
     public Customer viewCustomerDetails() throws CustomNotFoundException {
         String currentSelectedItem;
         currentSelectedItem = customers.getSelectionModel().getSelectedItem();
@@ -111,6 +152,13 @@ public class mainController implements Initializable {
         return adapter.getColourIt().getCustomerList().getCustomer(currentSelectedItem);
     }
 
+    /**
+     * Launches GUI Scene responsible for viewing Customer fields
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException             if source file was not found
+     * @throws CustomNotFoundException if Customer was not found
+     */
     public void detailedCustomerView(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("CustomerFields.fxml"));
@@ -123,6 +171,12 @@ public class mainController implements Initializable {
         window.show();
     }
 
+    /**
+     * Opens GUI scene for adding a project
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException if source file cannot be opened
+     */
     public void handleAddProject(ActionEvent e) throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -135,6 +189,12 @@ public class mainController implements Initializable {
 
     }
 
+    /**
+     * Opens GUI scene for adding a teamMember
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException if source file cannot be opened
+     */
     public void handleAddTeamMember(ActionEvent e) throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -147,6 +207,12 @@ public class mainController implements Initializable {
 
     }
 
+    /**
+     * Opens GUI scene for adding a Customer
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException if source file cannot be opened
+     */
     public void handleAddCustomer(ActionEvent e) throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -159,7 +225,13 @@ public class mainController implements Initializable {
 
     }
 
-    public void handleDelete(ActionEvent e) throws IOException, CustomNotFoundException {
+    /**
+     * Deletes selected project
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws CustomNotFoundException if selected project was not found
+     */
+    public void handleDelete(ActionEvent e) throws CustomNotFoundException {
 
         ColourIT colourIT = adapter.getColourIt();
         ArrayList<Project> projects1 = new ArrayList<>();
@@ -167,7 +239,6 @@ public class mainController implements Initializable {
         for (Project project : projects1) {
             System.out.println(project.getName());
             if (project.getName().equals(projects.getSelectionModel().getSelectedItem())) {
-                System.out.println("If statement kurwa?");
                 colourIT.getProjectList().deleteProject(project);
                 break;
             }
@@ -177,7 +248,12 @@ public class mainController implements Initializable {
         projects.getItems().remove(projects.getSelectionModel().getSelectedItem());
     }
 
-    public void handleDeleteTeamMember(ActionEvent e) throws IOException, CustomNotFoundException {
+    /**
+     * Deletes selected teamMember
+     *
+     * @throws CustomNotFoundException if teamMember was not found
+     */
+    public void handleDeleteTeamMember() throws CustomNotFoundException {
 
         ColourIT colourIT = adapter.getColourIt();
         ArrayList<TeamMember> teamMembers1 = new ArrayList<>();
@@ -195,7 +271,12 @@ public class mainController implements Initializable {
         teamMembers.getItems().remove(teamMembers.getSelectionModel().getSelectedItem());
     }
 
-    public void handleDeleteCustomer(ActionEvent e) throws IOException, CustomNotFoundException {
+    /**
+     * Deletes selected Customer
+     *
+     * @throws CustomNotFoundException if Customer was not found
+     */
+    public void handleDeleteCustomer() throws CustomNotFoundException {
 
         ColourIT colourIT = adapter.getColourIt();
         ArrayList<Customer> customers1 = new ArrayList<>();
@@ -213,6 +294,13 @@ public class mainController implements Initializable {
         customers.getItems().remove(customers.getSelectionModel().getSelectedItem());
     }
 
+    /**
+     * Launches GUI scene for editing projects
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException             if source file cannot be opened
+     * @throws CustomNotFoundException if project was not found
+     */
     public void handleEditProject(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("EditProject.fxml"));
@@ -224,7 +312,13 @@ public class mainController implements Initializable {
         window.setScene(editProjectView);
         window.show();
     }
-
+    /**
+     * Launches GUI scene for editing TeamMembers
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException             if source file cannot be opened
+     * @throws CustomNotFoundException if teamMember was not found
+     */
     public void handleEditTeamMember(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("EditTeamMember.fxml"));
@@ -236,7 +330,13 @@ public class mainController implements Initializable {
         window.setScene(editTeamMemberView);
         window.show();
     }
-
+    /**
+     * Launches GUI scene for editing Customers
+     *
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException             if source file cannot be opened
+     * @throws CustomNotFoundException if Customer was not found
+     */
     public void handleEditCustomer(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("EditCustomer.fxml"));

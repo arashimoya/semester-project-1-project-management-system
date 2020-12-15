@@ -15,6 +15,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Gui scene for adding teamMember to project, teamMember can only be selected from ComboBox
+ * @author Tymon
+ */
 public class AddTeamMemberToProjectController {
     @FXML
     ComboBox<String> teamMemberComboBox;
@@ -28,6 +32,10 @@ public class AddTeamMemberToProjectController {
     Button cancelButton;
     ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "data.xml");
 
+    /**
+     * initialises ComboBox inside gui
+     * @param project teamMember will be added to this project
+     */
     public void initData(Project project) {
         for (TeamMember teamMember : adapter.getColourIt().getTeamMemberList().getTeamMembers()) {
             teamMemberComboBox.getItems().add(teamMember.getName());
@@ -35,6 +43,12 @@ public class AddTeamMemberToProjectController {
         projectID.setText(Integer.toString(project.getId()));
     }
 
+    /**
+     * adds teamMember to project, does not go back to home scene which allows adding multiple teamMembers one after another
+     * @param e ActionEvent type object for getting window source
+     * @throws CustomNotFoundException if project was not found
+     * @throws ObjectAlreadyExistsException if teamMember is inside TeamMemberList field in given project
+     */
     public void handleNext(ActionEvent e) throws CustomNotFoundException, ObjectAlreadyExistsException {
         String name = teamMemberComboBox.getSelectionModel().getSelectedItem();
         ColourIT colourIT = adapter.getColourIt();
@@ -46,6 +60,11 @@ public class AddTeamMemberToProjectController {
         teamMemberComboBox.getItems().remove(name);
     }
 
+    /**
+     * goes back to home scene
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException if source file cannot be opened
+     */
     public void handleCancel(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("main.fxml"));
