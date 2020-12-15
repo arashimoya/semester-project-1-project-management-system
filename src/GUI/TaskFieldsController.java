@@ -16,6 +16,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * GUI scene for displaying information about task fields
+ *
+ * @author Tymon
+ */
 public class TaskFieldsController {
     @FXML
     Button removeTeamMemberButton;
@@ -40,8 +45,6 @@ public class TaskFieldsController {
     @FXML
     Label descriptionLabel;
     @FXML
-    Button viewTeamMemberButton;
-    @FXML
     Button backButton;
     @FXML
     ListView<String> taskListView;
@@ -54,6 +57,12 @@ public class TaskFieldsController {
     @FXML
     Button addTaskReport;
 
+    /**
+     * Initialises GUI with data from given task and requirement
+     *
+     * @param task1       to display information about task
+     * @param requirement to display information about requirement id and project id
+     */
     public void initData(Task task1, Requirement requirement) {
 
         projectIDLabel.setText(Integer.toString(requirement.getProjectID()));
@@ -75,6 +84,12 @@ public class TaskFieldsController {
         }
     }
 
+    /**
+     * Changes scene to home scene
+     *
+     * @param e ActionEvent type object for getting source of the window
+     * @throws IOException if source file could not been opened
+     */
     public void handleCancel(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("main.fxml"));
@@ -85,6 +100,13 @@ public class TaskFieldsController {
         window.show();
     }
 
+    /**
+     * Changes scene to addTeamMemberScene to add teamMember to chosen task
+     *
+     * @param e ActionEvent type object for getting source of the window
+     * @throws IOException             if source file could not been opened
+     * @throws CustomNotFoundException if controller cannot be called
+     */
     public void handleAddTeamMember(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("AddTeamMemberToTask.fxml"));
@@ -97,6 +119,12 @@ public class TaskFieldsController {
         window.show();
     }
 
+    /**
+     * Removes teamMember from teamMemberList inside task
+     *
+     * @param e ActionEvent type object for getting source of the window
+     * @throws CustomNotFoundException if source file could not been opened
+     */
     public void handleRemoveTeamMember(ActionEvent e) throws CustomNotFoundException {
         String name = teamMemberListView.getSelectionModel().getSelectedItem();
         ColourIT colourIT = adapter.getColourIt();
@@ -107,6 +135,13 @@ public class TaskFieldsController {
         adapter.saveToXml(colourIT);
     }
 
+    /**
+     * changes scenes to taskReport scene to view task reports
+     *
+     * @param e ActionEvent type object for getting source of the window
+     * @throws IOException             if source file could not been opened
+     * @throws CustomNotFoundException if project or requirement or task could not been opened
+     */
     public void viewTaskReport(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("TaskReportFields.fxml"));
@@ -120,6 +155,12 @@ public class TaskFieldsController {
         window.show();
     }
 
+    /**
+     * changes scene to addTaskReport scene to add task report to task
+     * @param e ActionEvent type object for getting source of the window
+     * @throws IOException if source file could not been opened
+     * @throws CustomNotFoundException if project or requirement or task could not been found
+     */
     public void handleAddTaskReport(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("AddTaskReport.fxml"));

@@ -14,6 +14,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * GUI scene representing requirement fields
+ *
+ * @author Tymon
+ */
 public class RequirementFieldsController {
     @FXML
     Label nameLabel;
@@ -60,7 +65,11 @@ public class RequirementFieldsController {
     Requirement requirement;
     ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "data.xml");
 
-
+    /**
+     * Initialises GUI with data from requirement fields
+     *
+     * @param requirement that is going to be displayed
+     */
     public void initData(Requirement requirement) {
         this.requirement = requirement;
         nameLabel.setText(requirement.getName());
@@ -84,6 +93,13 @@ public class RequirementFieldsController {
         }
     }
 
+    /**
+     * Changes scene to addTeamMember scene
+     *
+     * @param e ActionEvent type object for getting source of the window
+     * @throws IOException             if source file could not be opened
+     * @throws CustomNotFoundException if project was not found
+     */
     public void handleAddTeamMember(ActionEvent e) throws IOException, CustomNotFoundException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("AddTeamMemberToRequirement.fxml"));
@@ -96,6 +112,12 @@ public class RequirementFieldsController {
         window.show();
     }
 
+    /**
+     * changes scene to home scene
+     *
+     * @param e ActionEvent type object for getting source of the window
+     * @throws IOException if source file could not been opened
+     */
     public void handleCancel(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("main.fxml"));
@@ -106,6 +128,11 @@ public class RequirementFieldsController {
         window.show();
     }
 
+    /**
+     * Deletes chosen teamMember from teamMemberList inside requirement
+     * @param e ActionEvent type object for getting source of the window
+     * @throws CustomNotFoundException if project or requirement or teamMember were not found
+     */
     public void handleDeleteTeamMember(ActionEvent e) throws CustomNotFoundException {
         String name = teamMembersView.getSelectionModel().getSelectedItem();
         ColourIT colourIT = adapter.getColourIt();
@@ -116,6 +143,12 @@ public class RequirementFieldsController {
         adapter.saveToXml(colourIT);
     }
 
+    /**
+     * Changes scenes so task fields can be displayed
+     * @param e ActionEvent type object for getting source of the window
+     * @throws CustomNotFoundException if project or requirement or task were not found
+     * @throws IOException if source file could not been opened
+     */
     public void handleViewTask(ActionEvent e) throws CustomNotFoundException, IOException {
         String taskName = tasksListView.getSelectionModel().getSelectedItem();
         ColourIT colourIT = adapter.getColourIt();
@@ -127,12 +160,18 @@ public class RequirementFieldsController {
         Parent requirementFieldsParent = loader.load();
         Scene detailedRequirementView = new Scene(requirementFieldsParent);
         TaskFieldsController controller = loader.getController();
-        controller.initData(task,requirement);
+        controller.initData(task, requirement);
         Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
         window.setScene(detailedRequirementView);
         window.show();
     }
 
+    /**
+     * Changes scene to addTask scene to allow adding task to given requirement
+     * @param e ActionEvent type object for getting source of the window
+     * @throws IOException if source file could not been opened
+     * @throws CustomNotFoundException if project or requirement were not found
+     */
     public void handleAddTask(ActionEvent e) throws IOException, CustomNotFoundException {
         ColourIT colourIT = adapter.getColourIt();
         Project project = colourIT.getProjectList().getProject(Integer.parseInt(projectIDLabel.getText()));
@@ -148,6 +187,12 @@ public class RequirementFieldsController {
         window.show();
     }
 
+    /**
+     * Changes scene to editTask to edit chosen task
+     * @param e ActionEvent type object for getting source of the window
+     * @throws IOException if source file could not been opened
+     * @throws CustomNotFoundException if project or requirement were not found
+     */
     public void handleEditTask(ActionEvent e) throws IOException, CustomNotFoundException {
         ColourIT colourIT = adapter.getColourIt();
         Project project = colourIT.getProjectList().getProject(Integer.parseInt(projectIDLabel.getText()));
@@ -163,6 +208,11 @@ public class RequirementFieldsController {
         window.show();
     }
 
+    /**
+     * Deletes chosen task
+     * @param e ActionEvent type object for getting source of the window
+     * @throws CustomNotFoundException if project or requirement or task were not found
+     */
     public void handleDeleteTask(ActionEvent e) throws CustomNotFoundException {
         ColourIT colourIT = adapter.getColourIt();
         String name = tasksListView.getSelectionModel().getSelectedItem();

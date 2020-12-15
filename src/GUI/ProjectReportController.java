@@ -14,6 +14,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Represents projectReport fields as a GUI scene
+ * @author Tymon
+ */
 public class ProjectReportController {
     @FXML
     Label idLabel;
@@ -26,6 +30,10 @@ public class ProjectReportController {
     @FXML
     Button backButton;
 
+    /**
+     * Initialises GUI with information from report
+     * @param report that is going to be displayed
+     */
     public void initData(ProjectReport report) {
         idLabel.setText(Integer.toString(report.getID()));
         ScrumMasterLabel.setText(report.getScrumMaster().getName());
@@ -33,6 +41,11 @@ public class ProjectReportController {
         dateLabel.setText(report.getDate().toString());
     }
 
+    /**
+     * Changes scene to home scene
+     * @param e ActionEvent type object for getting window source
+     * @throws IOException if source file could not be opened
+     */
     public void handleBack(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("main.fxml"));
