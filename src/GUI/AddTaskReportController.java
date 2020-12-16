@@ -67,7 +67,7 @@ public class AddTaskReportController {
                 getTaskList().getTask(task.getId()).setTimeSpent(taskTimeSpent + Integer.parseInt(timeSpentTextField.getText()));
         colourIT.getProjectList().getProject(project.getId()).getRequirementList().getRequirement(requirement.getID()).
                 setTimeSpent(colourIT.getProjectList().getProject(project.getId()).getRequirementList().getRequirement(requirement.getID()).
-                        getTaskList().getTask(task.getId()).getTimeSpent());
+                        getTaskList().getTask(task.getId()).getTimeSpent() + requirement.getTimeSpent());
         adapter.save(colourIT);
         adapter.saveToXml(colourIT);
         handleCancel(e);

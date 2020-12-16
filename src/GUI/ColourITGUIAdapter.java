@@ -8,18 +8,20 @@ import javafx.stage.Stage;
 
 /**
  * Launches GUI application
+ *
  * @author Oliver
  */
 public class ColourITGUIAdapter extends Application {
     /**
      * Starts application
+     *
      * @param primaryStage represents home scene
      * @throws Exception
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Project Management System");
         primaryStage.setScene(new Scene(root, 800, 700));
         primaryStage.show();
     }
