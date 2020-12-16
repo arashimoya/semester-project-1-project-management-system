@@ -6,8 +6,8 @@ import java.util.Objects;
 /**
  * A class representing a project report
  *
- * @author kurwa
- * @version ?
+ * @author Oliver
+ * @version 1.0
  */
 public class ProjectReport implements Serializable {
     private int id;

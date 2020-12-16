@@ -11,6 +11,8 @@ import java.io.IOException;
 
 /**
  * class for data connection between the model, website and the GUI
+ * @author Oliver
+ * @version 1.0
  */
 public class ColourITFileAdapter {
     MyFileIO mfio;

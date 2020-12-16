@@ -4,8 +4,8 @@ import java.util.GregorianCalendar;
 
 /**
  * A class representing date
- * @author bladee
- * @version ?
+ * @author Oliver
+ * @version 1.2
  */
 public class MyDate  implements Serializable {
   private int day;

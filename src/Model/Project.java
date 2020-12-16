@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * A class representing a project
  *
- * @author John Paul II
+ * @author Oliver
  * @version ?
  */
 public class Project implements Serializable {

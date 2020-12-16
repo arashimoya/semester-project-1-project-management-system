@@ -3,9 +3,9 @@ package Model;
 import java.io.Serializable;
 
 /**
- * description somebody help me out
- * @author shrek
- * @version ?
+ * Class responsible for holding all of the data
+ * @author Oliver
+ * @version 1.0
  */
 public class ColourIT implements Serializable {
 

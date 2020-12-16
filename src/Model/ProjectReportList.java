@@ -3,6 +3,12 @@ package Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * A class representing list of project reports
+ *
+ * @version 1.0
+ * @author Oliver
+ */
 public class ProjectReportList implements Serializable {
     private ArrayList<ProjectReport> projectReports;
     private int idCounter;

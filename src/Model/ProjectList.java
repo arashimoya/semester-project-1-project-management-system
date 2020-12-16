@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 /**
  * class to hold a list of projects
+ * @author tymon
+ * @version 1.0
  */
 public class ProjectList implements Serializable {
     private ArrayList<Project> projects;
