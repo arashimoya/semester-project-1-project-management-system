@@ -122,7 +122,9 @@ public class ProjectList implements Serializable {
      * @param productOwner new product owner for the project
      * @param deadline     new deadline for the project
      * @param customer     new customer for the project
+     * @param description description of a project
      * @throws CustomNotFoundException if the project was not found
+     *
      */
     public void editProject(Project project, String name, TeamMember scrumMaster, TeamMember productOwner, MyDate deadline, Customer customer, String description) throws CustomNotFoundException {
 

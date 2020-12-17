@@ -89,8 +89,8 @@ public class AddTeamMemberController implements Initializable {
 
     /**
      * Initialises idField textField with teamMember id
-     * @param url
-     * @param resourceBundle
+     * @param url mandatory for this method
+     * @param resourceBundle mandatory for this method
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

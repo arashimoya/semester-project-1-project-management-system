@@ -37,6 +37,12 @@ public class TaskList implements Serializable {
         throw new CustomNotFoundException();
     }
 
+    /**
+     * gets task by name
+     * @param name of the task
+     * @return task
+     * @throws CustomNotFoundException
+     */
     public Task getTask(String name) throws CustomNotFoundException{
         for (Task task : tasks) {
             if (task.getName().equals(name))
@@ -58,6 +64,7 @@ public class TaskList implements Serializable {
      * Adds a Task to the list
      *
      * @param task the task to add to the list
+     * @throws ObjectAlreadyExistsException if object already exists
      */
     public void addTask(Task task) throws ObjectAlreadyExistsException{
         if (!tasks.contains(task)) {
@@ -70,8 +77,8 @@ public class TaskList implements Serializable {
 
     /**
      * Removes a Task of chosen ID from the list
-     *
-     *
+     * @param task to be deleted
+     * @throws CustomNotFoundException if task was not found inside the list
      */
     public void deleteTask(Task task) throws CustomNotFoundException{
         if (tasks.contains(task)) {
@@ -90,6 +97,8 @@ public class TaskList implements Serializable {
      * @param name          name of the task
      * @param deadline      furthest date the task can be completed
      * @param estimatedTime estimated time of task completion
+     * @return task created with given parameters
+     * @throws ObjectAlreadyExistsException if object already exists
      */
     public Task createTask(int requirementID, String description, String name, MyDate deadline, int estimatedTime) throws ObjectAlreadyExistsException {
         Task newTask = new Task(idCounter, requirementID, description, name, deadline, estimatedTime);
@@ -104,11 +113,13 @@ public class TaskList implements Serializable {
 
     /**
      * Removes and adds task of chosen ID from and to the list
-     *
+     * @param task that is going to be edited
+     * @param status of the task
      * @param description   description of the task
      * @param name          name of the task
      * @param deadline      furthest date the task can be completed
      * @param estimatedTime estimated time of task completion
+     * @throws CustomNotFoundException if task was not found
      */
     public void editTask(Task task, String status, String description, String name, MyDate deadline, int estimatedTime) throws CustomNotFoundException {
         if (tasks.contains(task)) {

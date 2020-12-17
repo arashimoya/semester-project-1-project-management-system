@@ -78,8 +78,8 @@ public class EditRequirementController implements Initializable {
 
     /**
      * Initialises ComboBox with requirement type
-     * @param url
-     * @param resourceBundle
+     * @param url mandatory for this method
+     * @param resourceBundle mandatory for this method
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

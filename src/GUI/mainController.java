@@ -45,8 +45,8 @@ public class mainController implements Initializable {
     /**
      * Initialises home scene
      *
-     * @param url
-     * @param resourceBundle
+     * @param url mandatory for this method
+     * @param resourceBundle mandatory for this method
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

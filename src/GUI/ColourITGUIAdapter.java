@@ -16,7 +16,7 @@ public class ColourITGUIAdapter extends Application {
      * Starts application
      *
      * @param primaryStage represents home scene
-     * @throws Exception
+     * @throws Exception mandatory for this method
      */
     @Override
     public void start(Stage primaryStage) throws Exception {

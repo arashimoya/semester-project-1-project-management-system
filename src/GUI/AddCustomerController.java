@@ -42,7 +42,7 @@ public class AddCustomerController implements Initializable {
      * adds one Customer to customerList inside Colour IT
      *
      * @param e object type ActionEvent
-     * @throws IOException
+     * @throws IOException if file could not been opened
      * @throws ObjectAlreadyExistsException if customer with the same parameters already exists
      */
     public void handleOK(ActionEvent e) throws IOException,

@@ -59,8 +59,8 @@ public class AddRequirementController implements Initializable {
     /**
      * Initialises ComboBoxes, displays value of project and requirement ID
      *
-     * @param url
-     * @param resourceBundle
+     * @param url mandatory for this method
+     * @param resourceBundle mandatory for this method
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -9,6 +9,7 @@ import java.io.File;
 
 /**
  * class for parsing data to an xml file
+ * @author Adam
  */
 public class MyXmlParser {
 

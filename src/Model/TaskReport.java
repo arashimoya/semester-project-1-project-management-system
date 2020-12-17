@@ -22,6 +22,7 @@ public class TaskReport implements Serializable {
    * @param teamMember the team member reporting
    * @param report     report represented by String
    * @param reportDate date the report was sent
+   * @param timeSpent time spent on a project
    */
   public TaskReport(int id, TeamMember teamMember, String report, MyDate reportDate, int timeSpent) {
     this.id = id;

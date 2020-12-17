@@ -140,7 +140,7 @@ public class Requirement implements Serializable {
 
     /**
      * Gets the list of the team members assigned to this requirement
-     * @return
+     * @return teamMembers
      */
     public TeamMemberList getTeamMembers() {
         return teamMembers;
@@ -196,7 +196,7 @@ public class Requirement implements Serializable {
 
     /**
      * Sets the priority of the requirement
-     * @param priority
+     * @param priority of requirement
      */
     public void setPriority(int priority) {
         this.priority = priority;

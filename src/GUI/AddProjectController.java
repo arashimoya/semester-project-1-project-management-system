@@ -99,8 +99,8 @@ public class AddProjectController implements Initializable {
 
     /**
      * sets field representing ProjectID with data from ProjectList, initialises ComboBoxes with data from ColourIT
-     * @param url
-     * @param resourceBundle
+     * @param url mandatory for this method
+     * @param resourceBundle mandatory for this method
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

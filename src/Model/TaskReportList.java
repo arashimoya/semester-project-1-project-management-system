@@ -51,6 +51,7 @@ public class TaskReportList implements Serializable {
      * Adds a task report to the list
      *
      * @param taskReport the task report to add to the list
+     * @throws ObjectAlreadyExistsException if object already exists
      */
     public void addTaskReport(TaskReport taskReport) throws ObjectAlreadyExistsException {
         if (!taskReports.contains(taskReport)) {
@@ -61,7 +62,9 @@ public class TaskReportList implements Serializable {
     }
 
     /**
+     * @param taskReport that is going to be deleted
      * Removes a task report of the chosen id from the list
+     * @throws CustomNotFoundException if task report was not found
      */
     public void deleteTaskReport(TaskReport taskReport) throws CustomNotFoundException {
         if (taskReports.contains(taskReport)) {
@@ -69,16 +72,22 @@ public class TaskReportList implements Serializable {
         } else throw new CustomNotFoundException();
     }
 
+    /**
+     * gets id counter
+     * @return idCounter
+     */
     public int getIdCounter() {
         return idCounter;
     }
 
     /**
      * Creates a new task report and adds it to the list
-     *
+     * @param timeSpent time spent on task
      * @param teamMember   the team member reporting
      * @param report       report represented by String
      * @param reportDate   date the report was sent
+     * @return task that is new
+     * @throws  ObjectAlreadyExistsException if object already exists
      */
     public TaskReport createTaskReport(TeamMember teamMember, String report, MyDate reportDate, int timeSpent) throws ObjectAlreadyExistsException {
         TaskReport newTaskReport = new TaskReport(idCounter++, teamMember, report, reportDate, timeSpent);

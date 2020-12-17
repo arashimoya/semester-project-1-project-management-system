@@ -119,7 +119,7 @@ public class Project implements Serializable {
     /**
      * Gets the description of the project
      *
-     * @return
+     * @return description
      */
 
     public String getDescription() {

@@ -8,6 +8,7 @@ import parser.*;
 
 /**
  * class to save data to a binary file
+ * @author Tymon
  */
 public class MyFileIO {
     String fileName;
@@ -46,7 +47,7 @@ public class MyFileIO {
     /**
      * for loading object from file
      * @return the read object
-     * @throws ClassNotFoundException
+     * @throws ClassNotFoundException if class could not been foud
      * @throws FileNotFoundException if the specified file was not found
      * @throws IOException if the operation failed
      */
