@@ -16,6 +16,10 @@ import org.w3c.dom.Text;
 
 import java.io.IOException;
 
+/**
+ * GUI scene for adding new task report
+ * @author Tymon
+ */
 public class AddTaskReportController {
     @FXML
     Button okButton;
@@ -38,6 +42,13 @@ public class AddTaskReportController {
     Task task;
     ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "data.xml");
 
+    /**
+     * Initialises GUI controllers with information from parameters
+     * @param projectID projectID
+     * @param requirementID requirementID
+     * @param taskID taskID
+     * @throws CustomNotFoundException if something was not found
+     */
     public void initData(int projectID, int requirementID, int taskID) throws CustomNotFoundException {
         project = adapter.getColourIt().getProjectList().getProject(projectID);
         requirement = project.getRequirementList().getRequirement(requirementID);
@@ -51,6 +62,13 @@ public class AddTaskReportController {
         taskIDLabel.setText(Integer.toString(taskID));
     }
 
+    /**
+     * Saves changes
+     * @param e ActionEvent object
+     * @throws CustomNotFoundException if something was not found
+     * @throws ObjectAlreadyExistsException if taskReport already exists
+     * @throws IOException if source file was not found
+     */
     public void handleNext(ActionEvent e) throws CustomNotFoundException, ObjectAlreadyExistsException, IOException {
         String report = reportText.getText();
         ColourIT colourIT = adapter.getColourIt();
@@ -73,6 +91,12 @@ public class AddTaskReportController {
         handleCancel(e);
     }
 
+    /**
+     * goes back to task fields scene
+     * @param e ActionEvent object
+     * @throws IOException if source file could not been opened
+     * @throws CustomNotFoundException if something was not found
+     */
     public void handleCancel(ActionEvent e) throws IOException, CustomNotFoundException {
         ColourIT colourIT = adapter.getColourIt();
         Project project = colourIT.getProjectList().getProject(Integer.parseInt(projectIDLabel.getText()));

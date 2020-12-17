@@ -90,8 +90,8 @@ public class AddCustomerController implements Initializable {
     /**
      * Initialises IdField with customer ID
      *
-     * @param url
-     * @param resourceBundle
+     * @param url mandatory for this method
+     * @param resourceBundle mandatory for this method
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -5,8 +5,9 @@ import java.util.ArrayList;
 
 
 /**
- * @author Oliver
  * class to hold a list of customers
+ * @author Oliver
+ *
  */
 public class CustomerList implements Serializable {
     private ArrayList<Customer> customers;

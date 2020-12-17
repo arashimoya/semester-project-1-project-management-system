@@ -17,6 +17,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * GUI scene for adding tasks
+ * @author Tymon
+ */
 public class AddTaskController {
     @FXML
     TextField projectID;
@@ -50,6 +54,10 @@ public class AddTaskController {
     Button nextButton;
     ColourITFileAdapter adapter = new ColourITFileAdapter("data.bin", "data.xml");
 
+    /**
+     * Initialises GUI controllers
+     * @param requirement related to task
+     */
     public void initData(Requirement requirement) {
         idTextField.setText(Integer.toString(requirement.getTaskList().getIdCounter()));
         requirementIdTextField.setText(Integer.toString(requirement.getID()));
@@ -58,6 +66,13 @@ public class AddTaskController {
         timeSpentTextField.setText("0");
     }
 
+    /**
+     * adds task and allows to add more tasks
+     * @param e ActionEvent type object for window source
+     * @throws IllegalDateException if date format is incorrect
+     * @throws CustomNotFoundException if project or requirement was not found
+     * @throws ObjectAlreadyExistsException if task already exists
+     */
     public void handleNext(ActionEvent e) throws IllegalDateException, CustomNotFoundException, ObjectAlreadyExistsException {
         String name = nameTextField.getText();
         String description = descriptionTextField.getText();
@@ -77,6 +92,10 @@ public class AddTaskController {
                     getProject(Integer.parseInt(projectID.getText())).getRequirementList().getRequirement(Integer.parseInt(requirementIdTextField.getText())));
     }
 
+    /**
+     * Initialises fields for the next task to be added
+     * @param requirement related to task
+     */
     public void setUpForNext(Requirement requirement) {
         nameTextField.clear();
         descriptionTextField.clear();
@@ -87,6 +106,14 @@ public class AddTaskController {
         initData(requirement);
     }
 
+    /**
+     * adds task and goes back to requirement scene
+     * @param e ActionEvent type object
+     * @throws IOException if source file could not been opened
+     * @throws CustomNotFoundException if project or requirement were not found
+     * @throws IllegalDateException if date format is incorrect
+     * @throws ObjectAlreadyExistsException if task already exists
+     */
     public void handleOk(ActionEvent e) throws IOException, CustomNotFoundException, IllegalDateException, ObjectAlreadyExistsException {
         handleNext(e);
         ColourIT colourIT = adapter.getColourIt();

@@ -28,6 +28,7 @@ public class TaskList implements Serializable {
      *
      * @param id the ID of task
      * @return task of chosen ID
+     * @throws CustomNotFoundException if task was not found
      */
     public Task getTask(int id) throws CustomNotFoundException{
         for (Task task : tasks) {
@@ -41,7 +42,7 @@ public class TaskList implements Serializable {
      * gets task by name
      * @param name of the task
      * @return task
-     * @throws CustomNotFoundException
+     * @throws CustomNotFoundException if task was not found
      */
     public Task getTask(String name) throws CustomNotFoundException{
         for (Task task : tasks) {

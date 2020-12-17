@@ -1,5 +1,6 @@
 package Model;
 /**
+ * holds list of teamMembers
  * @author Dan
  * @version 1.0
  */
