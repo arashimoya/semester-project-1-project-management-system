@@ -67,7 +67,7 @@ public class TaskFieldsController {
 
         projectIDLabel.setText(Integer.toString(requirement.getProjectID()));
         task = task1;
-        System.out.println(task);
+
         nameLabel.setText(task.getName());
         IDLabel.setText(Integer.toString(task.getId()));
         requirementIDLabel.setText(Integer.toString(task.getRequirementID()));

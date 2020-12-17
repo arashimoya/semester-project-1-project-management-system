@@ -59,7 +59,7 @@ public class mainController implements Initializable {
             projectList = colourIT.getProjectList().getProjects();
             teamMembersList = colourIT.getTeamMemberList().getTeamMembers();
             customersList = colourIT.getCustomerList().getCustomers();
-            customersList.add(new Customer(1, "huj"));
+
 
 
             for (Project project : projectList) {
@@ -68,7 +68,7 @@ public class mainController implements Initializable {
             for (TeamMember teamMember : teamMembersList) {
                 teamMembers.getItems().add(teamMember.getName());
             }
-            System.out.println(customersList);
+
             for (Customer customer : customersList) {
                 customers.getItems().add(customer.getName());
             }
@@ -108,7 +108,7 @@ public class mainController implements Initializable {
         Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
         window.setScene(detailedProjectView);
         window.show();
-        System.out.println(adapter.getColourIt().getProjectList().getProjects());
+
     }
 
     /**
@@ -120,7 +120,7 @@ public class mainController implements Initializable {
     public TeamMember viewMembersDetails() throws CustomNotFoundException {
         String currentSelectedItem;
         currentSelectedItem = teamMembers.getSelectionModel().getSelectedItem();
-        System.out.println(adapter.getColourIt().getTeamMemberList().getTeamMember(currentSelectedItem));
+
         return adapter.getColourIt().getTeamMemberList().getTeamMember(currentSelectedItem);
     }
 
@@ -152,7 +152,7 @@ public class mainController implements Initializable {
     public Customer viewCustomerDetails() throws CustomNotFoundException {
         String currentSelectedItem;
         currentSelectedItem = customers.getSelectionModel().getSelectedItem();
-        System.out.println(adapter.getColourIt().getCustomerList().getCustomer(currentSelectedItem));
+
         return adapter.getColourIt().getCustomerList().getCustomer(currentSelectedItem);
     }
 
@@ -241,7 +241,7 @@ public class mainController implements Initializable {
         ArrayList<Project> projects1 = new ArrayList<>();
         projects1 = colourIT.getProjectList().getProjects();
         for (Project project : projects1) {
-            System.out.println(project.getName());
+
             if (project.getName().equals(projects.getSelectionModel().getSelectedItem())) {
                 colourIT.getProjectList().deleteProject(project);
                 break;
@@ -263,9 +263,9 @@ public class mainController implements Initializable {
         ArrayList<TeamMember> teamMembers1 = new ArrayList<>();
         teamMembers1 = colourIT.getTeamMemberList().getTeamMembers();
         for (TeamMember teamMember : teamMembers1) {
-            System.out.println(teamMember.getName());
+
             if (teamMember.getName().equals(teamMembers.getSelectionModel().getSelectedItem())) {
-                System.out.println("If statement kurwa?");
+
                 colourIT.getTeamMemberList().deleteTeamMember(teamMember);
                 break;
             }
@@ -286,9 +286,9 @@ public class mainController implements Initializable {
         ArrayList<Customer> customers1 = new ArrayList<>();
         customers1 = colourIT.getCustomerList().getCustomers();
         for (Customer customer : customers1) {
-            System.out.println(customer.getName());
+
             if (customer.getName().equals(customers.getSelectionModel().getSelectedItem())) {
-                System.out.println("If statement kurwa?");
+
                 colourIT.getCustomerList().deleteCustomer(customer);
                 break;
             }

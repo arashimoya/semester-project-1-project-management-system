@@ -1,6 +1,6 @@
 package Model;
 /**
- * @author alex
+ * @author Dan
  * @version 1.0
  */
 

@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
+ * @author Tymon
  * class for data connection between the model, website and the GUI
  */
 public class ColourITFileAdapter {

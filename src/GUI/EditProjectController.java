@@ -26,6 +26,8 @@ public class EditProjectController {
     @FXML
     Button next;
     @FXML
+    TextField descriptionField;
+    @FXML
     TextField nameField;
     @FXML
     TextField dayField;
@@ -71,14 +73,16 @@ public class EditProjectController {
             projectCreatorNameField.getItems().add(teamMember.getName());
             projectOwnerNameField.getItems().add(teamMember.getName());
         }
+        descriptionField.setText(project.getDescription());
     }
 
     /**
      * saves changes and changes scene to home scene
+     *
      * @param e ActionEvent type object for getting window source
-     * @throws IllegalDateException if date format is incorrect
+     * @throws IllegalDateException    if date format is incorrect
      * @throws CustomNotFoundException if project was not found
-     * @throws IOException if source file cannot be opened
+     * @throws IOException             if source file cannot be opened
      */
     public void handleNext(ActionEvent e) throws IllegalDateException, CustomNotFoundException, IOException {
         int id = Integer.parseInt(projectID.getText());
@@ -99,7 +103,7 @@ public class EditProjectController {
         MyDate deadline = new MyDate(day, month, year);
         colourIT.getProjectList().editProject(project, name, colourIT.getTeamMemberList().getTeamMember(scrumMasterName),
                 colourIT.getTeamMemberList().getTeamMember(projectOwnerName),
-                deadline, colourIT.getCustomerList().getCustomer(customerName), "huj");
+                deadline, colourIT.getCustomerList().getCustomer(customerName), descriptionField.getText());
         adapter.save(colourIT);
         adapter.saveToXml(colourIT);
         changeScene(e);
@@ -109,6 +113,7 @@ public class EditProjectController {
 
     /**
      * goes back to main scene
+     *
      * @param e ActionEvent type object for getting window source
      * @throws IOException if source file cannot be opened
      */

@@ -94,9 +94,6 @@ public class EditTaskController {
         MyDate date = new MyDate(day, month, year);
         int estimatedTime = Integer.parseInt(estimatedTimeTextField.getText());
         ColourIT colourIT = adapter.getColourIt();
-        System.out.println(colourIT.getProjectList().getProject(Integer.parseInt(projectID.getText())).getRequirementList().
-                getRequirement(Integer.parseInt(requirementIdTextField.getText())).
-                getTaskList().getTask(Integer.parseInt(idTextField.getText())));
         colourIT.getProjectList().getProject(Integer.parseInt(projectID.getText())).getRequirementList().
                 getRequirement(Integer.parseInt(requirementIdTextField.getText())).
                 getTaskList().editTask(colourIT.getProjectList().getProject(Integer.parseInt(projectID.getText()))

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 
 /**
+ * @author Tymon
  * class to hold a list of projects
  */
 public class ProjectList implements Serializable {

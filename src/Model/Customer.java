@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 /**
  * A class representing a customer
- * @author eminem
- * @version ?
+ * @author Adam
+ * @version 1
  */
 public class Customer implements Serializable {
   private int id;

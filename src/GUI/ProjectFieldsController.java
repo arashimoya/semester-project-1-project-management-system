@@ -160,7 +160,6 @@ public class ProjectFieldsController {
 
     /**
      * Loads GUI scene for editing requirement
-     *
      * @param e ActionEvent type object for getting window source
      * @throws IOException             if source file cannot be found
      * @throws CustomNotFoundException if project or requirement were not found
@@ -179,7 +178,6 @@ public class ProjectFieldsController {
 
     /**
      * Loads GUI scene for viewing requirement fields
-     *
      * @param e ActionEvent type object for getting window source
      * @throws IOException             if source file cannot be found
      * @throws CustomNotFoundException if project or requirement were not found
@@ -232,7 +230,6 @@ public class ProjectFieldsController {
                 project = project1;
         }
         assert project != null;
-        System.out.println(currentSelectedItem);
         return project.getTeamMemberList().getTeamMember(currentSelectedItem);
 
     }

@@ -5,7 +5,7 @@ import java.util.Objects;
 
 /**
  * A class representing a team member
- * @author alex
+ * @author Dan
  * @version 1.0
  */
 public class TeamMember implements Serializable {
@@ -44,8 +44,7 @@ public class TeamMember implements Serializable {
      */
     public void setName(String name) {
         this.name = name;
-        System.out.println("chuj");
-        System.out.println(this);
+
     }
 
 

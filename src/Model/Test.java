@@ -162,7 +162,7 @@ public class Test {
         colourITFileAdapter.save(colourIT);
         colourITFileAdapter.saveToXml(colourIT);
 
-        System.out.println(colourIT);
+
 
     }
 }
