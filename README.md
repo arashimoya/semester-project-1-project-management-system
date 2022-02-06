@@ -1,4 +1,4 @@
-#ColorIT
+**ColorIT**
 
 An internal desktop application used for coordinating the development process within a SWE company. Entities such as requirements, tasks and employees can be managed and viewed via this application. 
 
